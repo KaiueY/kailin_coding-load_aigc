@@ -1,0 +1,55 @@
+/* css reset */
+html {
+    font-size: 10px;
+    /*  css inhert */
+    background: url('./background2.jpg') bottom center no-repeat;
+    background-size: cover;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+/* html{
+    height: 100vh;
+} */
+.keys {
+    /* 水平垂直居中 */
+    display: flex;
+    min-height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.key {
+    border: 1px solid #000;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: 15px;
+    padding: 10px 5px;
+    /* 过渡动画 */
+    transition: all .7s ease;
+    width: 100px;
+    text-align: center;
+    color: white;
+
+    background: rgba(0, 0, 0, .4);
+    text-shadow: 0 0 5px rgb(0, 0, 0);
+}
+.key .title{
+    font-size: 40px;
+}
+.sound{
+    
+
+    font-size: 12px;  
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #d7f869;
+}
+.playing{
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 5px #ffc600;
+}

@@ -1,0 +1,21 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run HTML file with Chrome",
+            "type": "process",
+            "command": "chrome",
+            "args": ["${file}"],
+            "windows": {
+                //这里写你电脑的Chrome浏览器的安装位置
+                "command": "C:/Program Files/Google/Chrome/Application/chrome.exe"
+        },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

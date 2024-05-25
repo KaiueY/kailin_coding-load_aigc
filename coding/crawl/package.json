@@ -1,0 +1,15 @@
+{
+  "name": "crawl",
+  "version": "1.0.0",
+  "description": "to ai思维\r https://movie.douban.com/chart\r ## 爬虫问题",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "x-crawl": "^10.0.1"
+  }
+}

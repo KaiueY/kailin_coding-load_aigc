@@ -1,0 +1,18 @@
+{
+  "name": "crawl",
+  "version": "1.0.0",
+  "description": "- 经典传统编程\r     -架构和默认优质操作\r     - 在于标准 流水式操作\r - 为何要编程？\r     需求\r     后端\r     技术栈  node\r     入口文件 main.js\r - 爬虫\r     爬取豆瓣电影",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",
+    "openai": "^4.47.1",
+    "request-promis": "^0.0.1-security",
+    "request-promise": "^4.2.6"
+  }
+}

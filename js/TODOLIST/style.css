@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.todo{
+    width: 500px;
+    height: 500px;
+    margin-top: 30px;
+}
+.title{
+    font-size: 50px;
+    text-align: center;
+    margin-top: 20px;
+    color: pink;
+
+}
+.input-group{
+    display: flex;    /* 该元素在弹性布局中会等分剩余空间，如果有多个具有相同 flex 值的子元素，它们会等分剩余空间。 */
+    font-size: 30px;
+}
+.lable{
+    padding: 10px;
+}
+.content{
+    flex: 1;
+    font-size: 20px;
+}
+.btn{
+    width: 80px;
+    font-size: 30px;
+    margin-left: 10px;
+    
+}
+.list-item{
+    display: flex;
+    padding: 20px;
+    border-bottom: 1px solid #aaa;
+    font-size: 26px;
+    align-items: center;
+}
+.item-check{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border:1px solid #aaaaaa;
+}
+.item-content{
+    flex: 1;
+    margin: 0 10px;
+}
+.close{
+    display: none;
+}
+.list-item:hover  .close {
+    display: block;
+}
