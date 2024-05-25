@@ -3,7 +3,8 @@
 //     var b =10
 //     return a+b
 // }
-// add()
+// console.log(add()); //12
+
 
 var a= 2
 function add(b,c){
