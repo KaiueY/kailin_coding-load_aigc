@@ -16,6 +16,6 @@ var global;
 // ->
 
 // AO{
-                
-//     global:undefined ->200 ->300
+                // log     log
+//     global:undefined -->200-> 300
 // }
