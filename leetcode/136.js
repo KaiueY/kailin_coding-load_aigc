@@ -12,9 +12,8 @@
 // 方法一
 var singleNumber = function(nums) {
     nums.sort((a, b) => a - b);
-    if (nums.length == 1) return nums[0];//判断长度
-    for (let i = 1; i < nums.length - 1; i += 2) {//排序后的数字排列那个唯一的数一定在奇数位
-        if (nums[i] !== nums[i - 1]) return nums[i - 1];
+    for (let i = 0; i < nums.length - 1; i += 2) {
+        if (nums[i] !== nums[i + 1]) return nums[i];
     }
     return nums[nums.length - 1]; // 如果没有找到，则最后一个元素是唯一的
 };
