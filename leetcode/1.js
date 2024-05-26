@@ -63,6 +63,36 @@ var twoSum = function(nums, target) {
     }
 };
 
+
+// //双指针
+// // 创建一个新的数组来存储原数组的下标
+// var twoSum = function(nums, target) {
+// const indexArray = [];
+// for (let i = 0; i < nums.length; i++) {
+//     indexArray.push(i);
+// }
+
+// // 根据原数组 nums 的值对 indexArray 进行排序
+// indexArray.sort((a, b) => nums[a] - nums[b]);
+
+// // 使用双指针解决问题
+// let left = 0;
+// let right = nums.length - 1;
+// while (left < right) {
+//     const sum = nums[indexArray[left]] + nums[indexArray[right]];
+//     if (sum === target) {
+//         return [indexArray[left], indexArray[right]];
+//     } else if (sum < target) {
+//         left++;
+//     } else {
+//         right--;
+//     }
+// }
+
+// // 如果没有找到满足条件的两个数，返回空数组
+// return [];
+// };
+
 var nums = [2,7,11,15], target = 9
 console.log(twoSum(nums,target));
 
