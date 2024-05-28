@@ -1,0 +1,9 @@
+# WEUI 细节
+
+- box-sizing:border-box;
+
+## 盒子模型
+    块级元素才有盒模型（或者行内块级）
+    其决定了元素在页面上的占位
+    默认box-sizing:content-box;标准盒模型（还要考虑margin……）
+    border-box IE盒模型 
