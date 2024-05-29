@@ -1,0 +1,16 @@
+## 大厂面试题
+
+-js
+    - js分水岭 2015年
+    - var 基本不用  不能命名常量（大写（编程习惯））
+    - 早期的js 支持不用var 直接声明变量 直接挂载在全局  "use strict" 严格模式可以禁止
+    - 和变量提升一样 （hoisting） （变量提升坏东西 糟粕）
+    - 声明常量还可以使用 Object.defineProperty(obj,key,{//3.js
+        value:3.1415926
+        waitable:false(默认为false)
+    })
+        let obj = {}
+
+        常量作为对象的属性来使用Object.defineProperty 来定义不可改变的属性
+    - MDN 文档
+        在MDN官方文档时  还有Object.freeze() 实现起来更轻松 4.js

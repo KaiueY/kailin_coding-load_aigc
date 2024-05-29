@@ -1,0 +1,30 @@
+# 基于weui 快速搭建新闻列表页
+
+- 组件
+    - navbar 导航栏
+    - searchbar 搜索栏
+    - list 列表组件
+
+- WEUIzu组件库
+    - 因为是微信生态
+    - link标签引入 weui.min.css  速度快
+    - 由http传输更快 浏览器不需要换行来执行 （上线的版本） 
+    - 非压缩版本是开发阶段/源码阅读 
+    - cdn 内容分发网络 找到离我们最近的服务器提供内容
+- tab 切换
+    - 事件监听在dom元素上，而不是集合上
+    - 要在循环事件监听中拿到下标 
+        - for 同步的
+        - event 监听是异步的
+        - 因此 添加作用域
+            - es5 立即执行函数形成闭包
+            - es6 let 块级作用域 + for{}
+    - this 事件元素
+    - classList add contains remove 等方法
+    - 点击当前已选中 return
+
+- weui使命 盲人也要用 无障碍浏览 使用读屏器
+    label 可以被读出来
+    label for input id
+    - input 被 visibility hidden
+    - weui-seach-bar_focusing

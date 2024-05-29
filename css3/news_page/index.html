@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻列表</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/weui/2.6.12/style/weui.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--navbar -->
+
+    <div class="weui-navbar">
+        <a href="#" class="weui-navbar__item weui-bar__item_on">推荐</a>
+        <a href="#" class="weui-navbar__item">热点</a>
+        <a href="#" class="weui-navbar__item">娱乐</a>
+    </div>
+
+
+    <!-- searchbar -->
+    <div class="weui-search-bar" id="search_bar">
+        <form class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input 
+                type="search" 
+                class="weui-search-bar__input"
+                placeholder="搜索"
+                id="search_input"
+                >
+                <a href="#" class="weui-icon-clear"></a>
+            </div>
+            <label  id="search_text"
+                    for="search_input" class="weui-search-bar__label">
+                    <i class="weui-icon-search"></i>
+                     <span>搜索</span>
+                </label>
+        </form>
+        <a href="#" class="weui-search-bar__cancel-btn">取消</a>
+    </div>
+    <!-- news-list -->
+    
+
+
+    <script>
+        const tabs = document.querySelectorAll('.weui-navbar__item')
+        const navbar =document.querySelector('.weui-navbar')
+        const seachInput= document.querySelector('#search_input')
+        const seachBar=document.querySelector('.weui-search-bar')
+
+        document
+        .querySelector('.weui-search-bar__label')
+        .addEventListener('click', function() {
+            searchBar.classList.add('weui-search-bar_focusing')
+        })
+        seachInput.addEventListener('focus',function(event){
+            console.log('聚焦了');
+        })
+
+
+        //优化内存
+        navbar.addEventListener('click',function(event){
+            const target =event.target
+            // console.log(event.target);
+            // console.log('2');
+            if(event.target.nodeName =='A'){
+                event.preventDefault();//如果herf有目标 则阻止默认行为
+                if(target.classList.contains('weui-bar__iten_on')){
+                return;
+            }
+            document
+                    .querySelector('.weui-bar__item_on')
+                    .classList
+                    .remove('weui-bar__item_on')
+                target.classList.add('weui-bar__item_on')
+
+            }
+        })
+        // for (let i = 0; i < tabs.length; i++) { //2 但是用let更好
+        //     if(this.classList.contains('.weui-bar__iten_on')){
+        //         console.log('////');
+        //         return;
+        //     }
+        //     // 点击事件是异步的
+        //     // (function(i){ 1 形成闭包可以
+        //         tabs[i].addEventListener('click', function () {
+        //         // console.log(i);
+        //         // 事件处理函数中 this指向事件发生的对象
+        //         document
+        //             .querySelector('.weui-bar__item_on')
+        //             .classList
+        //             .remove('weui-bar__item_on')
+        //         this.classList.add('.weui-bar__item_on')
+        
+        //     })
+        //     // })(i)
+            
+        // }
+
+    </script>
+</body>
+<!-- <script src="index.js"></script> -->
+
+</html>

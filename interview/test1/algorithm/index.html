@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画图形</title>
+    <style>
+        .circle {
+            width: 400px;
+            height: 200px;
+            background: green;
+            border-radius: 50%;
+        }
+
+        .truangle {
+            width: 0;
+            height: 0;
+            border: 100px solid transparent;
+            border-bottom: 100px solid green;
+        }
+
+        .sector {
+            width: 0;
+            height: 0;
+            border: 100px solid transparent;
+            border-right-color: green;
+            border-radius: 50%;
+            transform: rotate(90deg);
+        }
+
+        .trapezoid {
+            width: 70px;
+            /* 梯形的宽度 */
+            height: 0;
+            /* 梯形的高度 */
+            border: 100px solid transparent;
+            border-bottom: 70px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="circle"></div>
+    <div class="truangle"></div>
+    <div class="sector"></div>
+    <div class="trapezoid"></div>
+</body>
+
+</html>
