@@ -15,13 +15,43 @@
     </div>
     
     <!-- searchbar  -->
+    <div class="weui-search-bar" id="search_bar">
+        <form class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="search" 
+                    class="weui-search-bar__input"
+                    placeholder="搜索"
+                    id="search_input"
+                >
+                <a href="#" class="weui-icon-clear"></a>
+            </div>
+            <label 
+            id="search_text"
+            for="search_input" class="weui-search-bar__label">
+                <i class="weui-icon-search"></i>
+                <span>搜索</span>
+            </label>
+        </form>
+
+    </div>
     <!-- news-list -->
     <script>
     const tabs = document.querySelectorAll('.weui-navbar__item')
     const navbar = document.querySelector('.weui-navbar')
+    const searchInput = document.querySelector('#search_input')
+    const searchBar = document.querySelector('.weui-search-bar')
     // 优化了内存
-    // 
 
+    // 
+    document
+        .querySelector('.weui-search-bar__label')
+        .addEventListener('click', function() {
+            searchBar.classList.add('weui-search-bar_focusing')
+        })
+    searchInput.addEventListener('focus', function(event) {
+        console.log('聚焦了')
+    })
     // tabs[0].addEventListener('click', function(event) {
     //     console.log('1');
     // })

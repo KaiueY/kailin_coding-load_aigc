@@ -17,7 +17,7 @@ function hongbao (total ,num) {
     //剩余人数
     let restNum = num
     for(let i = 0; i < num-1; i++){
-        let amount  =parseFloat(Math.random() *(restAmount/restNum*2)).toFixed(2)
+        let amount  =parseFloat(Math.random() *(restAmount/restNum)*2).toFixed(2)
         restAmount -= amount;
         restNum--
         arr.push(amount)
@@ -26,5 +26,5 @@ function hongbao (total ,num) {
     arr.push(restAmount.toFixed(2))
     return arr
 }
-console.log(hongbao(20,20));
+console.log(hongbao(100,20));
 

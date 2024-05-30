@@ -6,16 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>新闻列表</title>
     <link href="https://cdn.bootcdn.net/ajax/libs/weui/2.6.12/style/weui.min.css" rel="stylesheet">
+    <style>
+        .weui-cell__hd image{
+            width:50px;
+            margin-right:10px;
+            display:block
+        }
+        .weui-navbar{
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .weui-search-bar{
+            position: fixed;
+            top: 30px;
+            width: 100%;
+        }
+        .weui-cells{
+            position: fixed;
+            top: 100px;
+            width: 100%;
+        }
+    </style>
 </head>
 
 <body>
-    <!--navbar -->
 
-    <div class="weui-navbar">
-        <a href="#" class="weui-navbar__item weui-bar__item_on">推荐</a>
-        <a href="#" class="weui-navbar__item">热点</a>
-        <a href="#" class="weui-navbar__item">娱乐</a>
-    </div>
 
 
     <!-- searchbar -->
@@ -40,21 +56,103 @@
         <a href="#" class="weui-search-bar__cancel-btn">取消</a>
     </div>
     <!-- news-list -->
-    
+    <div class="weui-cells weui-cells_access" style="margin-top: 0px;">
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" >
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title 1</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item 1.</p>
+            </div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title 2</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item 2.</p>
+            </div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title 2</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item 2.</p>
+            </div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title 2</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item 2.</p>
+            </div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title 2</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item 2.</p>
+            </div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title 2</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item 2.</p>
+            </div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title 2</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item 2.</p>
+            </div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title 2</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item 2.</p>
+            </div>
+        </a>
+        <!-- 更多新闻条目可以按照相同的结构添加 -->
+        
+    </div>
+        <!--navbar -->
+
+        <div class="weui-navbar">
+            <a href="#" class="weui-navbar__item weui-bar__item_on">推荐</a>
+            <a href="#" class="weui-navbar__item">热点</a>
+            <a href="#" class="weui-navbar__item">娱乐</a>
+        </div>
 
 
     <script>
         const tabs = document.querySelectorAll('.weui-navbar__item')
         const navbar =document.querySelector('.weui-navbar')
-        const seachInput= document.querySelector('#search_input')
-        const seachBar=document.querySelector('.weui-search-bar')
+        const searchInput= document.querySelector('#search_input')
+        const searchBar=document.querySelector('.weui-search-bar')
 
         document
         .querySelector('.weui-search-bar__label')
         .addEventListener('click', function() {
             searchBar.classList.add('weui-search-bar_focusing')
         })
-        seachInput.addEventListener('focus',function(event){
+        searchInput.addEventListener('focus',function(event){
             console.log('聚焦了');
         })
 
@@ -66,7 +164,7 @@
             // console.log('2');
             if(event.target.nodeName =='A'){
                 event.preventDefault();//如果herf有目标 则阻止默认行为
-                if(target.classList.contains('weui-bar__iten_on')){
+                if(target.classList.contains('weui-bar__item_on')){
                 return;
             }
             document

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新闻列表</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/weui/2.6.12/style/weui.min.css" rel="stylesheet">
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        .weui__header {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            background-color: #000;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .weui__header-title {
+            flex: 80%;
+            color: white;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .weui__header-icon {
+            flex: 10%;
+        }
+
+        .weui__header-icon img {
+            margin: 0 10px;
+        }
+
+        .weui-search-bar {
+            top: 45px;
+            width: 100%;
+        }
+
+        .weui-cells {
+            margin-top: 56px;
+        }
+
+        .news-time {
+            color: #888;
+            font-size: 12px;
+        }
+
+        .weui-navbar {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            opacity: 0.99;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .weui-navbar__item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        .weui-navbar__item.weui-bar__item_on {
+            color: #1AAD19;
+        }
+
+        .weui-navbar__icon {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .weui-navbar__label {
+            font-size: 12px;
+        }
+
+        .weui-cell_access {
+            color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="weui__header">
+        <div class="weui__header-icon weui__header-icon-left"><img src="./省略号.svg" alt="Left Icon"></div>
+        <div class="weui__header-title">微信</div>
+        <div class="weui__header-icon weui__header-icon-right"><img src="./加号.svg" alt="Right Icon"></div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="weui-search-bar" id="search_bar">
+        <form class="weui-search-bar__form">
+            <div class="weui-search-bar__box">
+                <i class="weui-icon-search"></i>
+                <input type="search" class="weui-search-bar__input" placeholder="搜索" id="search_input">
+                <a href="#" class="weui-icon-clear"></a>
+            </div>
+            <label id="search_text" for="search_input" class="weui-search-bar__label">
+                <i class="weui-icon-search"></i>
+                <span>搜索</span>
+            </label>
+        </form>
+        <a href="#" class="weui-search-bar__cancel-btn">取消</a>
+    </div>
+
+    <!-- News List -->
+    <div class="weui-cells weui-cells_access">
+        <!-- Example News Item -->
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        <a class="weui-cell weui-cell_access" href="#">
+            <div class="weui-cell__hd">
+                <img src="https://via.placeholder.com/50" alt="News Image 1">
+            </div>
+            <div class="weui-cell__bd">
+                <p style="font-size: 16px;">News Title</p>
+                <p style="color: #888; font-size: 14px;">This is a detailed description of news item</p>
+            </div>
+            <div class="news-time">今天 10:00</div>
+        </a>
+        
+        <!-- Add more news items as needed -->
+    </div>
+
+    <!-- Navbar -->
+    <div class="weui-navbar">
+        <a href="#" class="weui-navbar__item">
+            <i class="weui-navbar__icon">
+                <img src="./消息.svg" alt="Home">
+            </i>
+            <span class="weui-navbar__label">消息</span>
+        </a>
+        <a href="#" class="weui-navbar__item">
+            <i class="weui-navbar__icon">
+                <img src="./通讯录.svg" alt="Contacts">
+            </i>
+            <span class="weui-navbar__label">通讯录</span>
+        </a>
+        <a href="#" class="weui-navbar__item">
+            <i class="weui-navbar__icon">
+                <img src="./发现.svg" alt="Discover">
+            </i>
+            <span class="weui-navbar__label">发现</span>
+        </a>
+        <a href="#" class="weui-navbar__item">
+            <i class="weui-navbar__icon">
+                <img src="./我.svg" alt="Me">
+            </i>
+            <span class="weui-navbar__label">我</span>
+        </a>
+    </div>
+
+    <script>
+        document.querySelector('.weui-search-bar__label').addEventListener('click', function () {
+            document.querySelector('.weui-search-bar').classList.add('weui-search-bar_focusing');
+        });
+
+        document.querySelectorAll('.weui-navbar__item').forEach(tab => {
+            tab.addEventListener('click', function (event) {
+                event.preventDefault();
+                const img = tab.querySelector('img');
+                const newSrc = img.src.replace('.svg', '选中.svg');
+                if (window.lastClickedImg) {
+                    window.lastClickedImg.src = window.lastClickedSrc;
+                }
+                window.lastClickedImg = img;
+                window.lastClickedSrc = img.src;
+                img.src = newSrc;
+            });
+        });
+    </script>
+</body>
+
+</html>
