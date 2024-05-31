@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>单例模式</title>
+</head>
+<body>
+
+    <script>
+        "use strict"
+        // 对象字面量
+        // const duck={
+        //     nickname:"duck",
+        //     singing:function () {
+        //         console.log("gagaga");
+        //     }
+        // }
+        //传统的面向对象 原型式的面向对象
+        function Duck(nickname){
+            console.log(this);
+            this.nickname = nickname
+        }
+        Duck.prototype.singing=function(){
+
+            console.log("gagaga");
+        }
+        // 实例化对象
+        // js中没有类
+        // 函数大写 new时会执行函数  同时函数的this指向实例
+        const yw=  new Duck("duckKing") //没有new会怎样呢
+        yw.singing();
+        
+    </script>
+</body>
+</html>
