@@ -1,0 +1,35 @@
+*
+    margin 0
+    padding 0
+    box-sizing: border-box
+
+ul,li  
+    list-style none
+
+.accordion  
+    display flex
+    width 600px
+    height 200px
+    li 
+        flex 1
+        cursor pointer
+        line-height: 200px
+        text-align center
+        color: white
+        transition flex 500ms
+        &:nth-child(1)
+                background-color:  #f66
+        &:nth-child(2)
+                background-color:  #66f
+        &:nth-child(3)
+                background-color:  #f90
+        &:nth-child(4)
+                background-color:  #09f
+        &:nth-child(5)
+                background-color:  #9c3
+        &:nth-child(6)
+                background-color:  #3c9
+        &:hover
+            flex 2
+        
+        
