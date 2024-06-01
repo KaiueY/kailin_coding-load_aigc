@@ -9,6 +9,7 @@ li {
 }
 .accordion {
   display: flex;
+
   width: 600px;
   height: 200px;
 }
@@ -16,7 +17,6 @@ li {
   flex: 1;
   cursor: pointer;
   line-height: 200px;
-  text-align: center;
   color: #fff;
   transition: flex 500ms;
 }
