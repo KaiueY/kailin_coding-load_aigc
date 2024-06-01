@@ -9,4 +9,6 @@ const obj = {
   
   console.log(obj.prop);
   // Expected output: 42
-  
+  class foo{
+    
+  }

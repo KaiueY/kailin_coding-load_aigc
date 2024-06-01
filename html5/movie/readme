@@ -1,0 +1,12 @@
+- css4 variable
+    根选择器
+        :root{
+            --primary-color: #22243b;
+        }
+        改一处 动全身  给css引入了变量的概念
+
+- rem 是一个相对单位  相对于html这个根元素
+    默认是16px 1 rem==16px
+    移动端适配法宝
+
+- outline和border 是一样的显示  区别于outline不是盒子模型的一部分

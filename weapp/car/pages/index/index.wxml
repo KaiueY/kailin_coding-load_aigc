@@ -1,0 +1,35 @@
+<swiper class="section hero white" indicator-dots>
+	<swiper-item wx:for="{{slides}}" wx:key="id">
+		<image mode="aspectFill" src="{{item.image}}" />
+		<view class="content centered">
+			<view class="sub-header">{{item.sub_header}}</view>
+			<view class="header">{{item.header}}</view>
+			<view class="description">{{item.description}}</view>
+			<view class="action">
+				<button class="button" bind:tap="tesrDrive">预约试驾</button>
+				<button class="button primary" bind:tap="domore">了解更多</button>
+			</view>
+		</view>
+	</swiper-item>
+</swiper>
+<view class="cards">
+	<view class="card" wx:for="{{vehicles}}" wx:key="id">
+		<view>
+			<navigator url="pages/vehicles/show">
+				<image mode="aspectFill" src="{{item.image}}" />
+				<view class="content">
+					<view class="header">{{item.header}}
+						<view class="sub-header">{{item.sub_header}}
+						</view>
+					</view>
+					<view class="description">
+						{{item.description}}
+					</view>
+					<view class="meta">
+						{{item.meta.price}}
+					</view>
+				</view>
+			</navigator>
+		</view>
+	</view>
+</view>

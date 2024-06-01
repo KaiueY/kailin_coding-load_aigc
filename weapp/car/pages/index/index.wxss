@@ -1,0 +1,48 @@
+.cards {
+	padding: 32rpx;
+}
+
+.card {
+	background: #fff;
+	margin-bottom: 32rpx;
+	transition: .5s all;
+}
+
+.card image {
+	position: relative;
+	height: 36vh;
+}
+
+.card .content {
+	padding: 48rpx 48rpx 64rpx;
+}
+
+.card .header {
+	font-size: 48rpx;
+	font-weight: bold;
+	letter-spacing: 2rpx;
+	margin-bottom: 48rpx;
+}
+
+.card .sub-header {
+	font-size: 32rpx;
+	letter-spacing: 6rpx;
+	text-transform: uppercase;
+}
+
+.card .sub-header::before {
+	content: "元素开始之前"
+}
+
+.card .sub-header::after {
+	content: "ewr";
+	display: block;
+	width: 80rpx;
+	border-bottom: 2px solid #000;
+	padding-bottom: 16rpx;
+}
+.card .description, .card .meta{
+	margin-bottom: 16rpx;
+	color: rgba(0,0,0,0.85);
+	font-size: 32rpx;
+}

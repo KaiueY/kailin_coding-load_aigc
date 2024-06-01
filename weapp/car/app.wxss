@@ -1,0 +1,60 @@
+/**app.wxss**/
+.section{
+	/* 自适应单位 100份  等比例 */
+	height: 100vh;
+	/* background-color: green; */
+  }
+  .hero.white{
+	  background: #fff;
+  }
+  image{
+	  display: block;
+	  widows: 100px;
+  }
+  .hero image{
+	  height: 38.2vh;
+  
+  }
+  .hero .content{
+	  padding-top: 10%; /* 自身宽度的10%*/
+	  
+  }
+  .hero .content.centered{
+	  text-align: center;
+  }
+  .hero .sub-header{
+	  /* 设计稿是750px */
+	  font-size: 32rpx; /*微信专有单位 和16px一样 不同手机等比例*/
+	  text-transform: uppercase;
+	  letter-spacing: 3px;
+	  margin-bottom: 16rpx;
+	  color: rgba(0, 0, 0, 0.85);
+  }
+  .hero .header{
+	  font-size: 72rpx;
+	  font-weight: bold;
+	  margin: 0 12% 16rpx;
+  }
+  .hero .description{
+	  padding: 0 10%;
+	  margin-bottom: 64rpx;
+  }
+  .action{
+	  text-align: center;
+	  padding: 24rpx;
+  }
+  .button{
+	  display: inline-block;/*块级元素不能设置宽高*/
+	  margin: 8rpx;
+	  background: #e0e1e2;
+	  padding: 0 24rpx;
+	  color: rgba(0,0,0,0.6);
+	  font-weight: bold;
+	  border-radius: 2rpx;
+	  font-size: 32rpx;
+	  transition: 0.3s all;
+  }
+  .button.primary{
+	  background: #000;
+	  color: rgba(255, 255, 255, 0.9);
+  }
