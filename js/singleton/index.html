@@ -30,6 +30,7 @@
         // 函数大写 new时会执行函数  同时函数的this指向实例
         const yw=  new Duck("duckKing") //没有new会怎样呢
         yw.singing();
+        console.log(yw.__proto__==Duck.prototype);
         
     </script>
 </body>

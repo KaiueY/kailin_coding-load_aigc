@@ -3,7 +3,7 @@
     - 构造函数 constructor 以new的方式运行 
         this指向实例 运行的过程就是实例逐渐添加属性的过程
     - 默认返回对象
-    - 将对象.__proto__ Duck.protutype
+    - 将对象.__proto__设置为Duck.prototype
 
 
 - js强大的表现力 对象字面量就能搞定
