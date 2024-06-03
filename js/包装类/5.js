@@ -8,3 +8,4 @@ console.log(str.length);
 str.length=2// 2 new String('abcde').length  
                 // 原始值不能拥有属性和方法 于是delete str.length 
 console.log(str);
+const ar
