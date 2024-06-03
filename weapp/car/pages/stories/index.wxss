@@ -1,1 +1,64 @@
-/* pages/stories/index.wxss */
+/* styles.css */
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 50px;
+	padding: 20px;
+	background-color: var(--background-color);
+	justify-content: center;
+  }
+  
+  .card {
+	background-color: var(--card-background-color);
+	border-radius: 10px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	width: 350px;
+	transition: transform 0.3s;
+  }
+  
+  .card:hover {
+	transform: translateY(-10px);
+  }
+  
+  .card video, .card image {
+	width: 100%;
+	display: block;
+  }
+  
+  .card video {
+	border-bottom: 1px solid var(--accent-color);
+  }
+  
+  .card image {
+	border-bottom: 1px solid var(--accent-color);
+  }
+  
+  .card .content {
+	padding: 15px;
+  }
+  
+  .card .header {
+	font-family: var(--header-font);
+	font-size: 1.5em;
+	color: var(--primary-color);
+	margin-bottom: 10px;
+  }
+  
+  
+  .card .description {
+	font-family: var(--body-font);
+	font-size: 1em;
+	color: var(--primary-color);
+	margin-bottom: 5px;
+	text-align: left;
+  }
+  
+  .card .meta {
+	font-family: var(--body-font);
+	font-size: 0.9em;
+	color: var(--accent-color);
+	font-weight: bold;
+	margin-top: 10px;
+  }
+  

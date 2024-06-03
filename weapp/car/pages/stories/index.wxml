@@ -1,2 +1,16 @@
 <!--pages/stories/index.wxml-->
-<text>pages/stories/index.wxml</text>
+<view class="cards">
+  <view class="card" wx:for="{{stories}}" wx:key="id">
+    <view>
+      <navigator url="pages/vehicles/show">
+        
+        <view class="content">
+          <view class="header">{{item.header}}</view>
+          <view class="description">{{item.description}}</view>
+        </view>
+		<video src="{{item.video}}" autoplay="true"
+		show-mute-btn="true" />
+      </navigator>
+    </view>
+  </view>
+</view>

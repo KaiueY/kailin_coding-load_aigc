@@ -31,11 +31,11 @@
 }
 
 .card .sub-header::before {
-	content: "元素开始之前"
+	display: block;
 }
 
 .card .sub-header::after {
-	content: "ewr";
+	content: "";
 	display: block;
 	width: 80rpx;
 	border-bottom: 2px solid #000;

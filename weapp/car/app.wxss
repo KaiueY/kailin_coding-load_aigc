@@ -8,6 +8,7 @@
 	  background: #fff;
   }
   image{
+	  width: auto;
 	  display: block;
 	  widows: 100px;
   }
