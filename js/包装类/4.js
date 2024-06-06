@@ -29,4 +29,8 @@
         // console.log(obj.b);//undefined
         // //不报错是因为引擎查询时发现只有键 b 而没有 值  因此就移除这个属性b
         // console.log(obj.c);//undefined  访问对象上不存在的属性就是 undefined
+let str ='I love you'
+console.log(str.length);
 
+let num = 23
+console.log(num.length)

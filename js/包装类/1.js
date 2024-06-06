@@ -17,7 +17,7 @@ var mrPeng = {
 // mrPeng.like='章若楠'//增
 // var abc='like'
 // mrPeng.abc='liuyifei'
-// mrPeng['abc']='cy'//改
+// mrPeng[abc]='cy'//改
 // delete mrPeng.srx//删
 mrPeng.smoke()
 mrPeng.smoke()
