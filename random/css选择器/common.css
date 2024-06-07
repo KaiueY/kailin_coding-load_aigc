@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #625050;
+  margin: 20px;
+}
+.form-block {
+  margin: 30px;
+  transition: 0.5s;
+}
+.text {
+  border: 5px solid #f5b9b9;
+}
+.text:focus {
+  border-color: #6244cd;
+}
+.form-block:focus-within {
+  background: #6244cd;
+}
