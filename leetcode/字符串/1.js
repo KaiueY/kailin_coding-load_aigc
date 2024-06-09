@@ -39,6 +39,6 @@
 // console.log(boolean,boolean2);//false true
 
 
-demo='kailin'
-let str = `Hello, ${demo}!`
-console.log(str);//Hello, kailin!
+// demo='kailin'
+// let str = `Hello, ${demo}!`
+// console.log(str);//Hello, kailin!
