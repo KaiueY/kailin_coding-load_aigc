@@ -7,7 +7,7 @@ function fn(a) {
     var b = function () { }
     console.log(b)//function b() { }
     function d() { }
-    var d = a
+    var d = a//
     console.log(d)//123node 
 }
 // 创建函数的执行上下文对象 AO 
