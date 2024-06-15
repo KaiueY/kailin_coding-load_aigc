@@ -12,7 +12,7 @@
 // speek(p)
 
 
-function identify(){
+function identify(context){
     return this.name.toUpperCase()
 }
 
