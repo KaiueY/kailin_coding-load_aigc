@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getData()">获取电影数据</button>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function getData(){
+            axios.get('https://mock.mengxuegu.com/mock/65a91543c4cd67421b34c898/movie/movieList')
+            .then((res)=>{
+                console.log(res.data);
+            })
+        }
+    </script>
+</body>
+</html>

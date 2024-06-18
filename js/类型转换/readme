@@ -1,0 +1,6 @@
+# 原始值转原始值 --- 显式类型转换
+    1. 转布尔    --- Boolean()
+    2. 转Number  --- Number()  http://es5.github.io/#x9.3
+    3. 转String  --- String()
+
+# 对象转原始值 --- 隐式类型转换

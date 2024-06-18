@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getData()">获取电影数据</button>
+
+
+    <script>
+        function getData(){
+            fetch('https://mock.mengxuegu.com/mock/65a91543c4cd67421b34c898/movie/movieList')
+            .then((res )=>{
+                return res.json()
+            })
+            .then((data) =>{
+                console.log(data);
+            })
+        }
+    </script>
+</body>
+</html>
