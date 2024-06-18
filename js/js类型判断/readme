@@ -20,3 +20,12 @@
     1. 对象的toString()
     2. 数组的toString()  将数组中的元素用逗号的方式拼接成字符串
     3. 其他的toString()  直接将值修改成字符串字面量
+
+    - object.prototype.toString()
+        1.如果toString接收的值是undefined，则返回"[object Undefined]"
+        2.如果toString接收的值是null，则返回"[object Null]"
+        3.调用 ToObject(x)  将x转为对象（这是内置方法） 
+          此时得到的对象内部一定拥有一个属性[[class]],而该属性[[class]]的值就是x的类型
+        4.设 class是[[class]]的值 
+        5.返回由"[object"和class 和"]" 拼接得到的字符串
+# Array.isArray()
