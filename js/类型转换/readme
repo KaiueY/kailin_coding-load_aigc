@@ -4,3 +4,33 @@
     3. 转String  --- String()
 
 # 对象转原始值 --- 隐式类型转换
+    1. 转Number:
+        先调用ToNumber(x)  该函数中会再调用ToPrimitive() 将对象转为原始值
+        ToPrimitive(obj,Number)
+            - 判断接收到的值是不是原始类型 是则返回
+            否则，调用valueOf方法  如果得到了原始值 则返回
+            再否则，调用toString方法，如果得到了原始值，则返回
+            再否则，报错了
+
+# 对象转String
+    String({})
+    1. ToString({})
+    2. 调用ToString(x) 该函数中会再调用ToPrimitive() 将对象转为原始值
+    ToPrimitive(obj,Number)
+        - 判断接收到的值是不是原始类型 是则返回
+            再否则，调用toString方法，如果得到了原始值，则返回
+            再否则，报错了
+
+# 对象转布尔
+    任何对象转布尔都是true 包括空数组 空对象
+
+# 一元操作符
+    + 会触发隐式类型转换，转为Number
+
+# 二元运算符 +
+
+# == vs ===
+    - == 会触发隐式类型转换
+    - ===  不会触发隐式类型转换
+
+
