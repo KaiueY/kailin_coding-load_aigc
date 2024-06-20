@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Url</th>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        //前端向接口 （后端向我们暴露的数据接口）请求  动态修改界面的功能
+        //Github user 接口地址
+        const BASE_URL = "https://api.github.com/users/"
+        const users = ['shunwuyu','wesbos','stokinski']
+
+
+        for(let user of users){
+            // console.log(user);
+            const api_url = `${BASE_URL}${user}`
+            fetch(api_url)
+            .then(res=>res.json())
+            .then(data => {
+                // console.log(data);
+                const { name, avatar_url, html_url, id } = data
+                // console.log({ name, avatar_url, html_url });
+                oBody.innerHTML += `
+                    <tr>
+                        <td>${id}</td>
+                        <td><a href="${html_url}" target=_blank>${name}</a></td>
+                        <td><img src="${avatar_url}" alt=""></td>
+                        
+                    </tr>
+                `
+            })
+        }
+
+        const shunwuURL = `${BASE_URL}shunwuyu`   //BASE_URL+"shunwuyu"
+        const oBody = document.querySelector('tbody')
+
+        // fetch(shunwuURL)//promise实例
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         // console.log(data);
+        //         const { name, avatar_url, html_url, id } = data
+        //         // console.log({ name, avatar_url, html_url });
+        //         oBody.innerHTML += `
+        //             <tr>
+        //                 <td>${id}</td>
+        //                 <td><a href="${html_url}" target=_blank>${name}</a></td>
+        //                 <td><img src="${avatar_url}" alt=""></td>
+                        
+        //             </tr>
+        //         `
+        //     })
+    </script>
+</body>
+
+</html>
