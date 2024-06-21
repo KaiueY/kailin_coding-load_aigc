@@ -5,4 +5,4 @@
 
    5. git pull origin master 当远程代码和本地代码有冲突时  将远程代码同步到本地
    6. git diff  查看改动： 如果你想查看这些改动的具体内容，可以使用 git diff 命令，它会显示你修改了哪些部分：
-
+   7.2024.6.22 利用 git pushall 同时提交到github 和gitee
