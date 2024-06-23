@@ -1,0 +1,33 @@
+# 拷贝
+    通常只讨论在引用类型上
+
+    ## 浅拷贝
+        - 拷贝后的对象受原对象的影响
+        - 浅拷贝
+            - Object.create(obj);
+            - Object.assign({}, obj);
+            - [0].concat(arr) 
+            - [...arr]数组解构
+            - arr.toReversed().reverse()
+
+        - 手写shallowCopy
+            for...in 遍历原对象上的属性 
+            借助hasOwnPreperty规避原对象上隐式具有的属性 
+            将属性进行克隆
+    ## 深拷贝
+        - 拷贝后的对象不受原对象的影响
+
+        - JSON.parse(JSON.stringify(objj))
+            - 无法识别bigInt类型
+            - 无法拷贝 undefined 、function、Symbol
+            - 无法处理循环引用 example:obj.a=obj.b  obj.b.m=obj.a
+
+        - JS新增了 structuredClon()
+
+        - 手写deepCopy()
+            # 深拷贝和浅拷贝的区别就是是否受原对象的影响 那么如何能够规避这个影响达到深拷贝的问题呢
+             - 首先 同浅拷贝一样，我们需要规避隐式原型的对象属性
+             - 遍历每一个原对象的属性，但拷贝时不能将value设置为对象 因为他是一个引用地址 牵一发动全身
+             - 因此 当遇见值依旧是对象，我们需要不断深挖，直到找到一个原始类型的值，
+             - 对当前值进行拷贝
+             - 最后返回该对象

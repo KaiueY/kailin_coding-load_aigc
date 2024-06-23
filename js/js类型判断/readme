@@ -12,7 +12,8 @@
         除了函数，所有的引用类型的二进制前三位都是0，null的二进制全是0
 
 # instanceof()
-    - 只能判断引用类型
+    - 只能判断引用类型 返回true 或者 false
+    - obj instanceof Object//true
     - 通过原型链的查找来判断
 
 # object.prototype.toString()
