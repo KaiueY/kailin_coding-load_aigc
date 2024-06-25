@@ -1,0 +1,44 @@
+# B站就地编辑 EditInPlace
+
+## 用户体验
+    B站个性签名
+    - 平时是文本状态 显示签名
+    - mouseover 鼠标点击 进入编辑状态
+    - mouseout 退出编辑状态 自动保存 切换到 文本状态
+    - 
+
+## 考点
+    - 考查有开发经验(JS高级用户体验)
+    - 用类的概念来封装 复用性 考虑到代码的复用
+    - EditInPlace 类里的事件监听 使用function 导致内部this指向函数本身，可以用self/that=this 暂存this指向
+    - 如果用箭头函数，箭头函数里没有this 里面的this指向外部函数 
+
+    - html5 localStorage 本地存储 提供 getItem 和setItem 方法 
+
+    - 原型式面向对象虽好，其他语言开发师难理解
+    - 因此 es6 提供了 class 语法 意图让js变成大型企业级开发语言 
+    - es5 不支持 class关键字 
+    - 用json-server 来访问
+        添加脚本：    "dev":"json-server --watch db.json"
+        运行  npm run dev
+
+    - 什么是网站？
+        - 一切都是资源  restful 的概念
+        - db.json users
+        - restful 定义了资源的访问方式
+        http://localhost:3000/users  用户的集合资源
+        http://localhost:3000/users/1 用户的单个资源
+
+        js是单线程的，意图快点把同步任务如(console.log)执行完
+        碰到耗时性的任务，先放入event loop 事件循环机制
+        fetch是耗时性的任务 setTimeout 事件监听
+        ## event loop事件循环
+            - JS是单线程的，负责用户体验，不能卡顿
+            - 将同步代码（ms 级别可以快速一行行按顺序运行的）
+            - 如果碰见定时器（setTimeout）请求（ajax）事件监听等异步任务 先放入event loop中（事件池）
+                登记 click 放进池子里的是事件处理函数
+                    - 如果是fetch then 函数 
+            - 继续执行同步任务 
+            - 同步任务执行完后 程序进入idle状态 空闲
+            - 一直检测event有没有任务可以执行了 
+                loop 轮询
