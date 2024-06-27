@@ -1,0 +1,42 @@
+# OpenAI 与 promise
+
+## OPENAI 模型
+    - gpt3.5-turbo
+       是文本模型 completion
+       client.chat.completion.create
+       很便宜
+    - gpt-4
+        依旧是文本模型 completion 贵
+    - gpt-4o 全能型
+        走向文本、图标、视频、音频模型 是一个多模态模型
+         - 接受一张图片
+    
+## AI切图仔 GPT4o 完胜 通义千问
+
+选择大于努力
+    - 找到要切的图
+    - GPT4/ 通义千问
+    - html5 语义化  css命名规范
+    - 4o能够更好地理解设计稿
+        它能够语义化执行 优点：对搜索引擎优化友好 利于阅读和维护
+            - article 高质量的文章
+            -用到了section
+                网页中需要根据功能模块来划分 section 
+                如：商品详情section
+                    性能section
+                    评论section
+                    详情section
+                    价格section
+                    下单section
+            - 图片细节理解
+            - 标签更准确
+                ol>li  ul>li
+            - aside 侧边栏
+            - main 主要内容
+            - header 页眉 footer 页脚
+            - html5 语义化标签布局组合
+                header +aside +main +footer
+            - nav 导航
+            - article 文章
+    - Modify 真的能识别
+

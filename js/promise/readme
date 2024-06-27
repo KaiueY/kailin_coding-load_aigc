@@ -1,0 +1,18 @@
+# event loop
+
+- javascript 是单线程的，但是浏览器是多线程的，浏览器中的事件循环机制是用来协调这些线程的。
+- event loop 是一个事件处理的机制，用来处理用户交互、网络请求、定时器等异步任务。
+    - script 脚本是第一个宏任务
+    - 让同步代码快速执行
+    - 异步任务放到event Table登记
+        click ()=(){}
+        setTimeout(()=>{},time)
+    - 系统进入idle状态
+    - 检测event table是否有异步任务需要执行
+    - 任务放入 Event Queue
+    - 执行
+    - 循环检测event loop
+    - 直到event table为空
+    - 再次进入idle状态
+
+ - promise 控制执行流程

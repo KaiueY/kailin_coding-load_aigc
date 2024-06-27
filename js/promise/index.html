@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <!-- 对一个未来会发生的事 先许下诺言 -->
+     <script>
+
+        // js是单线程 排队执行
+        // 异步 耗时 ->放到 event loop 里面 
+        // 当前端代码执行完毕后，会进入到 event loop 里面，等待异步代码执行完毕后，再执行异步代码
+        setTimeout(() => {
+            console.log('3s 后执行1');
+            setTimeout(() => {
+                console.log('2s 后执行');
+                setTimeout(() => {
+                    console.log('0s 后执行');
+                }, 0);
+            }, 2000);
+        }, 3000);
+        setTimeout(() => {
+            console.log('3s 后执行2');
+        }, 3000);
+        console.log('立即执行');
+     </script>
+</body>
+</html>

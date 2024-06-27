@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>就地编辑</title>
+    <style>
+        .edit-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .edit-container input {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            min-width: 50px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            outline: none;
+        }
+
+        .edit-container:hover input {
+            display: inline;
+        }
+
+        .edit-container span {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="signature" class="edit-container"></div>
+
+    <script src="./edit_in_place.js"></script>
+    <script>
+        const STORAGEKEY = 'signature';
+        fetch("http://localhost:3000/users/1")
+            .then(res => res.json())
+            .then(data => {
+                const { signature } = data;
+                const stoSignature = localStorage.getItem(STORAGEKEY);
+                if (signature !== stoSignature) {
+                    localStorage.setItem(STORAGEKEY, signature);
+                }
+                new EditInPlace(STORAGEKEY, document.getElementById('signature'), signature);
+            })
+            .catch(err => console.error('Fetch error:', err));
+    </script>
+</body>
+
+</html>
