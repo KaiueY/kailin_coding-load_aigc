@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双飞翼</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            height: 200px;
+
+        }
+
+        .left,
+        .right {
+            width: 200px;
+            height: 200px;
+            background: #2f9dd0;
+        }
+
+        .content {
+            height: 200px;
+            background: #966f73;
+            width: 100%;
+        }
+
+        .inner {
+            margin: 0 20px;
+        }
+
+        /* 这里的div是page下的所有div */
+        .page>div {
+            float: left;
+        }
+
+        .left {
+            margin-left: -100%;
+        }
+
+        .right {
+            margin-left: -200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="content">
+            <div class="inner">主要内容</div>
+        </div>
+        <div class="left">广告位</div>
+        <div class="right">广告位</div>
+    </div>
+</body>
+
+</html>
