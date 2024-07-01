@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        没有防抖的input
+        <input type="text" id="unDebounce" placeholder="请输入你要搜索的用户名">
+        有防抖的input
+        <input type="text" id="debounce" placeholder="请输入你要搜索的用户名">
+
+    </div>
+
+    <script>
+        //不加防抖的
+        const inputa = document.getElementById('unDebounce')
+        const inputb = document.getElementById('debounce')
+
+        function handleNameserch(e) {
+            const value = e.target.value
+            fetch('http://localhost:3000/users')
+                .then(res => res.json())
+                .then(data => {
+                    // console.log(data)
+                    const users = data
+                    //数组上的新方法 map转换 filter过滤
+                    const filterUsers = users.filter(user => {
+                        if (user.name.includes(value)) {
+                            //可读性更好 es6 字符串新方法 
+                            return user.name.includes(value)
+                            // return user.name.indexOf(value)!==-1
+                        }
+                    })
+                    console.log(filterUsers);
+                })    
+        }
+
+        //闭包函数
+        function debounce(func,delay){
+            //返回值必须是函数 keyup 事件处理函数
+            //
+            return function(args){
+                clearTimeout(func.id)//清除定时器
+                //函数是对象 id挂在func上 func是闭包中的变量
+                func.id = setTimeout(function(){
+                    func(args)
+                },delay)
+            }
+        }
+            
+
+        const debounceNameSearch=debounce(handleNameserch,500)
+        inputa.addEventListener('keyup',handleNameserch)
+        inputb.addEventListener('keyup',debounceNameSearch)
+    </script>
+</body>
+
+</html>

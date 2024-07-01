@@ -14,5 +14,4 @@
     - 循环检测event loop
     - 直到event table为空
     - 再次进入idle状态
-
  - promise 控制执行流程
