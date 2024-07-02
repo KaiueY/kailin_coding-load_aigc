@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流</title>
+</head>
+
+<body>
+    <div class="row">
+        <div>
+            没有节流的input <input type="text" id="inputa">
+        </div>
+        <div>
+            有节流的input <input type="text" id="inputc">
+        </div>
+    </div>
+
+    <script>
+        const inputa = document.getElementById('inputa');
+        const inputc = document.getElementById('inputc');
+
+
+
+        //耗时耗性能任务 => promise 包一下？
+        const ajax = (content) => {
+            console.log(`ajax请求发送：${content}`);
+        }
+        // 节流功能
+        const throttle = (func, delay) => {
+            // last 上一次是什么时候执行的
+            // deferTimer 定时器id
+            let last, deferTimer//自由变量
+            // 返回的才是事件的处理函数
+            // 定义时生成时 才会调用func、delay
+            // keyup return func 调用时能够找到闭包中的自由变量
+
+            return (args) => {
+                // 当前时间  隐式转换成数字类型
+                let now = + new Date();
+                if (last && now < last + delay) {
+                    // 触发干掉
+                    clearTimeout(deferTimer);
+                    deferTimer = setTimeout(() => {
+                        last = now;
+                        func(args)
+                    }, delay)
+                }
+                else {
+                    // 再次来到这里
+                    last = now;//第一次时间
+                    func(args)//先执行一次
+                }
+            }
+        }
+        inputa.addEventListener('keyup', (e) => {
+            ajax(e.target.value);
+        })
+
+        let throttleedFunc = throttle(ajax, 1000);
+        inputc.addEventListener('keyup', (e) => {
+            let value = e.target.value;
+            // googleSuggest体验
+            // qps
+            // let throttleedFunc=throttle(ajax, 1000); //为了节省内存消耗 可以放在外面 避免创建很多
+
+            throttleedFunc(value);
+        })
+    </script>
+</body>
+
+</html>

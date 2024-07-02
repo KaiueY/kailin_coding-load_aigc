@@ -5,7 +5,7 @@ const App = () => {
   
   return(
     <div className="container">
-      <AppHeader/>
+      <AppHeader name={name} theme="day"/>
     </div>
   )
 }

@@ -1,8 +1,8 @@
-const AppHeader = () => {
-    const name = '旅梦开发团队'
+const AppHeader = (props) => {
+    const { name,theme  } = props
     return (
         <header className="app-header">
-            <h1>欢迎来到{ name }</h1>
+            <h1>欢迎来到{ name }{theme}</h1>
         </header>
     )
 }

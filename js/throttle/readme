@@ -1,0 +1,65 @@
+# 节流
+
+    - 在一定时间内执行一次
+        闭包
+
+        - last deferTimer
+        - 第一次直接执行 last 有了值
+        - if(last&&now<last+delay)  不可以执行的额时间内频繁触发 
+        - last 更新时间else 执行
+        - 如果用户不触发keyup事件 ，如何让最后一次keyup 再执行一次呢？
+            killTimerout + setTimerout  last 更新
+        - 
+        
+    - 性能优化 
+    - 闭包
+        定时器
+## 浏览器底层原理
+    - 请介绍浏览器内核
+        css 内核不同  兼容性 
+        -webkit-tap-highlight-color: transparent;
+        -webkit-scroll-behavior: smooth;
+        desplay:-webkit-flex; // 旧版本
+        - 每家浏览器厂商内核不一样
+            webkit(内核) 来自于safari(浏览器) chrome(浏览器)
+            Chrome 已经升级到了Blink内核 是webkit的升级版
+            Gecko(火狐)
+        - 分成两部分
+            渲染引擎 render engine html+css
+            JS引擎  v8
+            在前端两个都用
+            在后端 只需要JS引擎
+
+        - 渲染引擎怎么工作的？
+            输入url 到 为了让我们看到页面
+            1.渲染引擎 相当于印刷机 看见的其实就是会响应的图片  由渲染引擎画出来的 电脑的刷帧率
+            经历一个过程 
+                - HTML解析器 将html->解析成->dom树
+                - CSS解析器 将css->解析成->css OM树
+                - 渲染树 结合 dom树 和 css OM树 生成 -> 渲染树
+                - 图层布局计算模块 Layout 生成布局树 
+                - 视图的绘制模块 ->页面图
+                最开始显示的静态页面
+            为什么css要在head引入
+            script标签放在body底部？
+            - JS引擎介入
+
+
+
+            css 是阻塞的吗？ 是的 会阻塞 在渲染引擎工作的时候阻塞(等待css 解析完成，)
+            html 解析
+
+            css 选择器的性能 
+            * 不建议  因为它性能不好 会遍历所有的元素
+            *{
+                margin:0;
+                padding:0;
+            
+            }
+            建议把需要的标签列出来 
+            script标签放在body底部？ 为了不阻塞渲染引擎的工作
+
+
+
+
+
