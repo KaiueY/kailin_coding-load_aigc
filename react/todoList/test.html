@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>    
+        // for (let count = 0; count < 10000; count++) {
+        //     document.getElementById('container').innerHTML += 
+        //         '<span>测试</span>'
+            
+        // }
+
+        // let container = document.getElementById('container')
+        // let content=''
+        // for (let count = 0; count < 10000; count++) {
+        //     content += 
+        //         '<span>测试</span>'
+        // }
+        // container.innerHTML = content
+
+        // let container = document.getElementById('container')
+        // // 文档碎片 像真实的DOM节点一样操作（如挂载节点），但是不会引起回流
+        // let content = document.createDocumentFragment()
+        // for (let count = 0; count < 10000; count++) {
+        //     let oSpan = document.createElement('span')
+        //     oSpan.innerHTML = '测试'
+        //     content.appendChild(oSpan)
+        // }
+        // // 一次性将文档碎片节点挂上去，交接  然后自动回收
+        // container.appendChild(content)  
+
+        let container = document.getElementById('container')
+        container.style.width = '100px'
+        container.style.height = '100px'
+        container.style.backgroundColor = 'red'
+    </script>
+</body>
+</html>

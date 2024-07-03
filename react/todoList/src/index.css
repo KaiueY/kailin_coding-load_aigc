@@ -1,0 +1,5 @@
+body, div, dl, dt, dd, ul, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, blockquote
+{
+  padding: 0;
+  margin: 0;
+}
