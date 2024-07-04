@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage单例</title>
+</head>
+<body>
+
+
+
+    <!-- <script type="module" src="./storage.js">
+    <script type="module">
+        import Storage from './storage.js';
+        const instance1 = Storage.getInstance();
+        const instance2 = Storage.getInstance();
+        console.log(instance1 === instance2);
+    </script> -->
+    <script src="./old_storage.js"></script>
+    <script>
+        const instance1 = Storage.getInstance();
+        const instance2 = Storage.getInstance();
+        console.log(instance1 === instance2);
+    </script>
+</body>
+</html>
