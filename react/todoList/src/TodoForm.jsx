@@ -8,15 +8,12 @@ class TodoForm extends Component {
         this.state = {
             inputText:''
         }
-    
     }
-
     handleChange=(event)=>{
         this.setState({
             inputText:event.target.value
         })
     }
-
     handleSubmit=(e)=>{
         e.preventDefault()
         if(this.state.inputText.trim()){

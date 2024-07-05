@@ -2,7 +2,6 @@ import { Component } from "react";
 import TodoItem from "./TodoItem";
 import './TodoList.css'
 
-
 // 容器组件 
 class TodoList extends Component {
     render() {

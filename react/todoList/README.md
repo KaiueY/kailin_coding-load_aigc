@@ -14,7 +14,7 @@
             数据使用
             - TodoList 父子组件
                 - TodoItem  props(参数)
-        - TOdoForm
+        - TodoForm
         - 父组件把操作数据的方法都准备好了
         - 子组件安心的负责渲染
 
