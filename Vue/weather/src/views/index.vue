@@ -20,22 +20,22 @@
         <div class="future" v-if="state.future.length">
             <div class="group">
                 明天:
-                <span class="tm"> 白天：{{ state.future[1].dayTemp }}℃ {{ state.future[1].dayWeather }} {{
+                <span class="tm">白天:{{ state.future[1].dayTemp }}℃ {{ state.future[1].dayWeather }} {{
                     state.future[1].dayWindDir
                 }} {{ state.future[1].dayWindPower
                     }}级</span>
-                <span class="tm"> 夜晚：{{ state.future[1].nightTemp }}℃ {{ state.future[1].nightWeather }} {{
+                <span class="tm">夜晚:{{ state.future[1].nightTemp }}℃ {{ state.future[1].nightWeather }} {{
                     state.future[1].nightWindDir
                 }} {{ state.future[1].nightWindPower
                     }}级</span>
             </div>
             <div class="group">
                 明天:
-                <span class="tm"> 白天：{{ state.future[2].dayTemp }}℃ {{ state.future[2].dayWeather }} {{
+                <span class="tm"> 白天:{{ state.future[2].dayTemp }}℃ {{ state.future[2].dayWeather }} {{
                     state.future[2].dayWindDir
                 }} {{ state.future[2].dayWindPower
                     }}级</span>
-                <span class="tm"> 夜晚：{{ state.future[2].nightTemp }}℃ {{ state.future[2].nightWeather }} {{
+                <span class="tm"> 夜晚:{{ state.future[2].nightTemp }}℃ {{ state.future[2].nightWeather }} {{
                     state.future[2].nightWindDir
                 }} {{ state.future[2].nightWindPower
                     }}级</span>
@@ -118,15 +118,14 @@ const getWeather = (city) => {
 }
 
 const initEcharts = (arr) => {
-    if(myChart){
-        myChart.dispose()
-    }
-
     var myChart = echarts.init(echartsDom.value);
     myChart.setOption({
         tooltip: {},
         xAxis: {
-            data: ['今天', '明天', '后天', '大后天']
+            data: ['今天', '明天', '后天', '大后天'],
+            nameTextStyle: {
+                color: 'rgb(255,255,0)'
+            }
         },
         yAxis: {
             splitNumber: 2 ,
@@ -158,7 +157,7 @@ const initEcharts = (arr) => {
     /* 使图片覆盖整个容器 */
     background-repeat: no-repeat;
     /* 防止图片重复 */
-    opacity: 0.6;
+    opacity: 0.8;
     color: aliceblue;
 }
 
