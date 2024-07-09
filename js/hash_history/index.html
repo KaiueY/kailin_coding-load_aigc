@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手写Hash Router</title>
+</head>
+
+<body>
+    <nav class="nav">
+        <ul>
+            <li><a href="#/page1">page1</a></li>
+            <li><a href="#/page2">page2</a></li>
+            <li><a href="#/page3">page3</a></li>
+        </ul>
+    </nav>
+    <!-- 相当于routerView -->
+    <div id="container"></div>
+
+    <script>
+        // hash 实现url改变 页面没有刷新 SPA的一种可能
+        // 我们要把#/page1 page1 -> container 里面
+        class HashRouter {
+            constructor() {
+                this.routes = {}
+                window.addEventListener('hashchange',
+                    this.load.bind(this), false)
+            }
+            //注册
+            register(hash, callback = function() { }) {
+                this.routes[hash] = callback
+
+            }
+            registerIndex(callback=function(){}){
+                this.routes['index'] = callback
+            }
+
+
+            load() {
+                // console.log(location.hash);// BOM
+                let hash = location.hash.slice(1)|| 'index'//去掉 # 才是路由
+                console.log(hash,'////');
+                let handler=this.routes[hash]
+                handler && handler.call(this)
+            }
+        }
+        let router = new HashRouter()
+        let container = document.getElementById('container')
+        router.registerIndex(() => container.innerHTML = 'I am index')
+        router.register('/page1', () => container.innerHTML = 'I am page1')
+        router.register('/page2', function() {
+            console.log(this,this.routes);
+            container.innerHTML = 'I am page2'
+        } )
+        router.register('/page3', () => container.innerHTML = 'I am page3')
+        console.log(router.routes);
+        router.load()
+
+
+    </script>
+</body>
+
+</html>
