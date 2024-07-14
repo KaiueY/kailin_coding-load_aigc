@@ -28,7 +28,7 @@ const state = reactive({
 getGoods().then(res => {
     state.goods = res
     console.log(state.goods);
-    nextTick(()=>{  //只会在组件挂载且完成渲染执行
+    nextTick(()=>{  //只会在组件挂载完且完成渲染执行
         initScroll()
     })
 })
@@ -83,6 +83,7 @@ let bs = new BScroll(menuWrap.value, {
                 .text{
                     display: flex;
                     align-items: center;
+
                     height: 100%;
                 
                 }
