@@ -11,6 +11,7 @@
 
     const router = userRouter();
     console.log(router);
+    // router-view 动态组件展示 依赖于url变化 并不是私有的 所以不需要ref
     const component = computed(() =>{
         const route = router.routes.find(
             (route)=>route.path==router.current.value

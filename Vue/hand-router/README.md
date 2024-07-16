@@ -28,3 +28,12 @@
     - 可以将组件的内部交给外部去自定义
     - 提升了组件的可复用性
     
+- http://localhost:5173/posts/:id#/about
+    - 协议 http://
+    - 域名 localhost
+    - 端口号 5173
+    - 路径 /#/about
+    - hash #/about
+    - path / posts
+    - query ?id=1
+    - params /:id

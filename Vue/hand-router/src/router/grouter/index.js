@@ -2,7 +2,7 @@ import { inject, ref } from 'vue'
 import RouterLink from './RouterLink.vue'
 import RouterView from './RouterView.vue'
 
-// 1.创建一个插件
+// 单例模式 保证只有一个router 只需要一次createRouter 避免重复的new Router
 export const createRouter = (options) => {
     return new Router(options)
 }
@@ -38,7 +38,7 @@ class Router {
     // use 调用 插件的install方法
     install(app) {
         //全局暴露一个router  全局使用的对象 this
-        app.provide(ROUTER_KEY,this)
+        app.provide(ROUTER_KEY, this)
         console.log('Router installed', app)
         app.component('router-link', RouterLink)
         app.component('router-view', RouterView)
