@@ -13,19 +13,19 @@ const isActive = ref(true);
         <div class="card-subtitle">Transition & Animation</div>
       </div>
       <div class="card__content">
-        <!-- <div :class="['emoji', {pulse: !isActive}]">🌳</div>-->
+        <div :class="['emoji', {hidden: !isActive}]">🐑</div>
         <!--
         <transition name="pulse">
           <div v-if="isActive" class="emoji">🌳</div>
         </transition>
         -->
-        <transition 
+        <!-- <transition 
           class="animate__tada"
           enter-active-class="animate__animated animate__infinite"
           leave-active-class="animate__animated animate__infinite"
         >
           <div v-if="isActive" class="emoji">🌳</div>
-        </transition>
+        </transition> -->
       </div>
       <div class="card__action">
         <button type="button" @click="isActive=!isActive;">请按这里</button>
@@ -37,5 +37,5 @@ const isActive = ref(true);
 <style scoped>
 @import './styles/app.css';
 @import './styles/card.css';
-@import './styles/animation.css';
+/* @import './styles/animation.css'; */
 </style>
