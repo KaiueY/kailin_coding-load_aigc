@@ -43,6 +43,9 @@
 import { reactive, ref,  } from "vue";
 import {ElMessage} from "element-plus";
 import {useRouter} from "vue-router";
+import {usePermissStore} from "../store/permiss";
+
+const permissStore = usePermissStore();
 
 const param = reactive({
     username: "",
@@ -75,6 +78,8 @@ const submitForm = (formEl) =>{
         if (valid) {
             ElMessage.success("登录成功");
             localStorage.setItem("ms_name", param.username);
+            const keys = permissStore.defaultList[param.username];
+            permissStore.handleSet(keys);
             console.log("submit");
             router.push("/");
         } else {

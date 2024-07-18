@@ -60,3 +60,26 @@
     - validate rules 配置一下
         - 对form 进行ref绑定 , 绑定的是Form组件
         - 在提交之前 验证一下 form对象有validate方法
+
+- pinia 
+    - 状态管理
+    - 比vuex更好用
+    - 使用
+        导入：import  {createPinia} from 'pinia'
+        使用：app.use(createPinia())
+
+- 全局状态设计
+    - collapse 状态： true|false
+        - 窄屏的pad
+    - permiss 权限状态
+        - 跨组建层级访问是常态
+        - key, defaultList
+        - defaultList 可用于计算 login.vue ms_name this.handle_set key,
+        - router.js 会重新执行  403用到 校验权限
+        - 任何地方需要校验权限 
+
+- Object.entries 的用法和应用场景
+    - es6 新增的遍历对象方法
+    - Object.keys() Object.values() 基础上，将key value 作为一个数组的1,2项返回二维数组
+    - app.component 全局声明组建的时候 一次性把ElementPlus/icons 全部注册
+    

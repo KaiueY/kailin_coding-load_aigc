@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Home from '../views/Home.vue'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import { pa } from "element-plus/es/locale/index.mjs";
+import { usePermissStore } from "../store/permiss";
 
 const routes = [
     {
@@ -85,14 +85,12 @@ router.beforeEach((to, from, next) => {
     NProgress.start()
     document.title = to.meta.title
     const role = localStorage.getItem('ms_name')
-    const permiss = {
-        'admin': ['1', '11', '12'],
-        'user': ['1', '11']
-    }
+    const permissStore = usePermissStore()
+
     if (!role && to.meta.noAuth !== true) {
         next('/login') // login
     } else if (typeof to.meta.permiss == 'string' 
-        && !permiss[role].includes(to.meta.permiss) 
+        && !permissStore.key.includes(to.meta.permiss) 
     ) {
         next('/403')
     } else {
