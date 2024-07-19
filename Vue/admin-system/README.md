@@ -71,6 +71,7 @@
 - 全局状态设计
     - collapse 状态： true|false
         - 窄屏的pad
+        - 通过v-if v-else +action 控制collapse状态
     - permiss 权限状态
         - 跨组建层级访问是常态
         - key, defaultList
@@ -82,4 +83,22 @@
     - es6 新增的遍历对象方法
     - Object.keys() Object.values() 基础上，将key value 作为一个数组的1,2项返回二维数组
     - app.component 全局声明组建的时候 一次性把ElementPlus/icons 全部注册
+    
+
+- css 特性
+    - transition
+    - css4 variable 主题切换
+         ：root{--}
+         var()
+
+- ElDropDown
+    - 触发DropDown的内容 交给slot
+    - 那么DropDown的内容呢？  可以交给具名插槽
+    - slot带来了组件超级定制性
+    - el- Dialog 也是这样的 
+    - template vue 内置组件 包裹一下内容的部分  挂载到页面上就消失
+
+- template 的用法
+    - vue 组建的模板声明
+    - template #title 具名slot 插入到相应位置
     

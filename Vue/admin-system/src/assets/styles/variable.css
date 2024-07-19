@@ -1,0 +1,7 @@
+:root {
+    --primary-color: #ff0000;
+    --secondary-color: #247973;
+    --text-color: #ffffff;
+    --header-bg-color: #1f2835; /* 更正这里 */
+    --header-text-color: #ffffff;
+}
