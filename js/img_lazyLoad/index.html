@@ -25,41 +25,41 @@
 
     <script>
         // 获取图片标签
-        const imgs=document.getElementsByTagName('img')
+        const imgs = document.getElementsByTagName('img')
         const num = imgs.length
         //当首次进入页面时  也需要加载当前屏幕的图片
-        document.addEventListener('DOMContentLoaded',()=>{
-            loadImage ()
+        document.addEventListener('DOMContentLoaded', () => {
+            loadImage()
         })
-        
-        function loadImage (){
+
+        function loadImage() {
             console.log('hahaha');
             //判断是否在可视区
-            let screenHeight=document.documentElement.clientHeight//拿到一屏的高度
+            let screenHeight = document.documentElement.clientHeight//拿到一屏的高度
             //滚动条的偏移量 考虑到不同浏览器的兼容性问题 如果前面为零 则 取后面的  否则后面的无效 
             let scrollTop = document.documentElement.scrollTop || document.body.scrollTop//滚动条的偏移量 
-            for (let i  = 0; i  < num; i ++) {
+            for (let i = 0; i < num; i++) {
                 // console.log(imgs[i].offsetTop);
-                if(imgs[i].offsetTop<screenHeight+scrollTop){
+                if (imgs[i].offsetTop <= screenHeight + scrollTop) {
                     setTimeout(() => {
                         //数据属性 
                         // console.log(imgs[i].dataset.price);
 
                         // imgs[i].src= imgs[i].getAttribute('data-src')
-                        imgs[i].src= imgs[i].dataset.src
-                        n=i+1
-                        if(n===num){
+                        imgs[i].src = imgs[i].dataset.src
+                        n = i + 1
+                        if (n === num) {
                             console.log("所有图片加载完毕");
-                            window.removeEventListener('scroll',throttleLayLoad)
+                            window.removeEventListener('scroll', throttleLayLoad)
                         }
                     }, 1000);
-                    
+
                 }
             }
-                
+
         }
-        const throttleLayLoad=_.throttle(loadImage,500)
-        window.addEventListener('scroll',throttleLayLoad)
+        const throttleLayLoad = _.throttle(loadImage, 500)
+        window.addEventListener('scroll', throttleLayLoad)
     </script>
 </body>
 
