@@ -1,11 +1,8 @@
 <template>
-  <div>
-    <demo />
-  </div>
+  <RouterView />
 </template>
 
 <script setup>
-import demo from './components/demo1/parent.vue'
 
 </script>
 
