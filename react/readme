@@ -1,53 +1,53 @@
-# 前端第一框架React
-
-
-- 来自Facebook
-- 特别适合中大型项目开发
-- 学习成本
-- 快速开发
-
 ## 安装环境
-   
-- npm 包管理器
+# 前端第一框架React
 - npm i -g create-react-app
+- npm 包管理器
+- my-react
+- defer 异步加载 defer:推迟
+- create-react-app my-react 创建项目 my-react是项目名
+- 学习成本
+- 特别适合中大型项目开发
+- 来自Facebook
+- 快速开发
    - recat/Vue 企业级应用  create-react-app来自Facebook官方推出的安装项目脚手架
    - -g 全局安装  装哪去了？ 
-        npm config ls 配置信息
-        create-react-app -> path ->prefix
-
-- create-react-app my-react 创建项目 my-react是项目名
+    async 异步加载 
+    推迟到 DOMContentLoaded 事件触发后执行
+    - src 开发目录 代码的主战场
+    - public 静态资源目录
+    - pacakge.json 项目配置文件
+    - node_modules 依赖包
+    - No  拿一个标准的项目模板
+    - localhost:3000 本地服务器启动 ->index.html->load index.js ->react 接管项目开发
+    - create-react-app 做了什么
     - 不再是index。html js  css
        从零开始？
-    - No  拿一个标准的项目模板
-
-- my-react
-    - src 开发目录 代码的主战场
-        index.js 入口文件
-        index.css 全局样式
-    - node_modules 依赖包
         package.json 项目配置文件
-            react 18 最牛的现代开发框架
-            react-dom 
-    - public 静态资源目录
+        npm config ls 配置信息
+        index.js 入口文件
         index.html 项目入口文件
-            -root react 功能挂载点
-    - localhost:3000 本地服务器启动 ->index.html->load index.js ->react 接管项目开发
-    - pacakge.json 项目配置文件
-
-    - create-react-app 做了什么
-        - git clone 项目模板
-        - npm install 安装依赖 react react-dom
-        - npm start 启动项目
+        index.css 全局样式
+        create-react-app -> path ->prefix
         - web server  3000 本地服务器
-        - public/index.html 首页
         - src/ 所有react开发代码会打包成 /public/js/bundle.js
-            动态加载到index.html
         - react 功能 接管 root 开启react世界
-
-- defer 异步加载 defer:推迟
-    推迟到 DOMContentLoaded 事件触发后执行
-    async 异步加载 
+        - public/index.html 首页
+        - npm start 启动项目
+        - npm install 安装依赖 react react-dom
+        - git clone 项目模板
+            react-dom 
+            react 18 最牛的现代开发框架
+            动态加载到index.html
+            -root react 功能挂载点
     
-
-
     
+   
+
+
+
+
+
+
+
+
+
