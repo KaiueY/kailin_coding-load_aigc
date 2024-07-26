@@ -1,0 +1,39 @@
+// 打造一个可以链接数据库的方法
+const {database} = require('../config/index.js')
+const mysql = require('mysql2/promise')
+
+const pool = mysql.createPool({
+    host:  database.HOST ,
+    user:database.USERNAME,
+    password:database.PASSWORD,
+    database: database.DATABASE,
+    port:database.PORT ,
+})
+
+// 打造一个方法可以连接数据库
+const allServices = {
+    async query (sql){
+        try {
+            // 通过连接池来创建连接
+        const conn = await pool.getConnection()
+        //对该连接执行操作 SQL语句
+        const [rows,err] =await conn.query(sql)
+        //  rows 是成功后的返回  err是失败后的返回
+
+        // 释放连接
+        pool.releaseConnection(conn)
+
+        return Promise.resolve(rows)
+        } catch (err) {
+            return Promise.reject(err)
+        }
+    }
+}
+const userLogin = (username,password) =>{
+    const _sql = `SELECT * FROM users WHERE username = '${username}' AND password = '${password}'`
+    return allServices.query(_sql)
+}
+module.exports= {
+    userLogin,
+
+}
