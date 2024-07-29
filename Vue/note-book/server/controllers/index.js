@@ -3,7 +3,7 @@ const {database} = require('../config/index.js')
 const mysql = require('mysql2/promise')
 
 const pool = mysql.createPool({
-    host:  database.HOST ,
+    host:database.HOST ,
     user:database.USERNAME,
     password:database.PASSWORD,
     database: database.DATABASE,
@@ -45,9 +45,17 @@ const userRegister = (values)=>{
     const _sql = `INSERT INTO users (username, password, nickname) values ('${values.username}', '${values.password}', '${values.nickname}')`
     return allServices.query(_sql)
 }
+
+// 查找notetype
+const typeFind = (noteType, id)=>{
+    const sql = `SELECT * FROM note WHERE note_type = '${noteType}' and userId = '${id}'`;
+    return allServices.query(sql)
+}
+
+
 module.exports= {
     userLogin,
     userFind,
     userRegister,
-
+    typeFind,
 }

@@ -17,9 +17,12 @@
                         :rules="[{ required: true, message: '请填写昵称' }]" />
                 </van-cell-group>
                 <div style="margin: 16px;">
+                    <!-- <van-loading /> -->
                     <van-button round block type="primary" native-type="submit">
                         注册
                     </van-button>
+                    <!-- <van-loading type="" /> -->
+
                 </div>
             </van-form>
 
@@ -32,6 +35,7 @@
 <script setup>
 import { ref } from 'vue';
 import axios from '@/api'
+import { showToast } from 'vant';
 import { useRouter } from 'vue-router';
 
 const username = ref('')
@@ -42,7 +46,12 @@ const router = useRouter()
 const onSubmit = async (values) => {
     // console.log(values);
     const res = await axios.post('/user/register', values)
-    console.log(res);
+    if (+res.code == 800) {
+        showToast(res.msg);
+        setTimeout(() => {
+            router.push('/login');
+        }, 2500);
+    }
 }
 </script>
 

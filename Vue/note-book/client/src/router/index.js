@@ -5,6 +5,9 @@ const router = createRouter({
   routes: [
     {
       path: '/noteClass',
+      meta:{
+        title:'noteClass'
+      },
       component: () => import('@/views/noteClass.vue')
     },
     {
@@ -20,6 +23,17 @@ const router = createRouter({
         title:'注册'
       },
       component: () => import ('@/views/register.vue')
+    },
+    {
+      path:'/',
+      redirect:'/login'
+    },
+    {
+      path:'/noteList',
+      meta:{
+        title:'noteList'
+      },
+      component:()=>import('@/views/noteList.vue')
     }
 
   ]
@@ -27,9 +41,10 @@ const router = createRouter({
 // 全局前置路由守卫
 router.beforeEach((to, from, next) => {
   document.title = to.meta.title
-  const whitePath = ['/login', '/register']
-  if (!whitePath.includes(to.path)) {
-    if (!localStorage.getItem('userInfo')) {
+  const whitePath = ['/login', '/register','/noteClass']
+  if (!whitePath.includes(to.path)) { //需要登录
+    // 判断浏览器本地有无userInfo
+    if (!localStorage.getItem('userInfo')) { //没登录
       router.push('/login')
       return
     }
