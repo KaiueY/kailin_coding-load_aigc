@@ -1,12 +1,12 @@
 <template>
-    <div class="note-list" v-if="notes.length">
+    <div class="note-list">
         <ul>
-            <li v-for="note in notes " :key="note.id">
+            <li v-for="note in notes " :key="note.id" @click="goNoteDetail(note.id)">
                 <div class="img">
                     <img :src="note.head_img">
 
                 </div>
-                <div class="time">{{note.m_time}}</div>
+                <div class="time">{{note.c_time}}</div>
                 <div class="title">{{note.title}}</div>
             </li>
             
@@ -15,12 +15,13 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router';
+import { useRoute,useRouter } from 'vue-router';
 import axios from '@/api/index';
-import { onBeforeMount, onMounted, ref } from 'vue';
+import { onMounted , ref } from 'vue';
 
 let notes = ref([])
 const route = useRoute()
+const router = useRouter()
 const findNoteListByType = async () => {
     const res = await axios.get('/findNoteListByType', {
         params: {
@@ -30,8 +31,12 @@ const findNoteListByType = async () => {
     notes.value = res.data
     // console.log(res);
 }
- 
-onBeforeMount(() => {
+
+const goNoteDetail = (id) =>{
+    router.push({path:'/noteDetail',query:{id:id}})
+}
+
+onMounted(() => {
     findNoteListByType();
 });
 // console.log(route.query.title);
@@ -55,9 +60,10 @@ onBeforeMount(() => {
             .img {
                 width: 100%;
                 height: 4rem;
-                border-radius: 0.27rem;
+                
 
                 img {
+                    border-radius: 0.27rem;
                     width: 100%;
                     height: 100%;
                 }

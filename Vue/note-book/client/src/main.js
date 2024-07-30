@@ -2,7 +2,7 @@ import 'lib-flexible/flexible'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import '@/assets/reset.css'
-import { Button ,Form,Field,CellGroup,Toast,Loading,Icon } from 'vant'
+import { Button ,Form,Field,CellGroup,Toast,Loading,Icon,Uploader,Picker,Popup,SwipeItem ,Swipe  } from 'vant'
 import 'vant/lib/index.css';
 
 
@@ -19,6 +19,12 @@ app.use(Loading )
 app.use(Toast)
 app.use(Field)
 app.use(Icon )
+app.use(Picker )
+app.use(Popup)
+app.use(Swipe)
+
+app.use(SwipeItem)
+app.use(Uploader )
 app.use(CellGroup)
 
 app.mount('#app')

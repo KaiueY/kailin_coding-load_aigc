@@ -94,7 +94,7 @@ const register = () =>{
 
     .register {
         position: absolute;
-        bottom: 30px;
+        bottom: 50px;
         left: 50%;
         transform: translateX(-50%);
     }

@@ -19,7 +19,7 @@
           <van-icon name="bullhorn-o" size="0.4rem"/>
           <span>通知</span>
         </div>
-        <div class="set-item">
+        <div class="set-item"  @click="signOut">
           <van-icon name="revoke" size="0.4rem"/>
           <span>退出登录</span>
         </div>
@@ -28,7 +28,11 @@
   </template>
   
   <script setup>
+import { showToast } from 'vant';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
 const props = defineProps({
     isShowMenu:false
 })
@@ -41,6 +45,13 @@ const hideMenu = ()=>{
 // const hideMenu = () =>{
 //     emits('hidden',false)
 // }
+
+const signOut = () =>{
+  localStorage.removeItem('token')
+  localStorage.removeItem('userInfo')
+  showToast('退出成功！')
+  router.push('/login')
+}
 
   </script>
   

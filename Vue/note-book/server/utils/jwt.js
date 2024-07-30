@@ -13,8 +13,10 @@ function verify (){//校验token
         if(jwtToken){
              try {
                 const decoded=jwt.verify(jwtToken,'ssh')
+                console.log(decoded);
                 if(decoded.username){ //合法
                     ctx.userid = decoded.id
+                    ctx.nickname=decoded.nickname
                    await next()
                 }
              } catch (error) {

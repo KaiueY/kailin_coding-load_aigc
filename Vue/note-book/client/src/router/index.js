@@ -5,6 +5,7 @@ const router = createRouter({
   routes: [
     {
       path: '/noteClass',
+      name:'noteClass',
       meta:{
         title:'noteClass'
       },
@@ -34,6 +35,20 @@ const router = createRouter({
         title:'noteList'
       },
       component:()=>import('@/views/noteList.vue')
+    },
+     {
+      path:'/noteDetail',
+      meta:{
+        title:'noteDetail'
+      },
+      component:()=>import('@/views/noteDetail.vue')
+    },
+    {
+      path:'/notePush',
+      meta:{
+        title:'notePush'
+      },
+      component:()=>import('@/views/notePush.vue')
     }
 
   ]

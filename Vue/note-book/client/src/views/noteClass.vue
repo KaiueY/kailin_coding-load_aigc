@@ -4,7 +4,7 @@
             <header>
                 <div @click="handle" :class="{ 'show': isShowMenu }"><van-icon name="wap-nav" /></div>
                 <div>
-                    <van-icon name="edit" />
+                    <van-icon name="edit" @click="router.push('/notePush')" />
                     <van-icon name="search" />
                     <van-icon name="like" />
                 </div>
