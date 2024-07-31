@@ -1,12 +1,14 @@
 <template>
   <div id="app" @touchstart="handleTouchStart" @touchend="handleTouchEnd">
-    <van-button 
-      :square="true"
-      color="linear-gradient(to right, #4672b3, #ee5a24)"
-      @click="publish" 
-      block>
-      NOTE  BOOK
-    </van-button>
+    <div class="fixed-button">
+      <van-button 
+        :square="true"
+        color="linear-gradient(to right, #4672b3, #ee5a24)"
+        @click="publish" 
+        block>
+        NOTE  BOOK
+      </van-button>
+    </div>
     <router-view v-slot="{ Component }">
       <transition name="slide-right" @before-leave="addDelay">
         <component :is="Component" />

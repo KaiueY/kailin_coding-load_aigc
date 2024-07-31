@@ -55,8 +55,11 @@
   import '@vueup/vue-quill/dist/vue-quill.snow.css';
   import { reactive, ref } from 'vue';
   import axios from '@/api'
+  import { useRouter } from 'vue-router';
 import { showToast } from 'vant';
 
+
+  const router = useRouter()
   const state = reactive({
     content: '',
     title: '',
@@ -93,6 +96,7 @@ import { showToast } from 'vant';
       head_img: state.img.length ? state.img[0].content : '',
       note_type: state.note_type
     })
+    router.push('/noteClass')
   }
   
   </script>

@@ -82,12 +82,23 @@ router.post('/note-publish', jwt.verify(), async (ctx, next) => {
             userid: ctx.userid,
             nickname:ctx.nickname
         })
-        // console.log(result);
-        ctx.body = {
+        if(result.affectedRows){
+            ctx.body = {
             code: '800',
-            data: result,
+            data: 'success',
             msg: '发布成功！🎉'
         }
+
+        }
+        else{
+            ctx.body = {
+                code: '800',
+                data: 'filed',
+                msg: '发布失败！🎉'
+            }
+        }
+        // console.log(result);
+        
     } catch (error) {
         ctx.body = {
             code: '806',
