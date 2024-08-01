@@ -5,9 +5,9 @@
       </div>
       <section class="header">
         <div class="avatar">
-          <img src="https://ts1.cn.mm.bing.net/th/id/R-C.d0cdb390350600169835c8343480b0af?rik=gLkyDf9xwbXdQg&riu=http%3a%2f%2finews.gtimg.com%2fnewsapp_match%2f0%2f15103659087%2f0&ehk=zK0MTj34tChhjHcpXaZER22pNZjchBBOnrkMTllNa0w%3d&risl=&pid=ImgRaw&r=0" alt="">
+          <img src="https://p6-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/1f3e3b1d4f834d0eaa10505b94433e02~tplv-73owjymdk6-watermark.image?rk3s=f64ab15b&x-expires=1722580686&x-signature=Wtyj6eJhkJsytiyXUGnnzP8BGOg%3D" alt="">
         </div>
-        <p class="user">坤坤</p>
+        <p class="user">Y</p>
       </section>
   
       <div class="setting">
