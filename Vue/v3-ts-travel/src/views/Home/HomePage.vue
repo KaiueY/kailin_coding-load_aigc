@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
     <div class="home">
         <div class="top-bg absolute h-36 -z-10 
         w-screen bg-gradient-to-b from-orange-500 to-white"></div>
@@ -38,6 +38,8 @@
 <script lang="ts" setup>
 import { useHomeStore } from '../../store/homeStore';
 import { toRefs } from 'vue';
+
+
 const homeStore = useHomeStore()
 // 
 const { 
@@ -48,4 +50,4 @@ const {
 
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped></style> -->

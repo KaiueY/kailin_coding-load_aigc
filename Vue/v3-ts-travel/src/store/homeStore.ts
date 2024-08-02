@@ -1,14 +1,14 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 // 勾引 面试官 聊起 es6 moudle 问题
-import type { HomeTopBarItem, recentlyViewedState } from '../types/home.ts'
+import type { HomeTopBarItem, RecentlyViewedItem } from '../types/home.ts'
 
 export const useHomeStore = defineStore('home', () => {
   // 响应式状态 topBarState 包含 topBarState topBarstate.value
   // 泛型
   const topBarState = ref<HomeTopBarItem[]>([
     {
-      "title": "",
+      "title": "游览",
       "icon": "photo-o"
     },
     {
@@ -53,7 +53,7 @@ export const useHomeStore = defineStore('home', () => {
 
   ])
 
-  const recentlyViewedState = ref<recentlyViewedState[]>([
+  const recentlyViewedState = ref<RecentlyViewedItem[]>([
     {
       title: "曼谷 & 芭达雅景点通票",
       cover:
