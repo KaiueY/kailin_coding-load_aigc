@@ -26,6 +26,7 @@ const rootRoutes :RouteRecordRaw[] = [
         component:()=> import('../views/Discount/dicount.vue')
     }
 ]
+
 const routes :RouteRecordRaw[] = [
     {
         path:'/',
@@ -33,7 +34,7 @@ const routes :RouteRecordRaw[] = [
         meta:{
             title : '主页',
         },
-        component:()=> import ('../views/TheRoot.vue'),
+        component:()=> import ('@/views/TheRoot.vue'),
         redirect:'/home',
         children:rootRoutes   
     },

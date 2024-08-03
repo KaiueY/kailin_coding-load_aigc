@@ -12,7 +12,7 @@
         </van-search>
         <main class="flex flex-col space-y-4 ">
             <header class="w-[calc(100vw-2rem)] min-h-18 bg-white rounded-2xl 
-            p-2 shadow-md self-center">
+                            p-2 shadow-md self-center">
                 <section class="topbar flex justify-around mb-1">
                     <div class="topbar-item flex flex-col items-center" v-for="item in topBarState" :key="item.title">
                         <div class="topbar-item__icon">
