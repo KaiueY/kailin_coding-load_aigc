@@ -1,11 +1,14 @@
 <template>
-    <div>
-        <RouterView />
+   <div>
+        <router-view v-slot="{Component}">
+            <keep-alive :include="cachedComponents">
+                <component :is="Component" />
+            </keep-alive>
+        </router-view>
+        <div class="footer h-12">
+            <TabBar class="fixed bottom-2" />
+        </div>
     </div>
-    <div>
-        <TabBar />
-    </div>
-    
 </template>
 
 <script lang="ts" setup>
