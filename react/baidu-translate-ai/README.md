@@ -82,6 +82,10 @@
             - import from  从cdn 加载 nlp js库
             - 核心模型是pipeline ('sentiment-analysis') pipe()功能函数
                 - 下载大模型 
+                - pipeline(task,model,options)
+                - 放在worker线程 单例模式实例化 下载大模型等文件
+                - 调用options progres_callback 实时反馈下载进度
+                - webworker postMessage 消息机制 通知主线程
             - pipe(text) 拿到结果
             - 
 
@@ -94,3 +98,13 @@
         结果语言 中文
         待翻译文本 
         翻译结果
+- es6+ 介绍 2015年开始
+    - 阮一峰 老师的es6手册
+    - 代码简洁
+        空值合并运算符 ?? 
+            在开发AI项目的Progress组件时  用到了进度条 percentages
+            传值的过程中 使用了?? 来替代三元运算符  
+            percentage = percentage ?? 0
+    - 大型项目
+        class extend
+    - 使用了 es6 class 封装了 MyTranslationPipeline类

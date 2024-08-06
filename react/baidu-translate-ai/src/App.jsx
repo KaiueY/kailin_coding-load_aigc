@@ -1,6 +1,7 @@
 import './App.css'
 import { useRef, useState, useEffect } from 'react'
 import LanguageSelector from './components/LanguageSlector'
+import Process from './components/Progressing.jsx'
 
 const App = () => {
   const [sourceLanguage, setSourceLanguage] = useState('eng_Latn')
@@ -21,7 +22,7 @@ const App = () => {
       console.log(worker.current)
 
       worker.current.addEventListener('message', (e) => {
-        console.log(e)
+        console.log('+++++++++++++')
       })
       
       
@@ -72,6 +73,7 @@ const App = () => {
         ></textarea>
       </div>
       <button disabled={disabled} onClick={translate}>Translate</button>
+      <Process text={'LLM'} percentage={2}  />
     </>
   )
 }

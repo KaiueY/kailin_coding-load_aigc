@@ -16,11 +16,11 @@
         // pipeline 核心模块 nlp任务
         import {
             pipeline, // pipe 模块 派出一个任务
-            env,
+            env,//环境
 
         } from 'https://cdn.jsdmirror.com/npm/@xenova/transformers@2.6.0'
-        env.allowLocalModels = false
-        let pipe = await pipeline('sentiment-analysis');
+        env.allowLocalModels = false//你要加载本地大模型
+        let pipe = await pipeline('sentiment-analysis');//分类 情绪分析
         let result = await pipe('I love transformers')
         console.log( result);
         let result2 = await pipe ('I hate Trumps')

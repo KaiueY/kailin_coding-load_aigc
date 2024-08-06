@@ -1,14 +1,4 @@
-<!-- <template>
 
-</template>
-
-<script lang="ts" setup>
-
-
-
-</script>
-
-<style lang="css" scoped></style> -->
 <template>
     <div class="bg-pink-50 p-3">
         <!-- 搜索框 -->
@@ -68,20 +58,20 @@ const images = [
 ];
 
 const books = ref([
-    { id: 1, image: 'https://via.placeholder.com/150', title: '书名1' },
-    { id: 2, image: 'https://via.placeholder.com/150', title: '书名2' },
-    { id: 3, image: 'https://via.placeholder.com/150', title: '书名3' },
-    { id: 4, image: 'https://via.placeholder.com/150', title: '书名4' },
-    { id: 5, image: 'https://via.placeholder.com/150', title: '书名5' }
+    { id: 1, image: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg', title: '书名1' },
+    { id: 2, image: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg', title: '书名2' },
+    { id: 3, image: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg', title: '书名3' },
+    { id: 4, image: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg', title: '书名4' },
+    { id: 5, image: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg', title: '书名5' }
 ]);
 
 const recommendations = ref([
-    { id: 1, image: 'https://via.placeholder.com/150', title: '书名1', description: '描述1' },
-    { id: 2, image: 'https://via.placeholder.com/150', title: '书名2', description: '描述2' },
-    { id: 3, image: 'https://via.placeholder.com/150', title: '书名3' },
-    { id: 4, image: 'https://via.placeholder.com/150', title: '书名4' },
-    { id: 5, image: 'https://via.placeholder.com/150', title: '书名5' },
-    { id: 6, image: 'https://via.placeholder.com/150', title: '书名6' }
+    { id: 1, image: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg', title: '书名1', description: '描述1' },
+    { id: 2, image: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg', title: '书名2', description: '描述2' },
+    { id: 3, image: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg', title: '书名3' },
+    { id: 4, image: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg', title: '书名4' },
+    { id: 5, image: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg', title: '书名5' },
+    { id: 6, image: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg', title: '书名6' }
 ]);
 
 const changeBooks = () => {
