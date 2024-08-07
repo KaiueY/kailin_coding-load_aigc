@@ -108,3 +108,22 @@
     - 大型项目
         class extend
     - 使用了 es6 class 封装了 MyTranslationPipeline类
+
+    - 单例模式 
+        pipeline 实例化的时候，只需要实例化一次 下载大模型还有实例化开销性能太大
+
+
+
+- 介绍项目
+    - 本项目基于React 和transformers.js 实现了AI翻译功能， 他让我感受到了前端的未来独立开发Ai项目的魅力
+    - 不管是操作系统，还是移动端，甚至未来的助手机器人， 端大模型的未来即将到来 前端的Ai大机会到来了 前端  后端 AI  js 都可以实现
+    - 本项目聚焦了Ai功能的实现 性能优化 和良好返回AI用户体验
+    - react 开发了 LanguageSelector 组件  Progress 组件  使用了 useState  useEffect useRef 等hook 函数
+    - AI 功能需要下载大模型  执行开销很大 所以选择了多线程方案  这里使用了web worker多线程方案  将下载ai任务交给worker线程 主线程只做UI 
+    主线程和worker 线程 通过消息机制通信
+    模型下载会有initiate progress donw 这种 文件名加进度的消息  我们可以通过postMessage 交给主线程  更新进度条
+    执行翻译拿到结果后 通知主线程显示结果 
+    transformers.js的核心功能
+        - pipeline(task,model,options) Ai的功能有很多 使用es6 单例模式封装MYtranslationPipeline类  做了性能优化 单例模式
+        option中 有一个 progress_callback 回调函数  他是获取下载进度的回调函数
+            pipe(text,options) 掉用了上一部返回的pipe函数传递文本以及相关语言 执行Ai翻译  再次postMessage 通知页面显示结果

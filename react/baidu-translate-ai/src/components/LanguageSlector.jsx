@@ -36,13 +36,13 @@ const LanguageSelector = (props) => {
     return (
         <div className="language-selector">
             <label>{type}</label>
-            <select 
-                onChange={onChange} 
+            <select
+                onChange={onChange}
                 defaultValue={defaultLanguage}
             >
-                { 
+                {
                     Object.entries(LANGUAGES).map(([key, value]) => {
-                        return <option key={key} value={value}>{ key }</option>
+                        return <option key={key} value={value}>{key}</option>
                     })
                 }
             </select>

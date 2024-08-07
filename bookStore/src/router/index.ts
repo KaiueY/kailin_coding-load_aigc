@@ -1,13 +1,16 @@
+
 import { createRouter, createWebHistory } from "vue-router";
 import type { RouteRecordRaw } from 'vue-router'
 
-
+// :声明一个类型 RouteRecordRaw
 const rootRoutes :RouteRecordRaw[] =[
     {
         path:'home',
         name:'Home',
         meta:{
-            cache :true
+            cache :true,
+            KeepAlive: true,
+            title: '首页'
         },
         component:()=>import('../views/Home.vue')
 
@@ -16,7 +19,9 @@ const rootRoutes :RouteRecordRaw[] =[
         path:'collect',
         name:'Collect',
         meta:{
-            cache :false
+            cache :false,
+            KeepAlive:false,
+            title:'书架'
         },
         component:()=>import ('../views/Collect.vue')
     },
@@ -24,7 +29,9 @@ const rootRoutes :RouteRecordRaw[] =[
         path:'chat',
         name:'Chat',
         meta:{
-            cache :false
+            cache :true,
+            KeepAlive:true,
+            title:'AI'
         },
         component:()=>import ('../views/AiChat.vue')
     },
@@ -32,7 +39,9 @@ const rootRoutes :RouteRecordRaw[] =[
         path:'account',
         name:'account',
         meta:{
-            cache :false
+            cache :true,
+            KeepAlive:true,
+            title:'个人主页'
         },
         component:()=> import('../views/Account.vue')
     }
@@ -62,5 +71,8 @@ const router = createRouter({
     history: createWebHistory(),
     routes
 })
-
+router.beforeEach((to, from, next) => {
+    document.title = to.meta.title as string
+    next()
+})
 export default router

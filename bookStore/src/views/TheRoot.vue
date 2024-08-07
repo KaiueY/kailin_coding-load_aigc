@@ -11,10 +11,20 @@
     </div>
 </template>
 
-<script lang="ts" setup>
-import TabBar from '@/views/layout/TabBar.vue'
+<script setup lang="ts">
+//ts
+import TabBar from "../views/layout/TabBar.vue";
+import { computed } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const cachedComponents = computed(() => {
+  return router
+    .getRoutes()
+    .filter((route) => route.meta.KeepAlive)
+    .map((route) => route.name);
+});
 </script>
 
-<style lang="css" scoped>
-
+<style lang="less" scoped>
 </style>

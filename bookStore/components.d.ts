@@ -7,9 +7,14 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    AiReplay: typeof import('./src/components/ai/aiReplay.vue')['default']
+    AIReply: typeof import('./src/components/ai/AIReply.vue')['default']
     BookCard: typeof import('./src/components/BookCard.vue')['default']
+    IcomFont: typeof import('./src/components/IcomFont.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UserQuery: typeof import('./src/components/ai/UserQuery.vue')['default']
+    UserSend: typeof import('./src/components/ai/userSend.vue')['default']
     Van: typeof import('vant/es')['default']
     VanButton: typeof import('vant/es')['Button']
     VanCard: typeof import('vant/es')['Card']
@@ -21,6 +26,7 @@ declare module 'vue' {
     VanForm: typeof import('vant/es')['Form']
     VanIcon: typeof import('vant/es')['Icon']
     VanImage: typeof import('vant/es')['Image']
+    VanLoading: typeof import('vant/es')['Loading']
     VanNavBar: typeof import('vant/es')['NavBar']
     VanS: typeof import('vant/es')['S']
     VanSearch: typeof import('vant/es')['Search']
