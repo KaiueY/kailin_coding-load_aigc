@@ -61,6 +61,9 @@ const routes :RouteRecordRaw[]= [
     },
     {
         path:'/login',
+        meta:{
+            title:'登录',
+        },
         name:'Login',
         component:()=>import('@/views/Login.vue')
     }

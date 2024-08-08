@@ -16,7 +16,7 @@
 
             </van-cell-group>
             <div style="mt-4" class="m-14">
-                <van-button block color="#d2d2d2" native-type="submit">登录</van-button>
+                <van-button block color="#d2d2d2" native-type="submit" @click="Login">登录</van-button>
             </div>
             <div class="text-center" @click="toRegister">
                 没有账号,点击注册
@@ -37,6 +37,7 @@
 </template>
 
 <script setup lang="ts">
+import { showToast } from 'vant';
 import { reactive, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -61,7 +62,14 @@ const toRegister = () => {
 }
 
 const onSubmit = () => {
-    console.log(params)
+    if (!checked.value) {
+
+        showToast('请先同意必读条款')
+    }
+    localStorage.setItem('username',params.username)
+    localStorage.setItem('password',params.password)
+    showToast('登录成功！')
+    router.push('/home')
 }
 
 </script>
@@ -71,7 +79,7 @@ const onSubmit = () => {
     @apply text-2xl text-black
 }
 
-:deep(.van-checkbox_icon--checked .van-icon){
+:deep(.van-checkbox_icon--checked .van-icon) {
     @apply bg-[#e6723c] border-[#e6723c]
 }
 </style>

@@ -57,7 +57,7 @@ import { useHomeStore } from '../store/homeStore';
 const homeStore = useHomeStore();
 const { topBarState, booksListState, bookCommendState } = toRefs(homeStore);
 
-const images = [
+const images  = [
     'https://www.xczim.com/img/libs/wenhua00.jpg',
     'https://www.xczim.com/img/libs/wenhua02.jpg',
     'https://www.xczim.com/img/libs/wenhua01.jpg',

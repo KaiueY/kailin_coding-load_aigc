@@ -5,7 +5,10 @@
       </div>
       <section class="header">
         <div class="avatar">
-          <img src="https://p6-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/1f3e3b1d4f834d0eaa10505b94433e02~tplv-73owjymdk6-watermark.image?rk3s=f64ab15b&x-expires=1722580686&x-signature=Wtyj6eJhkJsytiyXUGnnzP8BGOg%3D" alt="">
+          <img src="https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/956891d61e9d4ceb8fc548013a1e3ef5~tplv-73owjymdk6-jj-mark:0:0:0:0:q75.awebp?rk3s=f64ab15b&x-expires=1723688691&x-signature=WKh7uLKybHrxKeJwl3sXjitsSkY%3D" class="w-full h-auto">
+        </div>
+        <p class="user">Y</p>
+      </section>
         </div>
         <p class="user">Y</p>
       </section>
