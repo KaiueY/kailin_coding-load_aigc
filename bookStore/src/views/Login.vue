@@ -21,7 +21,6 @@
             <div class="text-center" @click="toRegister">
                 没有账号,点击注册
             </div>
-            <span class="text-ms ml-4 text-[#e6723c]">请先同意必选条款</span>
             <van-field name="checkbox">
                 <template #input>
                     <van-checkbox v-model="checked" shape="square">

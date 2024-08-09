@@ -1,5 +1,6 @@
 <template>
     <div class="bg-pink-50 p-3">
+
         <!-- 搜索框 -->
         <van-sticky>
             <div class="flex items-center h-12 p-2 bg-white">

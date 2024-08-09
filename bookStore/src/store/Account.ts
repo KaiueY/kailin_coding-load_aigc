@@ -9,49 +9,49 @@ export const  useAccountSotre = defineStore('account',()=>{
             id:1,
             icon:'star-o',
             title:'我的收藏',
-            url:'/#'
+            url:''
         
         },
         {
             id:2,
             icon:'records',
             title:'阅读记录',
-            url:'/#'
+            url:''
         
         },
         {
             id:3,
             icon:'setting-o',
             title:'账户设置',
-            url:'/#'
+            url:''
         
         },
         {
             id:4,
-            icon:'feedback-o',
+            icon:'smile',
             title:'意见反馈',
-            url:'/#'
+            url:''
         
         },
         {
             id:5,
             icon:'star-o',
             title:'我的收藏',
-            url:'/#'
+            url:''
         
         },
         {
             id:6,
             icon:'question-o',
             title:'有疑问',
-            url:'/#'
+            url:''
         
         },
         {
             id:7,
             icon:'shop-o',
             title:'买书籍',
-            url:'/#'
+            url:''
         
         },
     ])

@@ -1,12 +1,12 @@
 <template>
-  <div class="min-h-screen bg-gray-100 p-4">
+  <div class="min-h-screen bg-pink-100 p-4">
     <!-- 用户信息部分 -->
     <div class="bg-white p-4 rounded-lg shadow-md flex items-center space-x-4">
       <img class="w-16 h-16 rounded-full"
         src='https://p9-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/956891d61e9d4ceb8fc548013a1e3ef5~tplv-73owjymdk6-jj-mark:0:0:0:0:q75.awebp?rk3s=f64ab15b&x-expires=1723688691&x-signature=WKh7uLKybHrxKeJwl3sXjitsSkY%3D'
         alt="User Image" />
       <div>
-        <h2 class="text-xl font-semibold">用户名</h2>
+        <h2 class="text-xl font-semibold">{{ userName }}</h2>
         <p class="text-gray-600">user@example.com</p>
       </div>
     </div>
@@ -33,13 +33,15 @@
 </template>
 
 <script setup>
-import { toRefs } from 'vue';
+import { ref, toRefs } from 'vue';
 import { useAccountSotre } from '../store/Account';
 import { useRouter } from 'vue-router';
 import { showToast } from 'vant';
 
-const accountStore = useAccountSotre()
 
+const userName = ref("");
+userName.value = localStorage.getItem("username") || "请先登录哦";
+const accountStore = useAccountSotre()
 const { accountState } = toRefs(accountStore)
 
 const router = useRouter()
@@ -49,9 +51,11 @@ const onHandle = () =>{
   localStorage.removeItem('username')
   showToast('退出成功')
   router.push('/login')
-  
 }
 
+const navigateTo= (path) =>{
+  router.push(path)
+}
 </script>
 
 <style scoped>
