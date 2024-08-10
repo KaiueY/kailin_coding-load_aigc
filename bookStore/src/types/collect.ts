@@ -1,4 +1,4 @@
-export type collectItem = {
+export type recentItem = {
     id:number
     title:string
     author:string 

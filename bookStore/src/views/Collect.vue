@@ -4,7 +4,7 @@
         <van-tab title="最近阅读">
           <div class="grid grid-cols-2 gap-4">
             <BookCard
-              v-for="book in recentBooks"
+              v-for="book in recentState"
               :key="book.id"
               :book="book"
               :initialFavorite="isFavorite(book.id)"
@@ -16,7 +16,7 @@
         <van-tab title="藏书">
           <div class="grid grid-cols-2 gap-4">
             <BookCard
-              v-for="book in favoriteBooks"
+              v-for="book in favoriteState"
               :key="book.id"
               :book="book"
               :initialFavorite="isFavorite(book.id)"
@@ -30,22 +30,19 @@
   </template>
   
   <script setup>
-  import { ref } from 'vue'
+  import { ref, toRefs } from 'vue'
   import BookCard from '../components/BookCard.vue'
+import { useCllectStore } from '../store/Collect';
+
+const cllectStore = useCllectStore()
+
+const {recentState,favoriteState} = toRefs(cllectStore)
+
   
   const activeTab = ref(0)
-  const recentBooks = ref([
-    { id: 1, title: '书籍1', author: '作者1', cover: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg' },
-    { id: 2, title: '书籍2', author: '作者2', cover: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg' },
-    // 更多书籍...
-  ])
-  const favoriteBooks = ref([
-    { id: 3, title: '书籍3', author: '作者3', cover: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg' },
-    { id: 4, title: '书籍4', author: '作者4', cover: 'https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg' },
-    // 更多书籍...
-  ])
+
   
-  const favorites = ref(new Set())
+const favorites = ref(new Set())
   
   const handleDelete = (bookId) => {
     // 处理删除操作
