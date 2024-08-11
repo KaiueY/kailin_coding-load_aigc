@@ -7,7 +7,7 @@
         alt="User Image" />
       <div>
         <h2 class="text-xl font-semibold">{{ userName }}</h2>
-        <p class="text-gray-600">user@example.com</p>
+        <p class="text-gray-600">{{ signature }}</p>
       </div>
     </div>
 
@@ -37,10 +37,13 @@ import { ref, toRefs } from 'vue';
 import { useAccountSotre } from '../store/Account';
 import { useRouter } from 'vue-router';
 import { showToast } from 'vant';
+import { getTime } from '../utils/time';
 
 
 const userName = ref("");
+const signature = ref("")
 userName.value = localStorage.getItem("username") || "请先登录哦";
+signature.value  =getTime(localStorage.getItem("username")?? '') 
 const accountStore = useAccountSotre()
 const { accountState } = toRefs(accountStore)
 

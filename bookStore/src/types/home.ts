@@ -14,5 +14,5 @@ export type CommendItem = {
     id : number
     image: string
     title:string 
-    decoration:string 
+    decoration?:string 
 }

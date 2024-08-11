@@ -44,16 +44,36 @@
                         }}</div>
                 </div>
             </div>
-            <div class="flex justify-center mt-4">
-                <van-button type="primary" round @click="changeBooks">换一批</van-button>
-            </div>
         </section>
     </div>
 </template>
 
 <script setup>
-import { ref, toRefs } from 'vue';
+import { ref, toRefs,watch } from 'vue';
 import { useHomeStore } from '../store/homeStore';
+
+const value = ref('');
+
+// 手写防抖函数
+function debounce(fn, delay) {
+  let timeoutId;
+  return function (...args) {
+    if (timeoutId) clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => {
+      fn(...args);
+    }, delay);
+  };
+}
+
+// 定义防抖的打印函数
+const debouncedLog = debounce((val) => {
+  console.log(val);
+}, 1000);
+
+// 监听 value 变化，使用防抖函数
+watch(value, (newVal) => {
+  debouncedLog(newVal);
+});
 
 const homeStore = useHomeStore();
 const { topBarState, booksListState, bookCommendState } = toRefs(homeStore);
@@ -66,9 +86,7 @@ const images  = [
 ];
 
 
-const changeBooks = () => {
-    // 书籍切换逻辑
-};
+
 </script>
 
 <style>

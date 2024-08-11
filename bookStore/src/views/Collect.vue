@@ -1,65 +1,69 @@
 <template>
-    <div class="container mx-auto p-4">
-      <van-tabs v-model:active="activeTab">
-        <van-tab title="最近阅读">
-          <div class="grid grid-cols-2 gap-4">
-            <BookCard
-              v-for="book in recentState"
-              :key="book.id"
-              :book="book"
-              :initialFavorite="isFavorite(book.id)"
-              @delete="handleDelete"
-              @favorite="handleFavorite"
-            />
-          </div>
-        </van-tab>
-        <van-tab title="藏书">
-          <div class="grid grid-cols-2 gap-4">
-            <BookCard
-              v-for="book in favoriteState"
-              :key="book.id"
-              :book="book"
-              :initialFavorite="isFavorite(book.id)"
-              @delete="handleDelete"
-              @favorite="handleFavorite"
-            />
-          </div>
-        </van-tab>
-      </van-tabs>
-    </div>
-  </template>
-  
-  <script setup>
-  import { ref, toRefs } from 'vue'
-  import BookCard from '../components/BookCard.vue'
-import { useCllectStore } from '../store/Collect';
+  <div class="container mx-auto p-4">
+    <van-tabs v-model:active="activeTab">
+      <van-tab title="最近阅读">
+        <div class="grid grid-cols-2 gap-4">
+          <BookCard v-for="book in recentState" :key="book.id" :book="book" :initialFavorite="isFavorite(book.id)"
+            @delete="handleDelete" @favorite="handleFavorite" />
+        </div>
+      </van-tab>
+      <van-tab title="藏书">
+        <div class="grid grid-cols-2 gap-4">
+          <BookCard v-for="book in favoriteState" :key="book.id" :book="book" :initialFavorite="isFavorite(book.id)"
+            @delete="handleDelete" @favorite="handleFavorite" />
+        </div>
+      </van-tab>
+    </van-tabs>
+  </div>
+</template>
+
+<script setup>
+import { ref, toRefs } from 'vue'
+import BookCard from '../components/BookCard.vue'
+import { useCllectStore } from '../store/Collect'
+import { showToast } from 'vant';
 
 const cllectStore = useCllectStore()
 
-const {recentState,favoriteState} = toRefs(cllectStore)
+const { recentState, favoriteState } = toRefs(cllectStore)
 
-  
-  const activeTab = ref(0)
+const activeTab = ref(0)
 
-  
 const favorites = ref(new Set())
+
+// 处理删除操作
+const handleDelete = (bookId) => {
+  // 从recentState和favoriteState中删除该书
+  recentState.value = recentState.value.filter(book => book.id !== bookId)
+  favoriteState.value = favoriteState.value.filter(book => book.id !== bookId)
+
+  // 如果已收藏，更新收藏状态
+  favorites.value.delete(bookId)
+  showToast('删除成功！')
+}
+
+// 处理收藏操作
+const handleFavorite = (bookId, isFavorite) => {
+  // console.log(bookId,isFavorite);
   
-  const handleDelete = (bookId) => {
-    // 处理删除操作
-    console.log('删除书籍ID:', bookId)
-  }
-  
-  const handleFavorite = (bookId, isFavorite) => {
-    // 处理收藏操作
-    if (isFavorite) {
-      favorites.value.add(bookId)
-    } else {
-      favorites.value.delete(bookId)
+  const book = recentState.value.find(book => book.id === bookId) ||
+    favoriteState.value.find(book => book.id === bookId)
+
+  if (isFavorite) {
+    favorites.value.add(bookId)
+    if (book && !favoriteState.value.some(favBook => favBook.id === bookId)) {
+      favoriteState.value.push(book)
+      showToast('已收藏')
     }
-    console.log('收藏书籍ID:', bookId, '状态:', isFavorite)
+  } else {
+    favorites.value.delete(bookId)
+    showToast('已取消')
+    favoriteState.value = favoriteState.value.filter(book => book.id !== bookId)
   }
-  
-  const isFavorite = (bookId) => {
-    return favorites.value.has(bookId)
-  }
-  </script>
+}
+
+// 检查是否已收藏
+const isFavorite = (bookId) => {
+  return favorites.value.has(bookId)
+}
+</script>

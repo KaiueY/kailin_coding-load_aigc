@@ -6,7 +6,7 @@
       <div class="avatar absolute top-2 -right-7">
         <van-icon name="user-circle-o" size="1.5rem" />
       </div>
-      <p>{{ msg }}</p>
+      <p>{{ props.msg }}</p>
     </div>
   </div>
 </template>
