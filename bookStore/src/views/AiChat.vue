@@ -82,7 +82,7 @@
         </div>
         <div class="container">
           <div class="box">
-            <div class="cube"></div>
+            <div class="star"></div>
           </div>
         </div>
       </div>
@@ -196,17 +196,50 @@ const sugget = () => {
   animation: translate 1.5s ease-in-out infinite;
   transform: rotate(-35deg);
 }
-.container .box .cube {
-  width: 50px;
-  height: 50px;
-  border-radius: 4px;
-  background-color: #03e9f4;
-  box-shadow: 0 0 5px rgba(3, 233, 244, 1), 0 0 25px rgba(3, 233, 244, 1),
-    0 0 50px rgba(3, 233, 244, 1), 0 0 100px rgba(3, 233, 244, 1),
-    0 0 200px rgba(3, 233, 244, 1), 0 0 300px rgba(3, 233, 244, 1);
-  transform-origin: bottom right;
+.container .box .star {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-right: 50px solid transparent;
+  border-bottom: 35px solid #03e9f4;
+  border-left: 50px solid transparent;
+  transform: rotate(35deg);
+}
+
+.container .box .star:before {
+  border-bottom: 40px solid #03e9f4;
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  position: absolute;
+  height: 0;
+  width: 0;
+  top: -23px;
+  left: -50px;
+  display: block;
+  content: '';
+  transform: rotate(-35deg);
+}
+
+.container .box .star:after {
+  position: absolute;
+  display: block;
+  color: transparent;
+  top: 3px;
+  left: -66px;
+  width: 0;
+  height: 0;
+  border-right: 50px solid transparent;
+  border-bottom: 35px solid #03e9f4;
+  border-left: 50px solid transparent;
+  transform: rotate(-70deg);
+  content: '';
+}
+
+.container .box .star {
+  transform-origin: center;
   animation: rotate 1.5s ease-in-out infinite;
 }
+
 @keyframes translate {
   0% {
     transform: translateX(0px);
