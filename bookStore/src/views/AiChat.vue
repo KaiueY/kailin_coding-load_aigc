@@ -196,49 +196,36 @@ const sugget = () => {
   animation: translate 1.5s ease-in-out infinite;
   transform: rotate(-35deg);
 }
-.container .box .star {
-  position: relative;
-  width: 0;
-  height: 0;
-  border-right: 50px solid transparent;
-  border-bottom: 35px solid #03e9f4;
-  border-left: 50px solid transparent;
-  transform: rotate(35deg);
-}
 
-.container .box .star:before {
-  border-bottom: 40px solid #03e9f4;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  position: absolute;
-  height: 0;
-  width: 0;
-  top: -23px;
-  left: -50px;
-  display: block;
-  content: '';
-  transform: rotate(-35deg);
-}
-
-.container .box .star:after {
-  position: absolute;
-  display: block;
-  color: transparent;
-  top: 3px;
-  left: -66px;
-  width: 0;
-  height: 0;
-  border-right: 50px solid transparent;
-  border-bottom: 35px solid #03e9f4;
-  border-left: 50px solid transparent;
-  transform: rotate(-70deg);
-  content: '';
-}
 
 .container .box .star {
-  transform-origin: center;
+  width: 100px; /* 控制五角星的大小 */
+  height: 100px;
+  background-color: #03e9f4; /* 五角星的颜色 */
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
   animation: rotate 1.5s ease-in-out infinite;
 }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+
 
 @keyframes translate {
   0% {

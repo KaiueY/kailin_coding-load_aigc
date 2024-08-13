@@ -15,7 +15,6 @@ export default defineConfig({
     }
   },
   server: {
-    host: '192.168.31.126', // 监听所有地址
     port: 5173, // 可以更改为你需要的端口
   },
 })
