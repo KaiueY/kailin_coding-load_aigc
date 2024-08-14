@@ -22,7 +22,7 @@ const cachedComponents = computed(() => {
   return router
     .getRoutes()
     .filter((route) => route.meta.KeepAlive)
-    .map((route) => route.name);
+    .map((route) => route.name!);
 });
 </script>
 

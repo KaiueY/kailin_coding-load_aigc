@@ -7,10 +7,11 @@ import App from './App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
 import { Toast } from 'vant'
-
+import lazy from './directives/lazy';
 
 const app  =createApp(App)
 app.use(router)
 app.use(Toast)
 app.use(createPinia())
+app.directive('lazy',lazy)
 app.mount('#app')

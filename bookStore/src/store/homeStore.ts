@@ -143,7 +143,43 @@ export const useHomeStore = defineStore('home',()=>{
             image:"https://cdn.weread.qq.com/weread/cover/94/cpplatform_rsxacan8yacz4rjbohawxe/t6_cpplatform_rsxacan8yacz4rjbohawxe1673856594.jpg",
             title:'暮色将尽',
             decoration:"大家都在读"
-        }
+        },
+        {
+            id:13,
+            image:"https://cdn.weread.qq.com/weread/cover/49/yuewen_935536/t6_yuewen_9355361682243599.jpg",
+            title:'百年孤独',
+            decoration:"大家都在读"
+        },
+        {
+            id:14,
+            image:"https://cdn.weread.qq.com/weread/cover/32/yuewen_827184/t6_yuewen_8271841721702514.jpg",
+            title:'解密',
+            decoration:"大家都在读"
+        },
+        {
+            id:15,
+            image:"https://cdn.weread.qq.com/weread/cover/85/yuewen_32514589/t6_yuewen_325145891721196557.jpg",
+            title :'唐朝诡事录',
+            decoration:"大家都在读"
+        },
+        {
+            id:16,
+            image:"https://cdn.weread.qq.com/weread/cover/80/yuewen_695233/t6_yuewen_6952331677562148.jpg",
+            title :'三体（全集）',
+            decoration:"大家都在读"
+        },
+        {
+            id:17,
+            image:"https://cdn.weread.qq.com/weread/cover/72/cpplatform_i8gtf9q8sz1ae3iw84x31v/t6_cpplatform_i8gtf9q8sz1ae3iw84x31v1722332234.jpg",
+            title:'看见即治愈',
+            decoration:"大家都在读"
+        },
+        {
+            id:18,
+            image:"https://wfqqreader-1252317822.image.myqcloud.com/cover/625/41354625/t6_41354625.jpg",
+            title:'破圈',
+            decoration:"大家都在读"
+        },
     ])
 
     return {

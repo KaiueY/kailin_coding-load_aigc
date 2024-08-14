@@ -14,7 +14,7 @@ export const handleAIResult = (result: AIResult[]) => {
     const follow_up: string[] = [];
     // console.log(result);
 
-    result.forEach((item, i) => {
+    result.forEach((item) => {
         if (item.type === "answer") {
             const msg = item.content;
             // 代表有图片

@@ -19,7 +19,7 @@
                 <van-button block color="#d2d2d2" native-type="submit">登录</van-button>
             </div>
             <div class="text-center" @click="toRegister">
-                没有账号,点击注册
+                没有账号?点击注册
             </div>
             <van-field name="checkbox">
                 <template #input>

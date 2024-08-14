@@ -5,13 +5,9 @@
 </template> -->
 
 <template>
-  <div
-    class="chatPage container h-[calc(100vh-3rem)] bg-black relative bg-gradient-to-r from-pink-100 to-blue-100"
-  >
+  <div class="chatPage container h-[calc(100vh-3rem)] bg-black relative bg-gradient-to-r from-pink-100 to-blue-100">
     <!-- 顶部 -->
-    <div
-      class="chat-header h-[calc(10vh)] w-full flex items-center justify-between bg-transparent px-4"
-    >
+    <div class="chat-header h-[calc(10vh)] w-full flex items-center justify-between bg-transparent px-4">
       <div class="talk">
         <van-icon name="chat-o text-black" size="1.5rem" />
       </div>
@@ -24,46 +20,22 @@
     </div>
     <!-- 聊天记录 -->
     <div class="chat_wrapper h-[calc(72vh)] overflow-y-auto mx-auto p-4 z-1">
-      <div
-        class="chat-item w-full"
-        v-for="(item, index) in msgController"
-        :key="index"
-      >
-        <component
-          :is="item.type == 1 ? AIReply : UserQuery"
-          :msg="item.content"
-        />
+      <div class="chat-item w-full" v-for="(item, index) in msgController" :key="index">
+        <component :is="item.type == 1 ? AIReply : UserQuery" :msg="item.content" />
       </div>
     </div>
     <!-- 底部提问栏 -->
-    <div
-      class="chat_footer h-16 w-full bottom-0 absolute z-999 flex items-center justify-center"
-    >
+    <div class="chat_footer h-16 w-full bottom-0 absolute z-999 flex items-center justify-center">
       <div class="absolute -top-2 left-8" v-show="showSugget">
-        <button
-          @click="sugget"
-          class="border-2 border-gray-300 rounded text-white-500 text-xs bg-white"
-        >
+        <button @click="sugget" class="border-2 border-gray-300 rounded text-white-500 text-xs bg-white">
           {{ suggetMsg }}
         </button>
       </div>
-      <van-search
-        v-model="searchField"
-        placeholder="请输入搜索关键字"
-        show-action
-        shape="round"
-        background="transparent"
-        class="py-2 w-[90%]"
-        v-if="!isGenerating"
-      >
+      <van-search v-model="searchField" placeholder="请输入搜索关键字" show-action shape="round" background="transparent"
+        class="py-2 w-[90%]" v-if="!isGenerating">
         <template #action>
           <div class="text-white">
-            <van-icon
-              name="guide-o"
-              class="text-blue-500"
-              size="1.25rem"
-              @click="handleChat"
-            />
+            <van-icon name="guide-o" class="text-blue-500" size="1.25rem" @click="handleChat" />
           </div>
         </template>
       </van-search>
@@ -71,7 +43,7 @@
         <template #icon>
           <van-icon name="star-o" size="30" color="blue" />
         </template>
-        努力翻书中...
+        思索中...
       </van-loading>
     </div>
     <!-- 过场动画 遮蔽层-->
@@ -94,8 +66,8 @@
 import UserQuery from "@/components/ai/userSend.vue";
 import AIReply from "@/components/ai/aiReplay.vue";
 import { ref } from "vue";
-import { sentMsg, getMsg, queryMsgCompleted } from "@/api/msg";
-import { handleAIResult } from "@/api/handle";
+import { sentMsg, getMsg, queryMsgCompleted } from "../api/msg";
+import { handleAIResult } from "../api/handle";
 
 type msgItem = {
   type: number; // 1:AI 2:用户
@@ -138,7 +110,7 @@ const handleChat = async () => {
       msgController.value.push({ type: 1, content: "且等我思索一番……" });
       const res = await sentMsg(msg);
       const { conversation_id, id } = res.data;
-      // console.log(res.data);
+      console.log(res.data);
 
       // 查询消息是否完成
       queryMsgCompleted(conversation_id, id, 2000)
@@ -185,6 +157,7 @@ const sugget = () => {
 .container {
   width: 100%;
 }
+
 .container .box {
   display: flex;
   justify-content: center;
@@ -199,21 +172,21 @@ const sugget = () => {
 
 
 .container .box .star {
-  width: 100px; /* 控制五角星的大小 */
+  width: 100px;
+  /* 控制五角星的大小 */
   height: 100px;
-  background-color: #03e9f4; /* 五角星的颜色 */
-  clip-path: polygon(
-    50% 0%,
-    61% 35%,
-    98% 35%,
-    68% 57%,
-    79% 91%,
-    50% 70%,
-    21% 91%,
-    32% 57%,
-    2% 35%,
-    39% 35%
-  );
+  background-color: #03e9f4;
+  /* 五角星的颜色 */
+  clip-path: polygon(50% 0%,
+      61% 35%,
+      98% 35%,
+      68% 57%,
+      79% 91%,
+      50% 70%,
+      21% 91%,
+      32% 57%,
+      2% 35%,
+      39% 35%);
   animation: rotate 1.5s ease-in-out infinite;
 }
 
@@ -221,6 +194,7 @@ const sugget = () => {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(90deg);
   }
@@ -231,34 +205,43 @@ const sugget = () => {
   0% {
     transform: translateX(0px);
   }
+
   100% {
     transform: translateX(-50px);
   }
 }
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(90deg);
   }
 }
+
 .slide-enter-active {
   opacity: 1;
 }
+
 .slide-leave-from {
   opacity: 1;
 }
+
 .slide-leave-active {
   transition: 0.3s;
 }
+
 .slide-leave-to {
   opacity: 0;
 }
+
 @keyframes Loading {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

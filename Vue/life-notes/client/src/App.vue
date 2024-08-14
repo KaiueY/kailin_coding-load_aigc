@@ -6,7 +6,7 @@
         color="linear-gradient(to right, #4672b3, #ee5a24)"
         @click="publish" 
         block>
-        NOTE  BOOK
+        LIFE NOTES
       </van-button>
     </div>
     <router-view v-slot="{ Component }">

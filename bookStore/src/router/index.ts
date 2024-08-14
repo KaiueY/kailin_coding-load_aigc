@@ -57,7 +57,7 @@ const routes :RouteRecordRaw[]= [
         },
         component: () => import('../views/TheRoot.vue'),
         children:rootRoutes,
-        redirect:'/home'
+        redirect:'/login'
     },
     {
         path:'/login',
@@ -74,7 +74,7 @@ const router = createRouter({
     history: createWebHistory(),
     routes
 })
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
     document.title = to.meta.title as string
     next()
 })

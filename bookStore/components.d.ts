@@ -11,6 +11,7 @@ declare module 'vue' {
     AIReply: typeof import('./src/components/ai/AIReply.vue')['default']
     BookCard: typeof import('./src/components/BookCard.vue')['default']
     IcomFont: typeof import('./src/components/IcomFont.vue')['default']
+    IconItem: typeof import('./src/components/iconItem.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     UserQuery: typeof import('./src/components/ai/UserQuery.vue')['default']
