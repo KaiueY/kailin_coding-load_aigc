@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .triangle1 {
+            width: 160px;
+            height: 200px;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(32deg, orangered 50%, rgba(255, 255, 255, 0) 50%), linear-gradient(148deg, orangered 50%, rgba(255, 255, 255, 0) 50%);
+            background-size: 100% 50%;
+            background-position: top left, bottom left;
+        }
+
+        .triangle2 {
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 50px 50px;
+            border-color: transparent transparent #d9534f;
+            position: relative;
+            /* border-bottom: #96ceb4 solid ; */
+        }
+
+        .triangle2:after {
+            content: '';
+            border-style: solid;
+            border-width: 0 40px 40px;
+            border-color: transparent transparent #ffffff;
+            position: absolute;
+            top: 6px;
+            left: -40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="triangle1"></div>
+    <div class="triangle2"></div>
+</body>
+
+</html>

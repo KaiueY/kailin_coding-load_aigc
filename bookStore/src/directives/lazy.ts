@@ -1,4 +1,4 @@
-// directives/lazy.js
+// directives/lazy.ts
 import type { DirectiveBinding } from 'vue';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
@@ -8,13 +8,12 @@ export default {
         if (typeof binding.value === 'string') {
             el.dataset.src = binding.value;
         }
-        // console.log(el, useIntersectionObserver());
-        const { observer }: any = useIntersectionObserver();
+        const { observer } = useIntersectionObserver();
         observer.observe(el);
     },
-    unmounted(el: any) {
+    unmounted(el: HTMLElement) {
         // 当元素卸载时，取消观察
-        const { observer }: any = useIntersectionObserver();
+        const { observer } = useIntersectionObserver();
         if (observer) {
             observer.unobserve(el);
         }
