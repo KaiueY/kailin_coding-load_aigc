@@ -31,7 +31,7 @@ class Store{
     }
     get state(){
         return this._state.data 
-    }
+    } 
     install(app){
         app.provide(STORE_KEY,this)
     }
