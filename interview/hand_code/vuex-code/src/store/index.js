@@ -13,7 +13,6 @@ const store = createStore({
     getters:{
         double(state){
             return  state.count * 2
-
         }
     },
     mutations:{

@@ -17,8 +17,8 @@ class Store{
         // 私有属性
         this._state = reactive({
             data:options.state()
-
         }) 
+
         // 私有属性 commit dispath 
         this._mutations = options.mutations
         this._actions = options.actions
@@ -29,10 +29,12 @@ class Store{
             this.getters[name] = computed(()=>fn(this.state))
         })
     }
+
     get state(){
         return this._state.data 
     } 
+
     install(app){
         app.provide(STORE_KEY,this)
     }
-}
+}  
