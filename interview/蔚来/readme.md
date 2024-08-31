@@ -101,5 +101,9 @@
     - interface 支持继承
 
 # 对泛型的理解
-     - 
+     - Generics 是一种允许我们使用类型变量的方式，来创建可重用的组件，核心可以使用类型变量
+        类型参数化 4.ts
+            function identity<T>(arg:T):T{
+                return  arg
+            }
 
