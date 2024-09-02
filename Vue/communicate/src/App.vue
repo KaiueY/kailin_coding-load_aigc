@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import demo from './components/demo1/parent.vue'
+import demo from './components/demo2/parent.vue'
 
 </script>
 
