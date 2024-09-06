@@ -33,6 +33,17 @@ class Store{
     get state(){
         return this._state.data 
     } 
+    // payload参数
+    // 确保this指向store对象
+    commit = (type ,payload)=>{
+        const entry = this._mutations[type]
+        entry&& entry(this.state,payload)
+    }
+    // 动作类型  action_name
+    dispatch(type,payload ){
+        const entry = this._actions[type]
+        entry && entry(this,payload)
+    }
 
     install(app){
         app.provide(STORE_KEY,this)

@@ -1,4 +1,4 @@
-// 借口
+// 接口
 interface IPerson{
     name : string 
     age : number 
