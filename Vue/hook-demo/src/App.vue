@@ -1,5 +1,5 @@
 <script setup>
-import {ref,onMounted} from 'vue'
+import {ref,onMounted,computed} from 'vue'
 import {useMouse} from './hooks/useMouse'
 import {useTodos} from './hooks/usrTodos.js'
 
@@ -15,7 +15,7 @@ import {useTodos} from './hooks/usrTodos.js'
 //   window.addEventListener('mousemove',update)
 // })
 
-const {title , active , all , todos, allDone , clear} = useTodos()
+const {title , active , all , todos, allDone , clear,addTodo} = useTodos()
 </script>
 
 <template>
@@ -25,7 +25,7 @@ const {title , active , all , todos, allDone , clear} = useTodos()
     <input type="text" v-model="title" @keydown.enter="addTodo" />
     <button v-if="active<all" @click="click">清理</button>
 
-    <ul v-if="todo.length">
+    <ul v-if="todos.length">
       <li v-for="todo in todos">
         <input type="checkbox" v-model="todo.done">
         <span :class="{done:todo.done}">{{ todo.title }}</span>
@@ -34,7 +34,7 @@ const {title , active , all , todos, allDone , clear} = useTodos()
     <div v-else> 暂无数据</div>
     <div> 
       全选 <input type="checkbox" v-model="allDone" />
-      <span>{{ active }}/ {{ all }}</span>
+      <span>{{ active }} / {{ all }}</span>
     </div>
   </div>
 </template>

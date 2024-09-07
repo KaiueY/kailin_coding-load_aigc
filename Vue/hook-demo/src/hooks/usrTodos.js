@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref,computed } from 'vue'
 export const useTodos = () =>{
     let title = ref('')
     let todos = ref([
@@ -6,11 +6,14 @@ export const useTodos = () =>{
     ])
 
     function addTodo(){
-        todos.push({
+        if(title.value.trim()){
+           todos.value.push({
             title:title.value,
             done:false
         })
-        title.value = ''
+        title.value = '' 
+        }
+        
     }
 
 
@@ -37,6 +40,12 @@ export const useTodos = () =>{
         }
     })
     return {
-
+        title,
+        todos,
+        addTodo,
+        clear,
+        active,
+        done,
+        allDone,
     }
 }
