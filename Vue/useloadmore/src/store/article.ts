@@ -90,7 +90,7 @@ export const useArticleStore = defineStore('article', () => {
     ]
     const articles = ref<Article[]>([])
     // 滚动加载更多
-    const getArticles = (page: number, size: number = 10) => {
+    const getArticles = (page: number, size: number = 5) => {
         return new  Promise((resolve)=>{
             setTimeout(() =>{
                 // 某页的数据
