@@ -10,9 +10,9 @@
 <script>
 // import { shallowReactive,reactive, computed,effect   } from 'vue';
 
-import { reactive } from './reactivity/reactive.js'
-import { effect } from './reactivity/effect.js';
-import { ref } from './reactivity/ref.js';
+import { reactive } from './reactivity copy/reactive';
+import { effect } from './reactivity copy/effect';
+import { ref } from './reactivity copy/ref.js';
 
 export default {
   setup() {

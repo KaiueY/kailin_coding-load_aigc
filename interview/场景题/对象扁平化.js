@@ -4,19 +4,38 @@ const obj = {
     d:{e:2,f:3},
     g:null
 }
-const flattenRes = flattenObj(obj)
+let flattenRes = flattenObj(obj)
 function flattenObj(obj) {
     let res = {}
-    const helper = (target) =>{
-        for(let key in target){
-        if(target[key]===undefined || target[key]===null)continue  
-          
-        } 
+    let once = true
+    function helper(obj,oldKey=''){
+        for(let key in obj){
+            let nKey 
+            if(oldKey){
+                if(Array.isArray(obj)){
+                    nKey = `${oldKey}[${key}]`
+                }
+                else {
+                    nKey = `${oldKey}.${key}`
+                }
+            }
+            else{
+                nKey = key
+            }
+
+            if(Array.isArray(obj[key])||Object.prototype.toString.call(obj[key]) === '[object Object]'){
+                // 对象
+                helper(obj[key],nKey)
+            }
+            else if(obj[key]!==null&obj[key]!==undefined){
+                res[nKey] = obj[key]
+            }
+        }
     }
-    helper(obj)
 
-
+    helper(obj,)
     return res
 }
 
-console.log();
+
+console.log(flattenRes);

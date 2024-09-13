@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="root"></div>
+    
+    <script>
+        const vnode = {
+            tag:'div',
+            attrs:{
+                id:'root',
+                className:'box',
+                style:{width:'100px',height:'100px',background:'red'}
+            },
+            children:[
+                {
+                    tag:'span',
+                    children:[{
+                        tag:'a',
+                        children:[],
+                    }],
+                },
+                {
+                    tag:'span',
+                    children:[{
+                        tag:'b',
+                        children:[],
+                    }],
+                },
+            ]
+        }
+
+        render(vnode,document.getElementById('root'))
+        function render(vnode,container){
+            const dom = createDomFromVnode(vnode)
+            container.appendChild(dom)
+        }
+        function createDomFromVnode(vnode){
+            const {tag,attrs,children} = vnode
+            const dom = document.createElement(tag)
+            if(typeof attrs === 'object'&& attrs !== null){
+                addAttrs(dom,attrs)//为dom添加属性
+            }
+            if(Array.isArray(children) &&children.length>0){
+                reconcileChildren(dom,children)
+            }
+            return dom
+        }
+        // 增加属性
+        function addAttrs(dom,newProps={}){
+            for (const key in newProps){
+                if(key === 'style'){
+                    addStyle(dom,newProps[key])
+                }
+                else{
+                    dom[key] = newProps[key]
+                }
+                
+            }
+        }
+        // 移除原属性
+        // 增加样式
+        function addStyle  (dom,styles) {
+            for(let key in styles){
+                dom.style[key] = styles[key]
+            }
+        }
+        
+        function reconcileChildren (dom,children) {
+            for(let child of children){
+                render(child,dom)
+            }
+        }
+        
+    </script>
+</body>
+</html>

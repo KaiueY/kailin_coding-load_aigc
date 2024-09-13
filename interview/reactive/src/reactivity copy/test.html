@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="module">
+    import { reactive } from './reactive.js';
+    import { effect } from './effect.js'
+
+    const state = reactive({
+      name: '蜗牛',
+      age: 18, 
+      like: {
+        item: 'running'
+      }
+    })
+
+    effect(
+      () => {
+        console.log(`${state.name}今年${state.age}岁了`);
+      }, 
+      {
+        lazy: false, 
+        scheduler: () => {
+          console.log('调度器中的任务被执行了');
+        }
+      }
+    )
+
+    setInterval(() => {
+      state.age++
+    }, 2000)
+    
+  </script>
+</body>
+</html>
