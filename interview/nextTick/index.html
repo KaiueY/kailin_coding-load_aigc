@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h2 {
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="./nextTick.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <div id="app">
+    <h2 ref='h2Ref'>{{ message }}</h2>
+    <button @click="updateMessage">update</button>
+  </div>
+
+
+  <script>
+    const { createApp, ref, onMounted, } = Vue
+
+    createApp({
+      setup() {
+        const message = ref('Hello vue!')
+        const h2Ref = ref(null)
+
+        // console.log('-----', h2Ref.value.clientWidth)
+
+        // nextTick(() => {
+        //     console.log('-----', h2Ref.value.clientWidth)
+        //   })
+        const updateMessage = () => {
+          message.value = 'Hello vue 3!'
+          // nextTick里面的promise状态需要等待内部回调中的异步代码执行完毕才会变为fulfilled
+          let res = nextTick(() => {
+            console.log('-----', h2Ref.value.clientWidth)
+          })
+          res.then(()=>{
+            console.log('nextTick执行完毕');
+            
+          })
+          // console.log(h2Ref.value)
+          // setTimeout(() => {
+          //     console.log('-----',h2Ref.value.clientWidth)
+          // });
+          // console.log('-----',h2Ref.value.clientWidth)
+        }
+        // onMounted(() => {
+        //   console.log('-----', h2Ref.value.clientWidth)
+        // })
+      
+
+
+        return {
+          message,
+          h2Ref,
+          updateMessage,
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>
