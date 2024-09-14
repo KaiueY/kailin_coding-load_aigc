@@ -1,0 +1,21 @@
+{
+  "name": "ts-demo",
+  "version": "1.0.0",
+  "description": "- express 框架\r     - typescript \r     - MVC Model View Control\r     - mysql \r     - 复杂业务",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsc-watch --onSuccess \"node dist/mian.ts\""
+
+  },
+  "devDependencies":{
+    "tsc-watch":"^4.6.2",
+    "typescript": "3.9.10",
+    "@types/node": "13.13.52"
+  },
+  "dependencies":{
+    
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
