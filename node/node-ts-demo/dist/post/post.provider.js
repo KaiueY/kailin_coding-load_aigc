@@ -4,13 +4,13 @@ exports.sqlFragment = void 0;
 exports.sqlFragment = {
     user: `
         JSON_OBJECT(
-            'id':user.id
-            'name':user.name
+            'id',user.id,
+            'name',user.name
         ) as user 
     `,
     leftJoinUser: `
         LEFT JOIN user
-            ON user.id = post.user.id
+            ON user.id = post.userId
     `
 };
 //# sourceMappingURL=post.provider.js.map

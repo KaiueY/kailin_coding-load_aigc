@@ -42,7 +42,18 @@
             - next(error) 错误并非不可原谅的 为了用户的正常浏览 抛向错误处理模块
         - 错误处理中间件
             app.middleware 第一个参数是error 对象 
-    
+        - 功能模块的业务划分
+            - post.router.ts 路由模块 restful 定义路由 再交给下面
+            - post.controller.ts 控制器 解析参数 POST (GET都可以)  校验参数 业务逻辑
+            - post.service.ts SQL业务逻辑  mysql2提供的方法如（.promise.query）进行复杂查询
+        
+        - 表链接
+            - inner join
+            - left join
+            - right join
+                posts表  n   :    1  user表
+            根据 postId 查询        user
+                
     - 索引 
         - 主键
         - 关键

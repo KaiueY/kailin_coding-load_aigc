@@ -487,7 +487,7 @@
         "affectsGlobalScope": false
       },
       "../src/post/post.provider.ts": {
-        "version": "8c006b48b5434ad9303b0ee1c3b505f099225c9694a48b872c3ab79c5a55ebb6",
+        "version": "c1dfdd18439664bd644d81a08d6b51e9724535ce88c6b7b98d8620d371be96fa",
         "signature": "d2c4da9fe42c3ad95ce0219abddd34b53f63306d33da4ade40289ceb6115caf6",
         "affectsGlobalScope": false
       },
