@@ -9,7 +9,8 @@ exports.getPostById = async (postId) => {
             post.id,
             post.title,
             post.content,
-            ${post_provider_1.sqlFragment.user}
+            ${post_provider_1.sqlFragment.user},
+            ${post_provider_1.sqlFragment.totalComments}
         FROM post
         ${post_provider_1.sqlFragment.leftJoinUser}
         WHERE post.id = ?

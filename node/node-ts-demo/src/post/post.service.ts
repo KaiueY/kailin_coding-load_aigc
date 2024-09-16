@@ -1,6 +1,6 @@
 import { connection } from "../app/database/mysql"
 import { PostModel } from "./post.model"
-import {sqlFragment} from './post.provider'
+import {sqlFragment,} from './post.provider'
 
 
 export const getPostById = async (postId:number) =>{
@@ -13,7 +13,8 @@ export const getPostById = async (postId:number) =>{
             post.id,
             post.title,
             post.content,
-            ${sqlFragment.user}
+            ${sqlFragment.user},
+            ${sqlFragment.totalComments}
         FROM post
         ${sqlFragment.leftJoinUser}
         WHERE post.id = ?

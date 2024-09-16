@@ -14,6 +14,7 @@ import { defaultErrorHandler } from './app.middleware'
 const app = express()
 
 app.use(
+    // 解决跨域
     cors({
         origin: ALLOW_ORIGIN, // 白名单
         exposedHeaders: 'X-Total-Count' // 总计数量
