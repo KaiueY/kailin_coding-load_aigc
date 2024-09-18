@@ -7,6 +7,7 @@ import express from 'express' // koa
 import  cors from 'cors'
 import { ALLOW_ORIGIN } from './app.config'
 import postRouter from '../post/post.router' // 文章路由模块
+import userRouter from '../user/user.router' //用户路由模块
 import { defaultErrorHandler } from './app.middleware'
 /**
  * 创建项目
@@ -25,7 +26,8 @@ app.use(
  * 路由
  */
 app.use(
-    postRouter
+    postRouter,
+    userRouter
 )
 
 /**

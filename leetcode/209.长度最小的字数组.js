@@ -1,8 +1,4 @@
-/**
- * @param {number} target
- * @param {number[]} nums
- * @return {number}
- */
+
 /**
  * @param {number} target
  * @param {number[]} nums

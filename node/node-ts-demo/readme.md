@@ -46,20 +46,31 @@
             - post.router.ts 路由模块 restful 定义路由 再交给下面
             - post.controller.ts 控制器 解析参数 POST (GET都可以)  校验参数 业务逻辑
             - post.service.ts SQL业务逻辑  mysql2提供的方法如（.promise.query）进行复杂查询
-        
+            - post.model.ts 数据模型
+            - post.provider.ts 查询的辅助内容
         - 表链接
             - inner join
             - left join
             - right join
                 posts表  n   :    1  user表
             根据 postId 查询        user
-                
+            - 多对多 关系表  user_like_post post_tag
+                - 
+        
+        - 中间件高级使用技巧
+            - 本身就是一个函数,可以用来封装独立的功能，具有独立性，可以通过next 交给下一个中间件，注册使用到了中间件，
+            注册validateUserData,hashPassword,userConreoller.store三个中间件
+            
+
     - 索引 
         - 主键
         - 关键
         - 普通索引
         - 联合索引
         - 唯一索引
+        快速查询  业务场景中国，查询需求是快速准确
+        -user_like_post
+        用userId 好 postId 联合查询 对应某用户点赞了某篇文章
 - 良好的编程风格
     - 模块化 入口文件干净 不同文件负责不同的事
     - 注释

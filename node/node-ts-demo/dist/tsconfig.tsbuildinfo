@@ -487,12 +487,12 @@
         "affectsGlobalScope": false
       },
       "../src/post/post.provider.ts": {
-        "version": "d2c15a0488947283e698b056baf62bc02ddd840506441e342b737df9fa9b8d7d",
-        "signature": "3de8a69f0a36f29d455f6930f05ff0f2b775919cd7b413adef54cf8d16454758",
+        "version": "3c55ba4390609d69342e2cc021005f552f2df26592d8be1b5a8d94d10ae37b85",
+        "signature": "1f2c2fe03054ac8cd3291e0c5cc5e8f64e7169d921346da735c34e813fefa5b0",
         "affectsGlobalScope": false
       },
       "../src/post/post.service.ts": {
-        "version": "fdcbc7e83e82267912086d6ae74d0c7460c15e3c9aa12389d950ab25a6250d3c",
+        "version": "c84ae9fca825b91860a5943b9a14aa0e17d1b422f6963db5cdba1790e023f5ba",
         "signature": "cdcb46f08fe6a5bfccc487a3dee7943a042902633cfbbe95279bbf6229c185c1",
         "affectsGlobalScope": false
       },
@@ -502,7 +502,17 @@
         "affectsGlobalScope": false
       },
       "../src/post/post.router.ts": {
-        "version": "95d2f3f74c384bf24d6136249f6a5ab985fe9be728a77c76aacfde2107ce16fe",
+        "version": "28b38bf6126eb0a468d34046571c8775b332388777d28690e38a6833934d8aec",
+        "signature": "5ecba3ff11fdbdeae8cf783bed4d372cf9d390f280adb3cc57628459e8525444",
+        "affectsGlobalScope": false
+      },
+      "../src/user/user.middleware.ts": {
+        "version": "0c9deb2971928fe4967ed83373d6b21f6c73c8b642bb8ed14ebe7f5250ff25b9",
+        "signature": "ae13b46e9536d9ded87d6398e8e4f98518cdee75e3c818dfe0bf5bb5ceab637b",
+        "affectsGlobalScope": false
+      },
+      "../src/user/user.router.ts": {
+        "version": "b7bb4f58c00eea1a2988ea09d93601112b3af2299af9ebb1e9de9753eeef38cf",
         "signature": "5ecba3ff11fdbdeae8cf783bed4d372cf9d390f280adb3cc57628459e8525444",
         "affectsGlobalScope": false
       },
@@ -512,13 +522,28 @@
         "affectsGlobalScope": false
       },
       "../src/app/index.ts": {
-        "version": "85225748c0833c015f991b58b255a2f28bc1bf3417872bb332567366e695a2e6",
+        "version": "9dc437d42996618914d05b0751350c6ddec44b6070fed52e04324ca8f55d73d2",
         "signature": "641c6386540527832909835965dea6401687290c12314a2c9cd15208e415f269",
         "affectsGlobalScope": false
       },
       "../src/main.ts": {
         "version": "487011b1cdc3f250338cb31bdc258206b5221f7810863209e223957b6a80c0f1",
         "signature": "f761c91419d0a89422a0004ef1a92929dd4d2d5e5c16758654d8b0467d1998c6",
+        "affectsGlobalScope": false
+      },
+      "../src/user/user.controller.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "affectsGlobalScope": false
+      },
+      "../src/user/user.model.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "affectsGlobalScope": false
+      },
+      "../src/user/user.service.ts": {
+        "version": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "signature": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
         "affectsGlobalScope": false
       }
     },
@@ -766,7 +791,8 @@
         "../node_modules/@types/cors/index.d.ts",
         "../src/app/app.config.ts",
         "../src/app/app.middleware.ts",
-        "../src/post/post.router.ts"
+        "../src/post/post.router.ts",
+        "../src/user/user.router.ts"
       ],
       "../src/main.ts": [
         "../src/app/app.config.ts",
@@ -783,6 +809,9 @@
         "../src/app/database/mysql.ts",
         "../src/post/post.model.ts",
         "../src/post/post.provider.ts"
+      ],
+      "../src/user/user.router.ts": [
+        "../src/user/user.middleware.ts"
       ]
     },
     "exportedModulesMap": {
@@ -1110,7 +1139,12 @@
       "../src/post/post.model.ts",
       "../src/post/post.provider.ts",
       "../src/post/post.router.ts",
-      "../src/post/post.service.ts"
+      "../src/post/post.service.ts",
+      "../src/user/user.controller.ts",
+      "../src/user/user.middleware.ts",
+      "../src/user/user.model.ts",
+      "../src/user/user.router.ts",
+      "../src/user/user.service.ts"
     ]
   },
   "version": "3.9.10"

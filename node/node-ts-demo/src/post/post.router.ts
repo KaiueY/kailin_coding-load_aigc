@@ -18,4 +18,4 @@ router.get(
     postController.show
 )
 
-export default router 
+export default router
