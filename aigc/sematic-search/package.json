@@ -1,0 +1,17 @@
+{
+  "name": "sematic-search",
+  "version": "1.0.0",
+  "description": "- 搜索组件开发（前端）\r - 全栈难点\r - 搜索\r     - 模糊搜索 LIKE 匹配正则 数据量太多 性能不好\r     - elastic search\r     - 自然语意搜索\r - '百度面试'\r     - 大模型的世界里 腾讯面试\r     向量 任何东西都可以用向量（数学方式表达）",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "openai": "^4.52.3",
+    "readline": "^1.3.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
