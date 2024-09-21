@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚拟列表</title>
+</head>
+
+<body>
+    <ul id="u"></ul>
+
+
+    <script>
+        const total = 10000
+        const ul = document.getElementById('ul')
+        // 一次渲染的个数
+        const once = 20
+
+        let index = 0 
+
+        function loop(curTotal, curIndex) {
+            if (curTotal<=0)return
+            let  pageCount = Math.min(once, curTotal)
+            requestAnimationFrame(() => {
+                let fragment  = document.createDocumentFragment()
+                for (let i = 0; i < pageCount; i++) {
+                    let li = document.createElement('li')
+                    li.innerText =curIndex + i + ':' + ~~(Math.random() * total)
+                    fragment.appendChild(li)
+                }
+                ul.appendChild(fragment)
+                loop(curTotal - pageCount,curIndex+pageCount)
+            })
+            
+
+        }
+        loop(total,index)
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚拟列表</title>
+    <style>
+        /* 添加一些基本样式 */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            height: 300px; /* 设置固定高度以便于滚动 */
+            overflow-y: auto;
+        }
+        li {
+            height: 20px; /* 每个列表项的高度 */
+            border-bottom: 1px solid #ccc; /* 分隔线 */
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="list"></ul>
+
+    <script>
+        const total = 10000;
+        const ul = document.getElementById('list');
+        const once = 20; // 一次渲染的个数
+
+        let index = 0;
+
+        function loop(curTotal, curIndex) {
+            if (curTotal <= 0) return;
+            let pageCount = Math.min(once, curTotal);
+            setTimeout(() => {
+                for (let i = 0; i < pageCount; i++) {
+                    let li = document.createElement('li');
+                    li.innerText = curIndex + i + ':' + ~~(Math.random() * total);
+                    ul.appendChild(li);
+                }
+                loop(curTotal - pageCount, curIndex + pageCount);
+            }, 16); // 使用大约每秒60帧的时间间隔
+        }
+
+        loop(total, index);
+
+        // 虚拟列表逻辑
+        function virtualList() {
+            const visibleHeight = ul.clientHeight; // 可视区域高度
+            const itemHeight = 20; // 单个item的高度
+            const start = Math.floor(ul.scrollTop / itemHeight);
+            const end = start + Math.ceil(visibleHeight / itemHeight) + 1;
+
+            // 清空列表
+            ul.innerHTML = '';
+
+            // 填充当前可视区域的元素
+            for (let i = start; i < end; i++) {
+                let li = document.createElement('li');
+                li.innerText = i + ':' + ~~(Math.random() * total);
+                ul.appendChild(li);
+            }
+        }
+
+        // 监听滚动事件
+        ul.addEventListener('scroll', virtualList);
+
+        // 初始化虚拟列表
+        virtualList();
+    </script>
+</body>
+
+</html>
