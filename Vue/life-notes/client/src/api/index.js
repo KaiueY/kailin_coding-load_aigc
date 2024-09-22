@@ -3,7 +3,8 @@ import { showToast } from 'vant';
 import  router  from "../router/index";
 
 
-axios.defaults.baseURL = 'http://8.130.12.32:3000'
+// axios.defaults.baseURL = 'http://8.130.12.32:3000'
+axios.defaults.baseURL = 'http://localhost:3000'
 
 axios.defaults.headers.post['Content-type'] = 'application/json'
 

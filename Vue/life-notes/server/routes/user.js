@@ -7,10 +7,10 @@ router.prefix('/user')
 router.post('/login', async (ctx) => {
     // 从请求体中解析到前端传递的参数 去数据库查询账号密码是否正确合法 
     // console.log(ctx.request.body);
-    const { username, password } = ctx.request.body
+    const { username=null, password=null } = ctx.request.body
     try {
         const result = await userLogin(username, password)
-        // console.log(result);
+        // console.log('登录结果:',result);
         if (result.length) {//存在
             const data = {
                 id: result[0].id,
@@ -28,7 +28,7 @@ router.post('/login', async (ctx) => {
         } else {//不存在数据
             ctx.body = {
                 code: '805',
-                msg: '账号或密码错误！😭',
+                msg: '用户不存在！😭',
                 data: 'error'
             }
         }
