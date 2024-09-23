@@ -116,10 +116,9 @@ router.post('/note-publish', jwt.verify(), async (ctx, next) => {
 
 // 分片上传接口
 // 上传分片接口
-router.post('/upload-chunk', async (ctx) => {
+router.post('/upload-chunk',async (ctx) => {
     try {
-        console.log(ctx.request.files,'-------');
-        
+
         const { file } = ctx.request.files.file;
         console.log(file,'file ---');
         
@@ -143,7 +142,7 @@ router.post('/upload-chunk', async (ctx) => {
         // 删除临时文件
         fs.unlinkSync(file.path);
 
-        ctx.body = { code: 200, msg: 'Chunk uploaded successfully' };
+        ctx.body = { code: '200', msg: 'Chunk uploaded successfully' };
     } catch (error) {
         console.error('Upload chunk error:', error);
         ctx.throw(500, 'Internal Server Error');
@@ -163,7 +162,7 @@ router.post('/merge-chunks', async (ctx) => {
         const mergedData = chunksData[fileName].join('');
         delete chunksData[fileName]; // 清除已处理的分片数据
 
-        ctx.body = { code: 200, data: mergedData, msg: 'Upload successful!' };
+        ctx.body = { code: '200', data: mergedData, msg: 'Upload successful!' };
     } catch (error) {
         console.error('Merge chunks error:', error);
         ctx.throw(500, 'Internal Server Error');

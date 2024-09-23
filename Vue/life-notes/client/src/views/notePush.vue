@@ -43,20 +43,20 @@
 import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 import { reactive, ref } from 'vue';
-import axios from '@/api'
+import axios from '../api/index';
 import { useRouter } from 'vue-router';
 import { showToast } from 'vant';
 
 const CHUNK_SIZE = 1024 * 10; // 每片 1MB
-const router = useRouter() 
- const showPicker = ref(false)
-  const columns = [
-    { text: '美食', value: '美食' },
-    { text: '旅行', value: '旅行' },
-    { text: '恋爱', value: '恋爱' },
-    { text: '学习', value: '学习' },
-    { text: '吵架', value: '吵架' },
-  ]
+const router = useRouter()
+const showPicker = ref(false)
+const columns = [
+  { text: '美食', value: '美食' },
+  { text: '旅行', value: '旅行' },
+  { text: '恋爱', value: '恋爱' },
+  { text: '学习', value: '学习' },
+  { text: '吵架', value: '吵架' },
+]
 const state = reactive({
   content: '',
   title: '',
@@ -64,77 +64,72 @@ const state = reactive({
   uploadProgress: 0,
 })
 
-const afterRead = async (files) => {
-  const file = files.file
-  const len = file.size
-
-  const chunkList = []
-  // console.log('len', len, file);
-  let cur = 0
+const afterRead =  (files) => {
+  const file = files.file;
+  const len = file.size;
+  // console.log('file:',file.name);
+   const filename = file.name;
+  const chunkList = [];
+  let cur = 0;
   while (cur < len) {
-    // clice切割
-    chunkList.push({ file: file.slice(cur, cur + CHUNK_SIZE) })
-    cur += CHUNK_SIZE
+    chunkList.push({ file: file.slice(cur, cur + CHUNK_SIZE) });
+    cur += CHUNK_SIZE;
   }
+  // console.log('chunkList:',chunkList);
+  
   const chunks = chunkList.map(({ file }, index) => {
-
     return {
       file,
       size: file.size,
-      percent: 0,
+      filename: filename,
       index
-    }
-  })
-  // console.log(chunks,'------');
-  const formChunks = chunks.map(({ file, index }) => {
-    const formData = new FormData()
-    formData.append('file', file)
-    return { formData, index }
-  })
-  // console.log(formChunks,'ks');
+    };
+  });
+  // console.log('chunks:',chunks);
+  
 
-  // 发请求
-  const requestList = formChunks.map(({ formData, index }) => {
-    // 一个一个发
-    
-    return axios.post('/upload-chunk', formData,  {
-      headers: {
-        'Content-Type': 'multipart/form-data'
-      }
-    })
-  })
-  console.log(requestList);
+  const formChunks = chunks.map(({ file,filename, index }) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('chunkIndex', index);
+    formData.append('fileName', filename);
+    return { formData, index };
+  });
+  // console.log('formChunks',formChunks);
+  
+  const requestList = formChunks.map(({ formData,index }) => {
+    return axios.post('/upload-chunk', formData,);
+  });
+
   Promise.all(requestList).then(res => {
-    console.log('上传成功');
+    console.log(res,'上传成功');
+  }).then(() => {
+    axios.post('/merge-chunks', {
+      fileName: files.file.name
+    });
+  });
+};
 
-  }).then(
-    axios.post('/merge-chunks',{
-      ststus:200
-    })
-  )
 
+const onConfirm = ({ selectedValues }) => {
+  state.note_type = selectedValues[0]
+  showPicker.value = false
+}
 
-
-  const onConfirm = ({ selectedValues }) => {
-    state.note_type = selectedValues[0]
-    showPicker.value = false
+// 发布
+const publish = async () => {
+  if (!state.content && !state.title) {
+    showToast('还没有输入完全哦~')
+    return;
   }
 
-  // 发布
-  const publish = async () => {
-    if (!state.content && !state.title) {
-      showToast('还没有输入完全哦~')
-      return;
-    }
+  const res = await axios.post('/note-publish', {
+    title: state.title,
+    note_content: state.content,
+    note_type: state.note_type
+  })
 
-    const res = await axios.post('/note-publish', {
-      title: state.title,
-      note_content: state.content,
-      note_type: state.note_type
-    })
-
-    router.push('/noteClass')
-  }
+  router.push('/noteClass')
 }
 
 </script>

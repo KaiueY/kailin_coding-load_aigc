@@ -1,15 +1,21 @@
-import axios from "axios";
+import axios from 'axios';
 import { showToast } from 'vant';
 import  router  from "../router/index";
 
 
 // axios.defaults.baseURL = 'http://8.130.12.32:3000'
-axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseURL = 'http://localhost:3001'
 
 axios.defaults.headers.post['Content-type'] = 'application/json'
 
 // 请求拦截
 axios.interceptors.request.use(req=>{
+    if (req.data instanceof FormData) {
+         req.headers['Content-Type']='multipart/form-data';
+    } else {
+        // 对于非 FormData 请求，设置 Content-Type 为 application/json
+        req.headers['Content-Type'] = 'application/json';
+    }
     let jwtToken = localStorage.getItem('token')
     if (jwtToken){
         req.headers.Authorization = jwtToken

@@ -22,7 +22,7 @@ function verify (){//校验token
              } catch (error) {
                 ctx.status = 401
                 ctx.body={
-                    msg:'token已失效',
+                    msg:'token已失效l',
 
                 }
              }

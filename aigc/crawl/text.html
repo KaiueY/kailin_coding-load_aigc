@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>获取书籍信息</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="routerView">
+        <div class="ranking_page_content_list_container">
+            <ul>
+                <li class="wr_bookList_item">
+                    <a href="/web/reader/89c325f0565ef389c40e87c" class="wr_bookList_item_link"></a>
+                    <div class="wr_bookList_item_container">
+                        <p class="wr_bookList_item_index">1</p>
+                        <div class="wr_bookCover wr_bookList_item_cover">
+                            <img src="https://cdn.weread.qq.com/weread/cover/20/yuewen_417523/t6_yuewen_4175231726674000.jpg" alt="书籍封面" class="wr_bookCover_img">
+                        </div>
+                        <div class="wr_bookList_item_info">
+                            <p class="wr_bookList_item_title">每天懂一点人情世故</p>
+                            <p class="wr_bookList_item_author">
+                                <a href="/web/search/books?author=%E7%AB%A0%E5%B2%A9&amp;ii=89c325f0565ef389c40e87c">章岩</a>
+                            </p>
+                            <p class="wr_bookList_item_reading">
+                                <span class="wr_bookList_item_readingText wr_bookList_item_readingCountText">
+                                    <span class="wr_bookList_item_reading_number">6170</span>人今日阅读
+                                </span>
+                            </p>
+                            <p class="wr_bookList_item_desc">在这个世界上，到处都是有才华的“穷人”...</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- 其他书籍项 -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            const movieNodes = $('#routerView .ranking_page_content_list_container .wr_bookList_item');
+
+            movieNodes.each(function() {
+                const title = $(this).find('.wr_bookList_item_title').text(); // 获取书名
+                const author = $(this).find('.wr_bookList_item_author a').text(); // 获取作者
+                const readingCount = $(this).find('.wr_bookList_item_reading_number').text(); // 获取今日阅读人数
+                const description = $(this).find('.wr_bookList_item_desc').text(); // 获取书籍描述
+
+                console.log('书名:', title);
+                console.log('作者:', author);
+                console.log('今日阅读人数:', readingCount);
+                console.log('书籍描述:', description);
+            });
+        });
+    </script>
+</body>
+</html>

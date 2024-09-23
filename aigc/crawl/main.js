@@ -19,12 +19,6 @@ const client = new OpenAI({ //对象字面量
 // 单点入口
 
 async function main() {
-    // 代码 分步细化需求  伪代码：
-    // 根据URL发送http请求  拿到html
-    // 根据html 分析 拿到电影内容 
-    // 返回内容
-    // await LLM
-    // 用const而不是let 生命常量
     const URL = 'https://movie.douban.com/chart'
     // 发送http请求 拿到html 408
     const html = await request({
@@ -60,35 +54,7 @@ async function main() {
 
     })
     console.log(chatCompletion.choices);
-    // const movieList = []
-    // console.log($('#content .article .item').length)
-//     for (let i = 0; i < movieNodes.length; i++) {
-//         //封装
-//         // 将一段电影的html解析 剥离出去，
-//         // 这段功能相对独立 复用的
-//         // 因为main函数已经比较复杂  一个代码超过十行  可以分离函数
-//         movieList.push(getMovieInfo(movieNodes[i]))
-//     }
-//     console.log(movieList);
- }
-const getMovieInfo = function (node) {
-    let movieInfo = {}
-    //将tr加载进内存
-    let $$ = cheerio.load(node)
-    let title = $$('.pl2 a').text()
-    let pic = $$('.nbg img').attr('src')
-    let info = $$('p.pl').text()
-    let rating_nums = $$('.rating_nums').text()
-    // JavaScript中的对象是一种动态创建的数据结构，
-    // 在给对象添加属性时，
-    // 如果该属性尚未存在，JavaScript会自动创建它。
-    movieInfo.title = title
-    movieInfo.pic = pic
-    movieInfo.info = info
-    movieInfo.rating_nums = rating_nums
 
-    // console.log(pic);
-    return movieInfo
-}
+ }
 
 main()

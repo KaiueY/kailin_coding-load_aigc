@@ -56,8 +56,7 @@ const handleInput = async (input) =>{
     .slice(0,3)
     .map((item,index)=>`${index+1}.${item.title},${item.category}`)
     .join('\n')
-
     console.log(`\n${result}\n`);
     rl.question('\n',handleInput)
 }
-rl.question('\n 请输入要搜索的内容:',handleInput)
+rl.question('\n 请输入要搜索的内容:',handleInput)       
