@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chrom Recorder</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    #status {
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+    }
+    #result {
+      margin-top: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="status">点击下方按钮录音录制语音并翻译成英文</div>
+  <button id="recordButton" style="background-color: green; color: white;">录制</button>
+  <div id="result">
+    <textarea id="translatedText" rows="4" style="width: 100%;"></textarea>
+    <button id="copyButton">复制文本</button>
+    <button id="retryButton">重新录制</button>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -36,7 +36,7 @@ router.post('/login', async (ctx) => {
         ctx.body = {
             code: '8005',
             data: error,
-            msg: '服务器异常！😮'
+            msg: '服务器异常！😮' 
         }
     }
 })

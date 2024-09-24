@@ -12,10 +12,9 @@
       <div class="note-cell">
         <van-field label="图片上传">
           <template #input>
-            <van-uploader :after-read="afterRead" max-count="2" />
+            <van-uploader :after-read="handleFileRead" max-count="2" />
           </template>
         </van-field>
-
       </div>
 
       <div class="note-cell">
@@ -28,13 +27,17 @@
           <van-picker :columns="columns" @cancel="showPicker = false" @confirm="onConfirm" />
         </van-popup>
       </div>
-
     </div>
 
     <div class="btn">
-      <van-button color="linear-gradient(to right, #4672b3, #ee5a24)" @click="publish" block>
-        发布</van-button>
-
+      <van-button
+        color="linear-gradient(to right, #4672b3, #ee5a24)"
+        :loading="isPublishing"
+        @click="publish"
+        block
+      >
+        发布
+      </van-button>
     </div>
   </div>
 </template>
@@ -48,90 +51,119 @@ import { useRouter } from 'vue-router';
 import { showToast } from 'vant';
 
 const CHUNK_SIZE = 1024 * 10; // 每片 1MB
-const router = useRouter()
-const showPicker = ref(false)
+const router = useRouter();
+const showPicker = ref(false);
 const columns = [
   { text: '美食', value: '美食' },
   { text: '旅行', value: '旅行' },
   { text: '恋爱', value: '恋爱' },
   { text: '学习', value: '学习' },
   { text: '吵架', value: '吵架' },
-]
+];
 const state = reactive({
   content: '',
   title: '',
   note_type: '美食',
   uploadProgress: 0,
-})
+  files: [], // 用于存储选择的文件
+});
+const isPublishing = ref(false);
 
-const afterRead =  (files) => {
-  const file = files.file;
+const handleFileRead = (files) => {
+  state.files = files;
+};
+
+const afterRead = (file) => {
   const len = file.size;
-  // console.log('file:',file.name);
-   const filename = file.name;
+  const filename = file.name;
   const chunkList = [];
   let cur = 0;
   while (cur < len) {
     chunkList.push({ file: file.slice(cur, cur + CHUNK_SIZE) });
     cur += CHUNK_SIZE;
   }
-  // console.log('chunkList:',chunkList);
-  
+
   const chunks = chunkList.map(({ file }, index) => {
     return {
       file,
       size: file.size,
       filename: filename,
-      index
+      index,
     };
   });
-  // console.log('chunks:',chunks);
-  
 
-  const formChunks = chunks.map(({ file,filename, index }) => {
+  const formChunks = chunks.map(({ file, filename, index }) => {
     const formData = new FormData();
     formData.append('file', file);
     formData.append('chunkIndex', index);
     formData.append('fileName', filename);
     return { formData, index };
   });
-  // console.log('formChunks',formChunks);
-  
-  const requestList = formChunks.map(({ formData,index }) => {
-    return axios.post('/upload-chunk', formData,);
-  });
 
-  Promise.all(requestList).then(res => {
-    console.log(res,'上传成功');
-  }).then(() => {
-    axios.post('/merge-chunks', {
-      fileName: files.file.name
+  const requestList = formChunks.map(({ formData, index }) => {
+    return axios.post('/upload-chunk', formData, {
+      onUploadProgress: (progressEvent) => {
+        state.uploadProgress = Math.round((index + 1) / formChunks.length * 100);
+      },
     });
   });
+
+  return Promise.all(requestList)
+    .then(() => {
+      return axios.post('/merge-chunks', {
+        fileName: filename,
+      });
+    })
+    .then(() => {
+      console.log('文件上传成功');
+      state.uploadProgress = 100;
+    })
+    .catch((err) => {
+      console.error('文件上传失败', err);
+      throw err;
+    });
 };
 
-
 const onConfirm = ({ selectedValues }) => {
-  state.note_type = selectedValues[0]
-  showPicker.value = false
-}
+  state.note_type = selectedValues[0];
+  showPicker.value = false;
+};
 
 // 发布
 const publish = async () => {
-  if (!state.content && !state.title) {
-    showToast('还没有输入完全哦~')
+  if (!state.content || !state.title) {
+    showToast('还没有输入完全哦~');
     return;
   }
 
-  const res = await axios.post('/note-publish', {
-    title: state.title,
-    note_content: state.content,
-    note_type: state.note_type
-  })
+  isPublishing.value = true;
 
-  router.push('/noteClass')
-}
+  try {
+    if (state.files.length > 0) {
+      for (const file of state.files) {
+        await afterRead(file.file);
+      }
+    }
 
+    const res = await axios.post('/note-publish', {
+      title: state.title,
+      note_content: state.content,
+      note_type: state.note_type,
+    });
+
+    if (res.status === 200) {
+      showToast('发布成功');
+      router.push('/noteClass');
+    } else {
+      showToast('发布失败，请重试');
+    }
+  } catch (error) {
+    console.error('发布失败', error);
+    showToast('发布失败，请重试');
+  } finally {
+    isPublishing.value = false;
+  }
+};
 </script>
 
 <style lang="less" scoped>

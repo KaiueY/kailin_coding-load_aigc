@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手动轮播图</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    /* styles.css */
+    .carousel {
+        position: relative;
+        width: 500px;
+        /* 可以根据需要调整宽度 */
+        height: 300px;
+        /* 轮播图的高度 */
+        overflow: hidden;
+    }
+
+    .carousel__slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel__slide {
+        min-width: 100%;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .carousel__button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1;
+    }
+
+    .carousel__button--left {
+        left: 10px;
+    }
+
+    .carousel__button--right {
+        right: 10px;
+    }
+</style>
+
+<body>
+    <div class="carousel">
+        <button class="carousel__button carousel__button--left" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="carousel__slides">
+            <div class="carousel__slide" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi-5sYJGsGz4vKyI1EnJn4sSgxY0FGpUa2bCUkBUToqap-3DU7mFn35aA8U36-hJri9BU&usqp=CAU');"></div>
+            <div class="carousel__slide" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi-5sYJGsGz4vKyI1EnJn4sSgxY0FGpUa2bCUkBUToqap-3DU7mFn35aA8U36-hJri9BU&usqp=CAU');"></div>
+            <div class="carousel__slide" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRi-5sYJGsGz4vKyI1EnJn4sSgxY0FGpUa2bCUkBUToqap-3DU7mFn35aA8U36-hJri9BU&usqp=CAU');"></div>
+            <!-- 更多图片 -->
+        </div>
+        <button class="carousel__button carousel__button--right" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        // scripts.js
+        let currentIndex = 0;
+
+        function moveSlide(step) {
+            const slides = document.querySelector('.carousel__slides');
+            const slideCount = document.querySelectorAll('.carousel__slide').length;
+            currentIndex += step;
+
+            // 循环回绕
+            if (currentIndex >= slideCount) {
+                currentIndex = 0;
+            } else if (currentIndex < 0) {
+                currentIndex = slideCount - 1;
+            }
+
+            // 计算新的位置
+            const offset = -currentIndex * 100;
+            slides.style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+</body>
+
+</html>
