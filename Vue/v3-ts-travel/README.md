@@ -13,7 +13,6 @@
     - 组件约束props 
         interface Props{
             username:string;
-        }
     - 函数中类型约束 
             export const getCurrency = (price:number) =>{
                 return `¥ ${price.toFixed(2)}`
