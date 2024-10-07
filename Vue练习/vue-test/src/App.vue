@@ -6,7 +6,11 @@ import test from './components/testQuick/test.vue';
 </script>
 
 <template>
+<<<<<<< HEAD
   <test/>
+=======
+  <patent/>
+>>>>>>> 670442a (todoList Tool)
 </template>
 
 <style scoped>
