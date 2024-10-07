@@ -1,25 +1,16 @@
 <template>
     <div>
-        father
+        this is father
     </div>
-    <hr>
     <child>
-        <template #top>
-            <div>top</div>
-        </template>
-        默认插槽
-        
-        <template #bottom>
-            <div>bottom</div>
+        <template #default="{ item }">
+            <span :style="{ color: item.color }">{{ item.name }}</span>
         </template>
     </child>
-        
 </template>
 
 <script setup>
 import child from './child.vue';
 </script>
 
-<style lang="css" scoped>
-
-</style>
+<style lang="css" scoped></style>

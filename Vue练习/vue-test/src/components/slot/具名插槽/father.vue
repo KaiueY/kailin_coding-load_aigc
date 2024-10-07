@@ -4,14 +4,18 @@
     </div>
     <hr>
     <child>
+        uppersasasassa
         <template #top>
-            <div>top</div>
+            
         </template>
-        默认插槽
-        
         <template #bottom>
             <div>bottom</div>
         </template>
+        9099090909
+        <hr>
+       
+
+
     </child>
         
 </template>

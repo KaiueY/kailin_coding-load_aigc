@@ -49,6 +49,8 @@
                     index
                 }
             })
+            console.log('chunks:',chunks);
+            
             // 发请求
             uploadChunks(chunks)
 
@@ -62,6 +64,8 @@
                 chunkList.push({ file: file.slice(cur, cur + size) })
                 cur += size
             }
+            console.log('chunkList:',chunkList);
+            
             return chunkList
         }
 

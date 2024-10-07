@@ -1,16 +1,7 @@
 <template>
     <!-- 子组件 -->
     <div class="card">
-        <slot name="top"></slot>
-      <div class="card-header">
-        <h3>Card Title</h3>
-      </div>
-        <slot name="bottom"></slot>
-      <div class="card-body">
-        <slot></slot>
-        <slot></slot>
-        
-      </div>
+        <slot>子组件的默认数据</slot>
     </div>
   </template>
   

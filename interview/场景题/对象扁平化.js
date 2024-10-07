@@ -7,8 +7,8 @@ const obj = {
 let flattenRes = flattenObj(obj)
 function flattenObj(obj) {
     let res = {}
-    let once = true
     function helper(obj,oldKey=''){
+        // 对
         for(let key in obj){
             let nKey 
             if(oldKey){
