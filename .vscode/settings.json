@@ -21,4 +21,7 @@
 "terminal.ansiWhite":"#CBD6E2",
 "terminal.ansiYellow":"#8BBF56"
     },
+    "editor.find.cursorMoveOnType": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.guides.bracketPairs": "active",
 }
