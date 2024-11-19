@@ -12,4 +12,4 @@
 
    - git push origin master
    - git push github master
-   使用 git commit -m "Test commit" 就可以推送两个仓库
+   使用 git pushall就可以推送两个仓库
