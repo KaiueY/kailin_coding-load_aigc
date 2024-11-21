@@ -11,6 +11,5 @@
    ## 补充
 
    - git push origin master
-   - git push github master   
-   git pushall
-   
+   - git push github master
+   使用 git pushall就可以推送两个仓库  
