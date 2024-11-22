@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my Vue2</title>
+</head>
+<body>
+    <div id="app">
+        <!-- 用于显示数据的容器 -->
+    </div>
+    
+    <!-- 先引入 observer -->
+    <script src="./2.js"></script>
+    
+    <script>
+        // 创建响应式数据
+        const data = {
+            name: 'kailin',
+            hobby: 'coding',
+            county: 'china',
+            schools: ['pku','tsinghua']
+        }
+
+        // 初始化渲染函数
+        function render() {
+            const app = document.getElementById('app')
+            app.innerHTML = `
+                <h2>姓名：${data.name}</h2>
+                <p>爱好：${data.hobby}</p>
+                <p>国家：${data.county}</p>
+                <p>学校：${data.schools.join(', ')}</p>
+            `
+        }
+
+        // 修改更新视图函数
+        window.updateView = function() {
+            console.log('视图更新中...')
+            render()
+        }
+
+        // 将数据变成响应式
+        observer(data)
+        
+        // 使用 watchEffect 收集依赖
+        watchEffect(() => {
+            // 访问所有需要监听的数据，建立依赖关系
+            console.log(`正在监听: ${data.name}, ${data.hobby}, ${data.county}, ${data.schools.join(', ')}`)
+            render()
+            console.log(this.watchEffect);
+            
+        })
+
+        // 测试数据更新
+        setTimeout(() => {
+            data.name = '新名字'
+            data.schools.push('ECUT')
+            console.log(data);
+        }, 2000)
+    </script>
+</body>
+</html>
