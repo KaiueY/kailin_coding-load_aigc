@@ -1,13 +1,7 @@
 
 
 // 现在有一个对象 比如data data中的数据都需要变成响应式
-// const data = {
-//     name: 'kailin',
-//     hobby: 'coding',
-//     county: 'china',
-//     schools: ['pku','tsinghua']
-// }
-//  I need a function that make all key to reactive
+
 
 const methodsToPatch = ['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse']
 const arrayProto = Array.prototype
@@ -38,6 +32,7 @@ methodsToPatch.forEach((method)=>{
     }
 })
 
+//  I need a function that make all key to reactive
 function observer(obj) {
     if (!obj || typeof obj !== 'object') return
 
@@ -75,7 +70,24 @@ function defineReactive(target, key, value) {
 function updateView() {
     console.log('update View');
 }
-// observer(data)
+const data = {
+    name: {
+        firstName: 'kailin',
+        lastName: 'Hu'
+    },
+    hobby: 'coding',
+    county: 'china',
+    schools: ['pku','tsinghua']
+}
+observer(data)
+data.schools.length = 0
+console.log(data.schools[0],data.schools[1]);
+data.name.a = 100
+console.log(data.name.a);
+// data.name.firstName = 'Hu'
+// data.schools[0] = 'ECUT'
+// console.log(data.schools);
+// console.log(data.name.firstName);
 
 // for (key in data) {
 //     if(!Array.isArray(data[key])){
@@ -86,7 +98,7 @@ function updateView() {
 // }
 // console.log(data);
 // export default observer
-window.observer = observer
+// window.observer = observer
 
 
 // console.log(obj.a = 100);
