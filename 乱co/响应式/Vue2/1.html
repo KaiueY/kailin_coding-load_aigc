@@ -1,0 +1,70 @@
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<div id="app">{{ message }}<h1 @click="handle">{{ message }}</h1>
+</div>
+
+
+<script>
+    const { createApp, reactive,ref } = Vue
+
+    createApp({
+        setup() {
+            const message = ref('Hello vue!')
+            const num = reactive({value:1})
+            const fun1 = () =>{
+                num.value++
+                console.log(num.value);
+            }
+            const fun2 = () =>{
+                num.value++
+                console.log(num.value);
+            }
+            const fun3 = () =>{
+                num.value++
+                console.log(num.value);
+            }
+            const fun4 = () =>{
+                num.value++
+                console.log(num.value);
+            }
+            const fun5 = () =>{
+                num.value++
+                console.log(num.value);
+            }
+            const fun6 = () =>{
+                num.value++
+                console.log(num.value);
+            }
+            const fun7 = () =>{
+                num.value++
+                console.log(num.value);
+            }
+            const fun8 = () =>{
+                num.value++
+                console.log(num.value);
+            }
+
+            const handle = () => {
+                message.value = 'Hello vue3!'
+                console.log(message.value);
+            }
+            setTimeout(() => {
+                num.value = 100
+                console.log(num.value,'first');
+            }, 1000)
+            return {
+                message,
+                handle,
+                num,
+                fun1,
+                fun2,
+                fun3,
+                fun4,
+                fun5,
+                fun6,
+                fun7,
+                fun8
+            }
+        }
+    }).mount('#app')
+</script>

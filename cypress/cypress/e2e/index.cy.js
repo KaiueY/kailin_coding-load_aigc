@@ -1,0 +1,11 @@
+describe("index",()=>{
+    it("首页点击登陆",()=>{
+        cy.visit("http://localhost:3000/")
+        cy.get("#cy-user-name").type("admin")
+        cy.get("#cy-password").type("CS18best")
+        cy.get("#cy-capture").type("sdf")
+        cy.get("#cy-login").click()
+        cy.url().should("include","/login")
+        cy.title().should("include","登录")
+    })                            
+})
