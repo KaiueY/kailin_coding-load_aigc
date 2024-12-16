@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Menu with Animation</title>
+  <style>
+    /* 样式初始化 */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* 导航菜单样式 */
+    .menu {
+      background-color: #333;
+      padding: 10px 20px;
+    }
+    .menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .menu > ul {
+      display: flex;
+    }
+    .menu-item {
+      position: relative; /* 为下拉菜单提供定位参考 */
+    }
+    .menu-item > a {
+      /* box-sizing: border-box; */
+      width: 80px;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: block;
+      transition: background-color 0.3s;
+    }
+    .menu-item > a:hover {
+      background-color: #575757;
+    }
+
+    /* 下拉菜单样式 */
+    .dropdown {
+      position: absolute; /* 定位在父级下方 */
+      top: 100%;
+      right: 0px;
+      background-color: #333;
+      visibility: hidden; /* 初始状态不可见 */
+      opacity: 0; /* 初始状态透明 */
+      transform: translateY(-10px); /* 初始偏移 */
+      min-width: 100px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+    }
+    .dropdown li {
+      border-bottom: 1px solid #444;
+    }
+    .dropdown li:last-child {
+      border-bottom: none;
+    }
+    .dropdown a {
+      box-sizing: border-box;
+      width: 120px;
+      color: white;
+      text-decoration: none;
+      padding: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background-color 0.5s;
+    }
+    .dropdown a:hover {
+      background-color: #575757;
+    }
+
+    /* 鼠标悬浮时显示下拉菜单 */
+    .menu-item:hover .dropdown {
+      visibility: visible; /* 变为可见 */
+      opacity: 1; /* 渐变显示 */
+      transform: translateY(0); /* 移动到最终位置 */
+      transition-delay: 0s; /* 立即显示 */
+    }
+
+    /* 鼠标移出时隐藏菜单 */
+    .dropdown {
+      transition-delay: 0s; /* 动画延迟生效 */
+    }
+  </style>
+</head>
+<body>
+  <!-- 导航菜单 -->
+  <nav class="menu">
+    <ul>
+      <li class="menu-item">
+        <a href="#">Home</a>
+      </li>
+      <li class="menu-item">
+        <a href="#">About</a>
+        <ul class="dropdown">
+          <li><a href="#team">Our Team</a></li>
+          <li><a href="#history">History</a></li>
+          <li><a href="#careers">Careers</a></li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a href="#">Services</a>
+        <ul class="dropdown">
+          <li><a href="#web-design">Web Design</a></li>
+          <li><a href="#seo">SEO</a></li>
+          <li><a href="#marketing">Marketing</a></li>
+        </ul>
+      </li>
+      <li class="menu-item">
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>
