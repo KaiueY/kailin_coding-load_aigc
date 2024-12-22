@@ -5,106 +5,118 @@
  */
 
 class MyPromise {
-  constructor(executor) {
-    this.state = "pending";
-    this.value = undefined;
-    this.reason = undefined;
-    this.onFullfilledCallbacks = [];
-    this.onRejectedCallbacks = [];
+    constructor(executor) {
+        this.state = "pending";
+        this.value = undefined;
+        this.reason = undefined;
+        this.onFullfilledCallbacks = [];
+        this.onRejectedCallbacks = [];
 
-    const resolve = (value) => {
-      if (this.state === "pending") {
-        this.state = "fulfilled";
-        this.value = value;
+        const resolve = (value) => {
+            if (this.state === "pending") {
+                this.state = "fulfilled";
+                this.value = value;
 
-        this.onFullfilledCallbacks.forEach((callback) => callback(value));
-      }
-    };
+                this.onFullfilledCallbacks.forEach((callback) => callback(value));
+            }
+        };
 
-    const reject = (reason) => {
-      if (this.state === "pending") {
-        this.state = "rejected";
-        this.reason = reason;
+        const reject = (reason) => {
+            if (this.state === "pending") {
+                this.state = "rejected";
+                this.reason = reason;
 
-        this.onRejectedCallbacks.forEach((callback) => callback(reason));
-      }
-    };
+                this.onRejectedCallbacks.forEach((callback) => callback(reason));
+            }
+        };
 
-
-
-    try {
-      executor(resolve, reject);
-    } catch (error) {
-      reject(error);
+        try {
+            executor(resolve, reject);
+        } catch (error) {
+            reject(error);
+        }
     }
-  }
-  then(onFulfilled, onRejected) {
-    onFulfilled =
-      typeof onFulfilled === "function" ? onFulfilled : (value) => value;
-    onRejected =
-      typeof onRejected === "function"
-        ? onRejected
-        : (reason) => {
-            throw reason;
-          };
-    return new MyPromise((resolve, reject) => {
-      if (this.state === "fullfilled") {
-        try {
-          setTimeout(() => {
-            const result =  onFulfilled();
-            resolve(result);
-          });
-        } catch (error) {
-          reject(error);
-        }
-      }
-      if (this.state === "rejected") {
-        try {
-          setTimeout(() => {
-            const result = onRejected();
-            resolve(result);
-          });
-        } catch (error) {
-          reject(error);
-        }
-      }
-      if(this.state === "pending") {
-        this.onFullfilledCallbacks.push((value) => {
-          try {
-            setTimeout((value) => {
-              const result = onFulfilled(value);
-              resolve(result);
-            });
-          } catch (error) {
-            reject(error);
-          }
+    then(onFulfilled, onRejected) {
+        onFulfilled =
+            typeof onFulfilled === "function" ? onFulfilled : (value) => value;
+        onRejected =
+            typeof onRejected === "function"
+                ? onRejected
+                : (reason) => {
+                    throw reason;
+                };
+        return new MyPromise((resolve, reject) => {
+            if (this.state === "fulfilled") {
+                try {
+                    setTimeout(() => {
+                        const result = onFulfilled(this.value);
+                        resolve(result);
+                    });
+                } catch (error) {
+                    reject(error);
+                }
+            }
+            if (this.state === "rejected") {
+                try {
+                    setTimeout(() => {
+                        const result = onRejected(\this.reason);
+                        resolve(result);
+                    });
+                } catch (error) {
+                    reject(error);
+                }
+            }
+            if (this.state === "pending") {
+                this.onFullfilledCallbacks.push((value) => {
+                    try {
+                        setTimeout(() => {
+                            const result = onFulfilled(this.value);
+                            resolve(result);
+                        });
+                    } catch (error) {
+                        reject(error);
+                    }
+                });
+                this.onRejectedCallbacks.push((value) => {
+                    try {
+                        setTimeout(() => {
+                            const result = onRejected(this.value);
+                            resolve(result);
+                        });
+                    } catch (error) {
+                        reject(error);
+                    }
+                });
+            }
         });
-        this.onRejectedCallbacks.push((value) => {
-          try {
-            setTimeout((value) => {
-              const result = onRejected(value);
-              resolve(result);
-            });
-          } catch (error) {
-            reject(error);
-          }
-        });
-      }
-    });
-  };
+    }
 }
 
-const promise = new MyPromise((resolve, reject) => {
-    console.log("promise start");
-    
-    resolve("success")
+// const promise = new MyPromise((resolve, reject) => {
+//     console.log("promise start");
 
+//     resolve("success");
+// });
+// promise
+//     .then((res) => {
+//         console.log(res);
+//         reject("error");
+//     })
+//     .then((res) => {
+//         console.log("error");
+//         console.log(res);
+//     });
+const promise2 = new Promise((resolve, reject) => {
+    console.log("promise start");
+
+    resolve("success");
 });
-promise.then((res)=>{
-    console.log(res);
-    reject("error")
-    
-}).then((res)=>{
-    console.log("error")
-    console.log(res);
-})
+promise2
+    .then((res) => {
+        console.log(res);
+        reject("error");
+    })
+    .then((res) => {
+        console.log("error");
+        console.log(res);
+    });
