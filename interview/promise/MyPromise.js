@@ -59,7 +59,7 @@ class MyPromise {
             if (this.state === "rejected") {
                 try {
                     setTimeout(() => {
-                        const result = onRejected(\this.reason);
+                        const result = onRejected(this.reason);
                         resolve(result);
                     });
                 } catch (error) {
@@ -92,31 +92,14 @@ class MyPromise {
     }
 }
 
-// const promise = new MyPromise((resolve, reject) => {
-//     console.log("promise start");
-
-//     resolve("success");
-// });
-// promise
-//     .then((res) => {
-//         console.log(res);
-//         reject("error");
-//     })
-//     .then((res) => {
-//         console.log("error");
-//         console.log(res);
-//     });
-const promise2 = new Promise((resolve, reject) => {
+const promise = new MyPromise((resolve, reject) => {
     console.log("promise start");
 
     resolve("success");
 });
-promise2
-    .then((res) => {
-        console.log(res);
-        reject("error");
-    })
-    .then((res) => {
-        console.log("error");
-        console.log(res);
-    });
+ promise.then((value) => {
+    console.log(value);
+    return "success2";
+}).then((res) => {
+    console.log(res);
+});
