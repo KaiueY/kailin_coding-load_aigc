@@ -30,7 +30,8 @@ class MyPromise {
 
             this.state = 'rejected' // 更新状态为 rejected
             this.reason = reason // 存储失败的原因
-
+            console.log('Rejected with reason:', reason) // 打印错误信息;
+            
             // 依次执行所有存储的失败回调
             this.onRejectedCallbacks.forEach(callback => callback(reason))
         }
@@ -116,11 +117,26 @@ class MyPromise {
 }
 
 
-let p = new MyPromise((resolve, reject)=>{
-    console.log('promise')
-    if(1){
-        resolve()
-    }
-})
+// let p = new MyPromise((resolve, reject)=>{
+//     console.log('promise')
+//     if(1){
+//         reject()
+//         resolve()
+//     }
+// })
 
-p.then(()=>{console.log('then')})
+// p.then(()=>{console.log('then')})
+
+const promise = new MyPromise((resolve, reject) => {
+    console.log("promise start");
+      reject("error");
+    resolve("success");
+  });
+  promise
+    .then((value) => {
+      console.log(value);
+      return "success2";
+    })
+    .then((res) => {
+      console.log(res);
+    });
