@@ -9,7 +9,7 @@ class MyPromise {
         this.state = "pending";
         this.value = undefined;
         this.reason = undefined;
-        this.onFullfilledCallbacks = [];
+        this.onFullfilledCallbacks = []; 
         this.onRejectedCallbacks = [];
 
         const resolve = (value) => {
@@ -18,7 +18,6 @@ class MyPromise {
             this.value = value;
             console.log("Resolved with value:", value); // 打印成功信息
             this.onFullfilledCallbacks.forEach((callback) => callback(value));
-
         };
 
         const reject = (reason) => {
@@ -101,19 +100,3 @@ class MyPromise {
         return this.then(null, onRejected);
     }
 }
-
-const promise = new MyPromise((resolve, reject) => {
-    console.log("promise start");
-    resolve("success");
-});
-promise.then((res) =>{
-    console.log("then1", res);
-    return "then1";
-
-    
-}).then(()=>{
-    console.log("then2");
-    if(1){
-        throw new Error("then2 error");
-    }
-})
