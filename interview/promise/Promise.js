@@ -4,7 +4,7 @@
  * @date 2024-12-22
  */
 
-class MyPromise {
+class Promise {
     constructor(executor) {
         this.state = "pending";
         this.value = undefined;
@@ -43,7 +43,7 @@ class MyPromise {
                 : (reason) => {
                     throw reason;
                 };
-        return new MyPromise((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             if (this.state === "fulfilled") {
 
                 setTimeout(() => {
@@ -99,4 +99,13 @@ class MyPromise {
     catch(onRejected) {        
         return this.then(null, onRejected);
     }
+}
+Promise.deferred = function() {
+    var result = {};
+    result.promise = new Promise(function(resolve, reject) {
+        result.resolve = resolve;
+        result.reject = reject;
+    });
+
+    return result;
 }
