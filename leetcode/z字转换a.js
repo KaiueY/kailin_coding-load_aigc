@@ -28,3 +28,31 @@
  * Y A   H R
  * P     I
  */
+
+/**
+ * @param {string} s
+ * @param {number} numRows
+ * @return {string}
+ */
+var convert = function(s, numRows) {
+    if (numRows === 1 || s.length <= numRows) {
+        return s; // 边界情况，直接返回原字符串
+    }
+
+    const rows = Array.from({ length: numRows }, () => []); // 创建 numRows 个空数组
+    let currentRow = 0; // 当前行索引
+    let down = true; // 控制方向
+
+    // 遍历字符串
+    for (const char of s) {
+        rows[currentRow].push(char); // 将字符加入对应行
+        // 改变方向
+        if (currentRow === 0) down = true; // 到达顶部，开始向下
+        else if (currentRow === numRows - 1) down = false; // 到达底部，开始向上
+
+        currentRow += down ? 1 : -1; // 根据方向改变行索引
+    }
+
+    // 将所有行拼接成最终字符串
+    return rows.map(row => row.join("")).join("");
+};
