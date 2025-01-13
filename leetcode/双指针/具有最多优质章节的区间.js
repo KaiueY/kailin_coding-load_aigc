@@ -19,7 +19,7 @@ function findBestChapterSequence(n, k, array_a) {
             for (let m = i + 1; m < j; m++) {
                 if (array_a[m] > array_a[m - 1] && array_a[m] > array_a[m + 1]) {
                     currentQuality++;
-                }
+                }    
             }
             
             // Update best sequence if better found
