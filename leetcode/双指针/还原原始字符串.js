@@ -1,35 +1,39 @@
+function solution(str) {
+    while (str.length > 1) {
+        
+        let len = str.length;
 
-function solution(str1) {
-    for (let len = 1; len <= str1.length; len++) {
-        let S = str1.substring(0, len);
-        let current = S;
+        let mid = len%2 == 0? len /2 :Math.ceil(len/2)// 起点为长度的一半
+        let found = false;
+        console.log(mid);
         
-        while (current.length < str1.length) {
-            for (let K = 0; K < current.length; K++) {
-                let newStr = current + current.substring(K);
-                if (str1.startsWith(newStr)) {
-                    current = newStr;
-                    break;
-                }
+        // 从一半开始遍历，直到倒数第一个字符
+        for (let i = mid; i < len; i++) {
+            let str1 = str.slice(0, i);     // 前一半
+            let str2 = str.slice(i, len); 
+            console.log(str);
+             // 后一半
+            console.log(str1,' -- ',str2);
+            
+            if (str1.endsWith(str2)) {
+                str = str1;  // 更新为前一半
+                found = true;
+                break;       // 从新字符串的中间继续
             }
-            if (current.length >= str1.length) break;
         }
-        
-        if (current === str1) {
-            return S;
-        }
+
+        if (!found) break; // 如果当前字符串无法进一步划分，则终止
     }
-    
-    return str1;
+    return str;
 }
 
 function main() {
     // Add your test cases here
-    console.log(solution("abbabbbabb") === "ab");
+    // console.log(solution("abbabbbabb") === "ab");
     console.log(solution("abbbabbbb") === "ab");
-    console.log(solution("jiabanbananananiabanbananananbananananiabanbananananbananananbananananbanananan") === "jiaban");
-    console.log(solution("selectecttectelectecttectcttectselectecttectelectecttectcttectectelectecttectcttectectcttectectcttectectcttect") === "select");
-    console.log(solution("discussssscussssiscussssscussssdiscussssscussssiscussssscussssiscussssscussss") === "discus");
+    // console.log(solution("jiabanbananananiabanbananananbananananiabanbananananbananananbananananbanananan") === "jiaban");
+    // console.log(solution("selectecttectelectecttectcttectselectecttectelectecttectcttectectelectecttectcttectectcttectectcttectectcttect") === "select");
+    // console.log(solution("discussssscussssiscussssscussssdiscussssscussssiscussssscussssiscussssscussss") === "discus");
 }
 
 main();
