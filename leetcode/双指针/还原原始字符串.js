@@ -10,9 +10,9 @@ function solution(str) {
         // 从一半开始遍历，直到倒数第一个字符
         for (let i = mid; i < len; i++) {
             let str1 = str.slice(0, i);     // 前一半
-            let str2 = str.slice(i, len); 
+            let str2 = str.slice(i, len); // 后一半
             console.log(str);
-             // 后一半
+             
             console.log(str1,' -- ',str2);
             
             if (str1.endsWith(str2)) {
