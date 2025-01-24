@@ -12,43 +12,29 @@
 
 function solution(n, m, str1, str2) {
     let maxLen = 0;
-    let left = 0;
-    const charCount = new Array(26).fill(0); // 用于统计窗口内每个字符的出现次数
-    let maxCharCount = 0; // 窗口内出现次数最多的字符的次数
-
-    for (let right = 0; right < n; right++) {
-        const currentChar = str1[right];
-        const canModify = str2[right] === '1';
-
-        // 如果当前字符可以修改，则将其视为任意字符
-        if (canModify) {
-            maxCharCount = Math.max(maxCharCount, ++charCount[0]); // 假设修改为'a'
-        } else {
-            const charIndex = currentChar.charCodeAt(0) - 'a'.charCodeAt(0);
-            maxCharCount = Math.max(maxCharCount, ++charCount[charIndex]);
-        }
-
-        // 如果窗口内的字符需要修复的次数超过m，则移动左边界
-        while (right - left + 1 - maxCharCount > m) {
-            const leftChar = str1[left];
-            const canModifyLeft = str2[left] === '1';
-
-            if (canModifyLeft) {
-                charCount[0]--;
-            } else {
-                const leftCharIndex = leftChar.charCodeAt(0) - 'a'.charCodeAt(0);
-                charCount[leftCharIndex]--;
+    
+    // 对每个可能的字符进行单独处理
+    for (let target = 0; target < 26; target++) {
+        let left = 0, cost = 0;
+        for (let right = 0; right < n; right++) {
+            // 计算将当前字符转换为目标字符的代价
+            if (str1[right] !== String.fromCharCode(97 + target)) {
+                cost += str2[right] === '1' ? 1 : Infinity; // 可修改则消耗1次，不可修改则禁止
             }
-
-            left++;
-            // 重新计算maxCharCount
-            maxCharCount = Math.max(...charCount);
+            
+            // 维护窗口有效性：当成本超过m时收缩左边界
+            while (cost > m) {
+                if (str1[left] !== String.fromCharCode(97 + target)) {
+                    cost -= str2[left] === '1' ? 1 : Infinity;
+                }
+                left++;
+            }
+            
+            // 更新最大长度
+            maxLen = Math.max(maxLen, right - left + 1);
         }
-
-        // 更新最大长度
-        maxLen = Math.max(maxLen, right - left + 1);
     }
-
+    
     return maxLen;
 }
 
