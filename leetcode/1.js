@@ -47,20 +47,22 @@
 
 //方法二:哈希表
 var twoSum = function(nums, target) {
-    // 创建一个空对象 numIndexMap，用来存储数组中每个数字对应的索引
-    const numIndexMap = {};
-    // 遍历数组 nums
-    for (let i = 0; i < nums.length; i++) {
-        // 计算目标值与当前元素的差值
-        const complement = target - nums[i];
-        // 如果差值在 numIndexMap 中存在（即之前已经遍历过的数字中存在与差值相等的数字）
-        if (numIndexMap.hasOwnProperty(complement)) {
-            // 返回两个数的索引，其中一个是之前已经存入 numIndexMap 中的索引，另一个是当前遍历到的索引 i
-            return [numIndexMap[complement], i];
+    const len = nums.length;
+    // 1.创建一个对象存储目标值的下标
+    const obj = {}
+    // 遍历数组，找到target-nums[i]的值 
+    for(let i = 0;i<len; i++){
+        let curNum = nums[i]
+        let tarNum = target - curNum
+        if(obj[tarNum] !== undefined){
+            // 如果存在，返回下标
+            return [obj[tarNum],i]
+        }else {
+            // 如果不存在，将nums[i]的值作为key，下标作为value存储到对象中
+            obj[curNum] = i
         }
-        // 将当前遍历到的数字存入 numIndexMap 中，键为当前数字，值为当前数字的索引 i
-        numIndexMap[nums[i]] = i;
     }
+    return -1
 };
 
 
