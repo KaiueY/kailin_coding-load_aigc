@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角形</title>
+    <style>
+        .part1 {
+            display: flex;
+        }
+
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 50px solid transparent;
+            border-top: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 50px solid red;
+        }
+
+        .triangle2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .triangle3 {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, transparent 50%, red 50%);
+        }
+
+        .part2 {
+            margin: 20px;
+            display: flex;
+        }
+
+        .pBox {
+            height: 200px;
+            width: 200px;
+            border: 2px solid red;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cBox {
+            /* margin: 0 auto; */
+            height: 50px;
+            width: 50px;
+            background-color: pink;
+        }
+
+        .pBox2 {
+            /* box-sizing: border-box; */
+            height: 200px;
+            width: 200px;
+            border: 2px solid red;
+            position: relative;
+        }
+
+        .cBox2 {
+            position: absolute;
+            height: 50px;
+            width: 50px;
+
+            /* left:  37.5%;
+            top: 37.5%; */
+            /* 或者下面 */
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            background-color: pink;
+        }
+
+
+        .pBox3 {
+            /* box-sizing: border-box; */
+            height: 200px;
+            width: 200px;
+            border: 2px solid red;
+            display: grid;
+            place-items: center;
+        }
+
+        .cBox3 {
+
+            height: 50px;
+            width: 50px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="part1">
+        <div class="triangle"> </div>
+        <div class="triangle2"></div>
+        <div class="triangle3"></div>
+    </div>
+
+    <div class="part2">
+        <div class="pBox">
+            <div class="cBox"></div>
+        </div>
+
+        <div class="pBox2">
+            <div class="cBox2"></div>
+        </div>
+
+        <div class="pBox3">
+            <div class="cBox3"></div>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
