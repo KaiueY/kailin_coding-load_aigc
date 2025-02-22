@@ -20,26 +20,26 @@ let s = "abcabcbb";
 console.log(lengthOfLongestSubstring(s)); 
 
 
-// var lengthOfLongestSubstring = function(s) {
-//     let left = 0;
-//     let right = 0;
-//     const set = new Set();
-//     let n = s.length;
-//     let res = 0;
+var lengthOfLongestSubstring = function(s) {
+    let left = 0;
+    let right = 0;
+    const set = new Set();
+    let n = s.length;
+    let res = 0;
 
-//     while (right < n) {
-//         if (!set.has(s.charAt(right))) {
-//             set.add(s.charAt(right));
-//             right++;
-//             res = Math.max(res, right - left);
-//         } else {
-//             set.delete(s.charAt(left));
-//             left++;
-//         }
-//     }
+    while (right < n) {
+        if (!set.has(s.charAt(right))) {
+            set.add(s.charAt(right));
+            right++;
+            res = Math.max(res, right - left);
+        } else {
+            set.delete(s.charAt(left));
+            left++;
+        }
+    }
 
-//     return res;
-// };
+    return res;
+};
 
 // let s = "abcabcbb";
 // console.log(lengthOfLongestSubstring(s)); 
