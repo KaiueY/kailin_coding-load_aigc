@@ -24,11 +24,11 @@ return true;
 // 	1.	通过数学运算反转数字的一半
 // 	2.	只需反转 数字的一半，减少不必要的计算
 // 	3.	比较反转后的数和原数（或前半部分）
-function isPalindromeNumber(num) {
-    if (num < 0 || (num % 10 === 0 && num !== 0)) return false; // 负数和以0结尾的非零数不是回文数
+function isPalindromeNumber(x) {
+    if (x < 0 || (x % 10 === 0 && x !== 0)) return false; // 负数和以0结尾的非零数不是回文数
   
     let reversed = 0;
-    let original = num;
+    let original = x;
   
     while (original > reversed) {
       reversed = reversed * 10 + original % 10;
@@ -44,8 +44,8 @@ function isPalindromeNumber(num) {
 // 思路：
 // 	1.	将数字转换为字符串
 // 	2.	递归比较首尾字符是否相同
-  function isPalindromeRecursive(num) {
-    const str = num.toString();
+  function isPalindromeRecursive(x) {
+    const str = x.toString();
     
     function check(left, right) {
       if (left >= right) return true;
