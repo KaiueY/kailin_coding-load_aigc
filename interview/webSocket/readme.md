@@ -5,4 +5,4 @@
     - webSocket是双向的 （客户端和服务端都可以发送请求和响应）
     - 后端通过send方法发送消息 前端通过onmessage方法接收消息
  - webSocket 服务搭建流程
-    - 
+ 
