@@ -16,4 +16,9 @@ var countSymmetricIntegers = function(low, high) {
         }
         return sum === 0
     }
+    let res = 0
+    for (let i = low; i <= high; i++) {
+        if (isSymmetric(i)) res++
+    }
+    return res
 };
