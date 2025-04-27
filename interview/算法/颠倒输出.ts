@@ -27,7 +27,7 @@ function reverse(s: string): string {
      for(let i = s.length-1;i>0;i++){
         word = s[i] + word
         if(s[i] === ' ' && word.trim()){
-            str = word + ' '
+            str += word + ' '
             word = ''
         }
      }
