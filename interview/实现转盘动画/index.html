@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .cintainer {
+            width: 240px;
+            height: 240px;
+            border: 4px solid transparent;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            /* 三列 */
+            grid-template-rows: repeat(3, 1fr);
+        }
+
+        .box {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            font-weight: bolder;
+            width: 78px;
+            height: 78px;
+            border: 2px solid transparent;
+        }
+
+        .select {
+            background: pink;
+        }
+
+        .box::after {
+            content: "";
+            position: absolute;
+            border-radius: 5px;
+            /* top: 10px; */
+            /* left: 10px; */
+            width: 40px;
+            height: 40px;
+            opacity: .5;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="cintainer" id="container">
+        <div class="box select">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+        <div class="box">4</div>
+        <div class="box">5</div>
+        <div class="box">6</div>
+        <div class="box">7</div>
+        <div class="box">8</div>
+        <div class="box">9</div>
+    </main>
+
+    <script>
+        // let randomNum = Math.floor(Math.random() * 9); // 0 到 8
+        // const container = document.getElementById('container');
+
+        // for (let i = 0; i <= randomNum; i++) {
+        //     setTimeout(() => {
+        //         if (i > 0) {
+        //             container.children[i - 1].classList.remove('select');
+        //         }
+        //         container.children[i].classList.add('select');
+        //     }, 1000 * i);
+        // }
+
+    </script>
+</body>
+
+</html>
