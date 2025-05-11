@@ -30,12 +30,10 @@
             font-weight: bolder;
             width: 78px;
             height: 78px;
-            border: 2px solid transparent;
+            border: 2px solid red;
         }
 
-        .select {
-            background: pink;
-        }
+
 
         .box::after {
             content: "";
@@ -43,17 +41,22 @@
             border-radius: 5px;
             /* top: 10px; */
             /* left: 10px; */
-            width: 40px;
-            height: 40px;
+           
+            width: 20px;
+            height: 20px;
             opacity: .5;
             background-color: blue;
+        }
+
+        .select {
+            background: pink;
         }
     </style>
 </head>
 
 <body>
     <main class="cintainer" id="container">
-        <div class="box select">1</div>
+        <div class="box">1</div>
         <div class="box">2</div>
         <div class="box">3</div>
         <div class="box">4</div>
