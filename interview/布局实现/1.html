@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>设计师团队展示</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+        
+        .avatar {
+            width: 70px;
+            height: 100px;
+            border-radius: 5px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        
+        .name {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .title {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .info {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .phone {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        
+        .tag {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: #64D2FF;
+            font-size: 12px;
+            margin-right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 第一行 -->
+        <div class="card">
+            <div class="card-content">
+                <div style="display: flex;">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="李帅" class="avatar">
+                    <div>
+                        <div class="name">李帅</div>
+                        <div class="title">产品设计中心</div>
+                        <div class="info">帮店工龄 1年 | 男 | 上海</div>
+                        <div class="phone">137 3389 2577</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tag ">在线</div>
+        </div>
+
+
+        <div class="card">
+            <div class="card-content">
+                <div style="display: flex;">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="李帅" class="avatar">
+                    <div>
+                        <div class="name">李帅</div>
+                        <div class="title">产品设计中心</div>
+                        <div class="info">帮店工龄 1年 | 男 | 上海</div>
+                        <div class="phone">137 3389 2577</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tag ">在线</div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div style="display: flex;">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="李帅" class="avatar">
+                    <div>
+                        <div class="name">李帅</div>
+                        <div class="title">产品设计中心</div>
+                        <div class="info">帮店工龄 1年 | 男 | 上海</div>
+                        <div class="phone">137 3389 2577</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tag ">在线</div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div style="display: flex;">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="李帅" class="avatar">
+                    <div>
+                        <div class="name">李帅</div>
+                        <div class="title">产品设计中心</div>
+                        <div class="info">帮店工龄 1年 | 男 | 上海</div>
+                        <div class="phone">137 3389 2577</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tag ">在线</div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div style="display: flex;">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="李帅" class="avatar">
+                    <div>
+                        <div class="name">李帅</div>
+                        <div class="title">产品设计中心</div>
+                        <div class="info">帮店工龄 1年 | 男 | 上海</div>
+                        <div class="phone">137 3389 2577</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tag ">在线</div>
+        </div>
+
+        <div class="card">
+            <div class="card-content">
+                <div style="display: flex;">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="李帅" class="avatar">
+                    <div>
+                        <div class="name">李帅</div>
+                        <div class="title">产品设计中心</div>
+                        <div class="info">帮店工龄 1年 | 男 | 上海</div>
+                        <div class="phone">137 3389 2577</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tag ">在线</div>
+        </div>
+    
+    </div>
+</body>
+</html>

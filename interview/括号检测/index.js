@@ -18,7 +18,6 @@ function pairingCheck(str) {
         }
     }
 
-    // 栈应为空，表示完全匹配
     return stack.length === 0;
 }
 //   
