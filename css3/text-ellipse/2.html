@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text-ellipse{
+            color:  red;
+            width: 200px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            line-clamp: 2;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="text-ellipse">
+        这是一段很长的文本，他将要超出div的范围，我们希望超出的部分用省略号来表示。这是一段很长的文本，他将要超出div的范围，我们希望超出的部分用省略号来表示。这是一段很长的文本，他将要超出div的范围，我们希望超出的部分用省略号来表示。
+    </div>
+</body>
+</html>
